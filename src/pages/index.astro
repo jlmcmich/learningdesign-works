@@ -6,188 +6,314 @@ import { SITE_TITLE, SITE_TAGLINE, SITE_DESCRIPTION } from '../consts';
 import { getCollection } from 'astro:content';
 import { url } from '../utils/paths';
 
-const recentProjects = (await getCollection('projects'))
-	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-	.slice(0, 3);
-
-const recentPosts: Array<{ id: string; data: { title: string; pubDate: Date } }> = [];
+const projects = (await getCollection('projects')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+const featuredProjects = projects.slice(0, 4);
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<BaseHead title={`${SITE_TITLE} — ${SITE_TAGLINE}`} description={SITE_DESCRIPTION} />
-		<style>
-			.hero {
-				padding: 4rem 0 3rem 0;
-				border-bottom: 1px solid var(--color-border);
-				margin-bottom: 3rem;
-			}
-			.hero h1 {
-				font-size: 3rem;
-				margin: 0 0 0.5rem 0;
-				letter-spacing: -0.02em;
-			}
-			.hero .tagline {
-				font-family: var(--font-sans);
-				text-transform: uppercase;
-				letter-spacing: 0.08em;
-				color: var(--color-text-muted);
-				font-size: 1rem;
-				font-weight: 500;
-				margin-bottom: 1.75rem;
-			}
-			.hero p {
-				font-size: 1.15rem;
-				line-height: 1.75;
-				max-width: 720px;
-				color: var(--color-text-main);
-			}
-			.directory {
-				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-				gap: 1.5rem;
-				margin-bottom: 4rem;
-			}
-			.dir-card {
-				display: block;
-				padding: 1.75rem;
-				border: 1px solid var(--color-border);
-				border-radius: 12px;
-				background: var(--color-bg-offset);
-				text-decoration: none;
-				color: inherit;
-				transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-			}
-			.dir-card:hover {
-				transform: translateY(-4px);
-				border-color: var(--color-accent);
-				box-shadow: var(--shadow-md);
-			}
-			.dir-card h3 {
-				font-family: var(--font-serif);
-				font-size: 1.25rem;
-				margin: 0 0 0.5rem 0;
-				color: var(--color-text-main);
-			}
-			.dir-card p {
-				margin: 0;
-				color: var(--color-text-muted);
-				font-size: 0.95rem;
-				line-height: 1.6;
-			}
-			.section {
-				margin-bottom: 4rem;
-			}
-			.section h2 {
-				font-family: var(--font-serif);
-				font-size: 1.75rem;
-				margin: 0 0 1.5rem 0;
-			}
-			.current-work {
-				display: grid;
-				grid-template-columns: 1fr 1fr;
-				gap: 3rem;
-			}
-			@media (max-width: 720px) {
-				.current-work { grid-template-columns: 1fr; gap: 2rem; }
-				.hero h1 { font-size: 2.25rem; }
-			}
-			.recognition {
-				padding: 1.5rem;
-				background: var(--color-bg-offset);
-				border-left: 4px solid var(--color-accent);
-				border-radius: 8px;
-				margin-top: 1.5rem;
-			}
-			.recognition strong {
-				display: block;
-				margin-bottom: 0.5rem;
-			}
-			ul.clean {
-				list-style: none;
-				padding: 0;
-				margin: 0;
-			}
-			ul.clean li {
-				margin-bottom: 1rem;
-				line-height: 1.6;
-			}
-		</style>
 	</head>
 	<body>
 		<Header />
 		<main>
-			<section class="hero">
-				<h1>Jonathan McMichael</h1>
-				<div class="tagline">Educator. Designer. Librarian.</div>
-				<p>
-					I work at the intersection of <strong>AI development, instructional design, and higher education</strong>.
-					My focus is designing AI as an environmental component of learning &mdash; tools embedded with
-					clear theories of change for how people grow, think, and create.
-				</p>
-			</section>
-
-			<div class="directory">
-				<a class="dir-card" href={url('/ai-prompts')}>
-					<h3>AI Prompts &rarr;</h3>
-					<p>Prompts and tools designed to enhance course design workflows and pedagogical outcomes.</p>
-				</a>
-				<a class="dir-card" href={url('/talks')}>
-					<h3>Talks &amp; Writing &rarr;</h3>
-					<p>Keynotes, panels, and writing on AI in education &mdash; including AAC&amp;U and OLC engagements.</p>
-				</a>
-				<a class="dir-card" href={url('/projects')}>
-					<h3>Project Portfolio &rarr;</h3>
-					<p>A decade of work in higher education, from information literacy to AI-enabled course design.</p>
-				</a>
-			</div>
-
-			<section class="section">
-				<h2>Current Work</h2>
-				<div class="current-work">
-					<div>
-						<p>
-							I serve as <strong>AI Specialist</strong> at the <a href="https://thecollege.asu.edu/" target="_blank">College of Liberal Arts and Sciences</a>
-							at Arizona State University, where I co-lead the <strong>AI Academy</strong> &mdash; a faculty
-							development program for thoughtful AI integration in teaching and research.
+			<section class="hero" data-reveal>
+				<div class="hero-grid">
+					<div class="hero-text">
+						<h1 class="hero-name">Jonathan McMichael</h1>
+						<p class="hero-role">
+							AI Learning Solutions Specialist at the College of Liberal Arts and Sciences,
+							Arizona State University.
 						</p>
-						<p>
-							I also serve as <strong>Faculty Mentor</strong> for the AAC&amp;U Institute on AI, Pedagogy, and
-							Curriculum, with a focus on agentic AI in higher education.
+						<p class="hero-lede">
+							AI may be reshaping how higher education works — but not what it's for. Currently, my job is to develop ways that <strong>artificial intelligence</strong> supports our educational mission: built on what we know about how people grow, and anchored in the aspirations of a <strong>comprehensive public university</strong>.
 						</p>
-					</div>
-					<div>
-						<h3 style="font-family: var(--font-serif); font-size: 1.15rem; margin-top: 0;">Selected Projects</h3>
-						<ul class="clean">
-							<li><strong>VibeCheck</strong> &mdash; A student learning reflection web app with LMS integration.</li>
-							<li><strong>Learning Design Suite</strong> &mdash; AI prompts toolkit adopted across ASU.</li>
-							<li><strong>AAC&amp;U Faculty Mentor</strong> &mdash; Agentic AI mentoring for higher ed cohorts.</li>
-						</ul>
-						<div class="recognition">
-							<strong>Recent Recognition</strong>
-							OLC Accelerate 2024 award (with Sue Huffman) for "AI Design Challenge: Make Your Own Instructional Design Tool!"
+						<div class="hero-cta">
+							<a href={url('/projects')} class="btn">View projects</a>
+							<a href={url('/ai-prompts')} class="btn btn-outline">Browse AI prompts</a>
 						</div>
+					</div>
+
+					<div class="hero-portrait">
+						<img src={url('/jonathan.png')} alt="Jonathan McMichael" loading="eager" />
 					</div>
 				</div>
 			</section>
 
-			{recentPosts.length > 0 && (
-				<section class="section">
-					<h2>Recent Writing</h2>
-					<ul class="clean">
-						{recentPosts.map((post) => (
-							<li>
-								<a href={url(`/blog/${post.id}/`)} style="font-family: var(--font-serif); font-size: 1.1rem; font-weight: 600;">{post.data.title}</a>
-								<div style="color: var(--color-text-muted); font-size: 0.9rem;">
-									{post.data.pubDate.toLocaleDateString('en-us', { year: 'numeric', month: 'short', day: 'numeric' })}
+			<section class="section">
+				<header class="section-head">
+					<h2>What I'm working on</h2>
+					<p class="section-sub">My current focus at ASU and beyond.</p>
+				</header>
+
+				<div class="now-grid">
+					<div class="now-block">
+						<div class="now-label">Role</div>
+						<p>
+							<strong>AI Specialist</strong>, College of Liberal Arts and Sciences, Arizona State University.
+							Co-leading the <strong>AI Academy</strong> — a faculty development program for thoughtful AI integration in teaching and research.
+						</p>
+					</div>
+					<div class="now-block">
+						<div class="now-label">National Leadership</div>
+						<p>
+							<strong>Faculty Mentor</strong>, <a href="https://www.aacu.org/event/2025-26-institute-ai-pedagogy-curriculum">AAC&amp;U Institute on AI, Pedagogy, and Curriculum</a>.
+							Focused on the practical and ethical integration of <strong>agentic AI</strong> in higher education.
+						</p>
+					</div>
+					<div class="now-block">
+						<div class="now-label">Selected Projects</div>
+						<ul class="now-list">
+							<li><a href={url('/projects/ai-academy/')}><strong>AI Academy</strong></a> — Faculty development program for AI integration across The College.</li>
+							<li><a href={url('/projects/vibecheck/')}><strong>VibeCheck</strong></a> — Student learning-reflection app with AI-powered insights.</li>
+							<li><a href="https://ai.asu.edu/ai-tools/learning-design-suite"><strong>Learning Design Suite</strong></a> — Contributed 4 tools for learning objectives, module design, assignment language, and discussion prompts.</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+			<section class="section">
+				<header class="section-head">
+					<h2>Recent work</h2>
+					<a href={url('/projects')} class="section-cta">All projects →</a>
+				</header>
+
+				<ul class="entry-list">
+					{featuredProjects.map((p) => (
+						<li class="entry">
+							<a class="entry-link" href={url(`/projects/${p.id}/`)}>
+								<div class="entry-year">{p.data.year}</div>
+								<div class="entry-body">
+									<h3 class="entry-title">{p.data.title}</h3>
+									{(p.data.role || p.data.organization) && (
+										<div class="entry-meta">
+											{p.data.role}{p.data.role && p.data.organization ? ' · ' : ''}{p.data.organization}
+										</div>
+									)}
+									<p class="entry-desc">{p.data.description}</p>
 								</div>
-							</li>
-						))}
-					</ul>
-				</section>
-			)}
+								<div class="entry-arrow" aria-hidden="true">→</div>
+							</a>
+						</li>
+					))}
+				</ul>
+			</section>
 		</main>
 		<Footer />
+
+		<style>
+			.hero {
+				padding: 3rem 0 4rem;
+				border-bottom: 1px solid var(--color-border);
+				margin-bottom: 4rem;
+			}
+			.hero-grid {
+				display: grid;
+				grid-template-columns: 1.6fr 1fr;
+				gap: 4rem;
+				align-items: center;
+			}
+			.hero-name {
+				margin: 0 0 1rem;
+				font-size: clamp(2.5rem, 6vw, 4.25rem);
+				font-weight: 700;
+				letter-spacing: -0.035em;
+				line-height: 1.05;
+			}
+			.hero-role {
+				font-size: 1.1rem;
+				color: var(--color-text-muted);
+				margin: 0 0 1.75rem;
+				max-width: 50ch;
+				line-height: 1.5;
+			}
+			.hero-lede {
+				font-size: 1.1rem;
+				line-height: 1.65;
+				max-width: 56ch;
+				color: var(--color-text-muted);
+				margin-bottom: 2rem;
+			}
+			.hero-lede strong {
+				color: var(--color-text-main);
+				font-weight: 600;
+			}
+			.hero-cta {
+				display: flex;
+				gap: 0.75rem;
+				flex-wrap: wrap;
+			}
+
+			.hero-portrait {
+				justify-self: end;
+				width: 100%;
+				max-width: 320px;
+			}
+			.hero-portrait img {
+				display: block;
+				width: 100%;
+				aspect-ratio: 1 / 1;
+				object-fit: cover;
+				border-radius: 50%;
+			}
+			[data-theme='dark'] .hero-portrait img { filter: brightness(0.95); }
+
+			/* ===== SECTIONS ===== */
+			.section {
+				margin-bottom: 5rem;
+			}
+			.section-head {
+				display: flex;
+				justify-content: space-between;
+				align-items: baseline;
+				gap: 1rem;
+				margin-bottom: 2rem;
+				padding-bottom: 1rem;
+				border-bottom: 1px solid var(--color-border);
+			}
+			.section-head h2 {
+				margin: 0;
+			}
+			.section-sub {
+				margin: 0;
+				color: var(--color-text-muted);
+				font-size: 0.95rem;
+			}
+			.section-cta {
+				font-size: 0.88rem;
+				font-weight: 500;
+				color: var(--color-text-muted);
+				border: none;
+				white-space: nowrap;
+			}
+			.section-cta:hover { color: var(--color-accent); border: none; }
+
+			/* ===== NOW GRID ===== */
+			.now-grid {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 2.5rem;
+			}
+			.now-label {
+				font-family: var(--font-mono);
+				font-size: 0.72rem;
+				color: var(--color-text-faint);
+				font-weight: 500;
+				margin-bottom: 0.75rem;
+			}
+			.now-block p {
+				margin: 0;
+				font-size: 0.96rem;
+				line-height: 1.6;
+				color: var(--color-text-muted);
+			}
+			.now-block strong {
+				color: var(--color-text-main);
+				font-weight: 600;
+			}
+			.now-list {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+			.now-list li {
+				font-size: 0.92rem;
+				line-height: 1.5;
+				margin-bottom: 0.6rem;
+				color: var(--color-text-muted);
+				padding-left: 1rem;
+				position: relative;
+			}
+			.now-list li::before {
+				content: "";
+				position: absolute;
+				left: 0;
+				top: 0.7em;
+				width: 6px;
+				height: 1px;
+				background: var(--color-text-faint);
+			}
+
+			/* ===== ENTRY LIST (recent work) ===== */
+			.entry-list {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+			.entry { border-bottom: 1px solid var(--color-border); }
+			.entry-link {
+				display: grid;
+				grid-template-columns: 70px 1fr auto;
+				gap: 2rem;
+				padding: 1.5rem 0;
+				color: inherit;
+				border: none;
+				transition: padding 0.2s var(--ease);
+			}
+			.entry-link:hover {
+				padding-left: 0.5rem;
+				border: none;
+			}
+			.entry-link:hover .entry-title { color: var(--color-accent); }
+			.entry-link:hover .entry-arrow {
+				color: var(--color-accent);
+				transform: translateX(4px);
+			}
+			.entry-year {
+				font-family: var(--font-mono);
+				font-size: 0.85rem;
+				color: var(--color-text-faint);
+				font-weight: 500;
+				padding-top: 0.3rem;
+			}
+			.entry-title {
+				font-size: 1.2rem;
+				font-weight: 600;
+				margin: 0 0 0.3rem;
+				color: var(--color-text-main);
+				line-height: 1.3;
+				transition: color 0.15s var(--ease);
+			}
+			.entry-meta {
+				font-size: 0.85rem;
+				color: var(--color-text-faint);
+				margin-bottom: 0.5rem;
+			}
+			.entry-desc {
+				margin: 0;
+				font-size: 0.96rem;
+				line-height: 1.55;
+				color: var(--color-text-muted);
+				max-width: 60ch;
+			}
+			.entry-arrow {
+				font-size: 1.1rem;
+				color: var(--color-text-faint);
+				padding-top: 0.4rem;
+				transition: transform 0.2s var(--ease), color 0.15s var(--ease);
+			}
+
+			@media (max-width: 880px) {
+				.hero-grid {
+					grid-template-columns: 1fr;
+					gap: 2.5rem;
+				}
+				.hero-portrait {
+					justify-self: start;
+					max-width: 200px;
+				}
+				.now-grid {
+					grid-template-columns: 1fr;
+					gap: 2rem;
+				}
+				.entry-link {
+					grid-template-columns: 60px 1fr;
+				}
+				.entry-arrow { display: none; }
+			}
+		</style>
 	</body>
 </html>

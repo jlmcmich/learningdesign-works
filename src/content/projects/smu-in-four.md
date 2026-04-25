@@ -1,8 +1,8 @@
 ---
 title: SMU in Four
 description: Served on the First Year and Gateway Courses Pillar of SMU's Quality Enhancement Plan, focused on improving retention and reducing equity gaps in foundational courses.
-pubDate: 2023-01-31
-year: 2023
+pubDate: 2019-01-01
+year: 2019
 status: Completed
 role: Pillar Member, First Year & Gateway Courses
 organization: Southern Methodist University

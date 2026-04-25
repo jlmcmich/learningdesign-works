@@ -1,8 +1,8 @@
 ---
 title: Digital Humanities Research Institute at SMU
 description: Designed an immersive, community-driven institute giving humanities scholars foundational technical skills through Situated Learning and 4C/ID instructional methodology.
-pubDate: 2023-01-30
-year: 2023
+pubDate: 2018-01-01
+year: 2018
 status: Completed
 role: Instructional Designer
 organization: DHRI@SMU

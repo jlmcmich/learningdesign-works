@@ -14,12 +14,9 @@ export default defineConfig({
 		sitemap()
 	],
 	markdown: {
-		shikiConfig: {
-			themes: {
-				light: 'github-light',
-				dark: 'github-dark',
-			},
-		},
+		// Disable Shiki — verbatim prompts are plain text, not code, and Shiki injects
+		// inline backgrounds that fight our theme.
+		syntaxHighlight: false,
 		remarkPlugins: [remarkMath],
 		rehypePlugins: [rehypeKatex]
 	},

@@ -1,9 +1,9 @@
 ---
 title: SMU Libraries Internship Program
 description: One of the premier training grounds for aspiring academic librarians, grounded in the Legitimate Peripheral Practitioner model.
-pubDate: 2025-02-06
-year: 2025
-status: Ongoing
+pubDate: 2017-01-01
+year: 2017
+status: Completed
 role: Founder & Director
 organization: SMU Libraries
 tags:

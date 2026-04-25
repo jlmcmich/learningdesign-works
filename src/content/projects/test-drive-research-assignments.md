@@ -1,8 +1,8 @@
 ---
 title: '"Test Drive" an Assignment Service'
 description: A consultation service that evaluated and redesigned research assignments through both student and librarian perspectives — adopted into 60% of UNC's First Year Writing course and SMU's Common Curriculum.
-pubDate: 2023-01-30
-year: 2023
+pubDate: 2013-01-01
+year: 2013
 status: Completed
 role: Founder & Lead Consultant
 organization: UNC & SMU Libraries

@@ -1,8 +1,8 @@
 ---
 title: "INLS 502: User Education"
 description: Redesigned and taught a graduate course at UNC's School of Library and Information Science for librarians pursuing educational roles, grounded in evidence-based instructional design.
-pubDate: 2023-01-30
-year: 2023
+pubDate: 2013-01-01
+year: 2013
 status: Completed
 role: Instructor (Adjunct)
 organization: UNC School of Information & Library Science

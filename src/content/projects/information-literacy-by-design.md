@@ -1,8 +1,8 @@
 ---
 title: Information Literacy by Design (ILbD)
 description: A lesson planning template merging the ACRL Framework for Information Literacy with Wiggins & McTighe's Understanding by Design — adopted to enhance the quality and consistency of IL instruction at UNC Libraries.
-pubDate: 2023-01-23
-year: 2023
+pubDate: 2015-01-01
+year: 2015
 status: Completed
 role: Co-Creator
 organization: UNC Libraries
