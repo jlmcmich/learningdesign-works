@@ -1,0 +1,139 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
+import { getCollection } from 'astro:content';
+import { url } from '../utils/paths';
+
+const projects = (await getCollection('projects')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Project Portfolio | ${SITE_TITLE}`} description="A decade of work in higher education spanning information literacy, instructional design, and AI in teaching and learning." />
+		<style>
+			.projects-hero {
+				text-align: left;
+				margin-bottom: 3rem;
+				padding: 3rem 0 2rem 0;
+				border-bottom: 1px solid var(--color-border);
+			}
+			.projects-hero h1 {
+				font-family: var(--font-serif);
+				font-size: 3rem;
+				margin: 0 0 1rem 0;
+				letter-spacing: -0.02em;
+			}
+			.projects-hero p {
+				font-size: 1.1rem;
+				color: var(--color-text-muted);
+				max-width: 720px;
+				line-height: 1.7;
+			}
+			.projects-list {
+				display: flex;
+				flex-direction: column;
+				gap: 0;
+				margin-bottom: 4rem;
+			}
+			.project-row {
+				display: grid;
+				grid-template-columns: 120px 1fr;
+				gap: 2rem;
+				padding: 2rem 0;
+				border-bottom: 1px solid var(--color-border);
+				align-items: start;
+			}
+			.project-row:last-child { border-bottom: none; }
+			.project-year {
+				font-family: var(--font-sans);
+				font-size: 0.9rem;
+				color: var(--color-text-muted);
+				font-weight: 600;
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+				padding-top: 0.25rem;
+			}
+			.project-title {
+				font-family: var(--font-serif);
+				font-size: 1.5rem;
+				margin: 0 0 0.5rem 0;
+				line-height: 1.3;
+			}
+			.project-title a {
+				color: var(--color-text-main);
+				text-decoration: none;
+			}
+			.project-title a:hover { color: var(--color-accent); }
+			.project-meta {
+				font-size: 0.9rem;
+				color: var(--color-text-muted);
+				margin-bottom: 0.75rem;
+			}
+			.project-desc {
+				color: var(--color-text-main);
+				line-height: 1.65;
+				margin: 0 0 0.75rem 0;
+			}
+			.project-tags {
+				display: flex;
+				gap: 0.5rem;
+				flex-wrap: wrap;
+				margin-top: 0.5rem;
+			}
+			.tag {
+				padding: 0.25rem 0.6rem;
+				background: var(--color-bg-offset);
+				border: 1px solid var(--color-border);
+				border-radius: 12px;
+				font-size: 0.75rem;
+				color: var(--color-text-muted);
+			}
+			@media (max-width: 720px) {
+				.project-row { grid-template-columns: 1fr; gap: 0.5rem; }
+				.projects-hero h1 { font-size: 2.25rem; }
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="projects-hero">
+				<h1>Project Portfolio</h1>
+				<p>
+					Selected work spanning a decade in higher education &mdash; instructional design,
+					information literacy, mentorship programs, and the integration of AI into teaching and learning.
+				</p>
+			</section>
+
+			<div class="projects-list">
+				{projects.map((project) => (
+					<article class="project-row">
+						<div class="project-year">{project.data.year}</div>
+						<div>
+							<h2 class="project-title">
+								<a href={url(`/projects/${project.id}/`)}>{project.data.title}</a>
+							</h2>
+							{(project.data.role || project.data.organization) && (
+								<div class="project-meta">
+									{project.data.role}{project.data.role && project.data.organization ? ' · ' : ''}{project.data.organization}
+								</div>
+							)}
+							<p class="project-desc">{project.data.description}</p>
+							{project.data.tags && project.data.tags.length > 0 && (
+								<div class="project-tags">
+									{project.data.tags.map((tag) => <span class="tag">{tag}</span>)}
+								</div>
+							)}
+						</div>
+					</article>
+				))}
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>

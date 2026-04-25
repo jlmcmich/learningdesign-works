@@ -1,0 +1,250 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Talks & Writing | ${SITE_TITLE}`} description="Keynotes, presentations, panels, and writing on AI in education." />
+		<style>
+			.talks-hero {
+				padding: 3rem 0 2rem 0;
+				border-bottom: 1px solid var(--color-border);
+				margin-bottom: 3rem;
+			}
+			.talks-hero h1 {
+				font-family: var(--font-serif);
+				font-size: 3rem;
+				margin: 0 0 0.75rem 0;
+				letter-spacing: -0.02em;
+			}
+			.talks-hero p {
+				font-size: 1.1rem;
+				color: var(--color-text-muted);
+				max-width: 720px;
+				line-height: 1.7;
+			}
+			section.block {
+				margin-bottom: 3.5rem;
+			}
+			section.block h2 {
+				font-family: var(--font-serif);
+				font-size: 1.75rem;
+				margin: 0 0 1.5rem 0;
+				padding-bottom: 0.5rem;
+				border-bottom: 1px solid var(--color-border);
+			}
+			section.block h3 {
+				font-family: var(--font-serif);
+				font-size: 1.2rem;
+				margin: 1.5rem 0 0.75rem 0;
+				color: var(--color-text-muted);
+			}
+			.entry {
+				display: grid;
+				grid-template-columns: 110px 1fr;
+				gap: 1.5rem;
+				padding: 1.25rem 0;
+				border-bottom: 1px solid var(--color-border);
+				align-items: start;
+			}
+			.entry:last-child { border-bottom: none; }
+			.entry .when {
+				font-family: var(--font-sans);
+				font-size: 0.85rem;
+				color: var(--color-text-muted);
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+				font-weight: 600;
+				padding-top: 0.15rem;
+			}
+			.entry .title {
+				font-family: var(--font-serif);
+				font-size: 1.1rem;
+				font-weight: 600;
+				color: var(--color-text-main);
+				margin: 0 0 0.25rem 0;
+				line-height: 1.4;
+			}
+			.entry .venue {
+				font-size: 0.95rem;
+				color: var(--color-text-muted);
+			}
+			.award {
+				display: inline-block;
+				margin-top: 0.5rem;
+				padding: 0.2rem 0.6rem;
+				background: var(--color-bg-offset);
+				border: 1px solid var(--color-accent);
+				color: var(--color-accent);
+				font-size: 0.75rem;
+				font-weight: 600;
+				border-radius: 4px;
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+			}
+			.callout {
+				padding: 1.5rem;
+				background: var(--color-bg-offset);
+				border-left: 4px solid var(--color-accent);
+				border-radius: 8px;
+				margin-bottom: 1.5rem;
+			}
+			.callout p { margin: 0.5rem 0 0 0; line-height: 1.65; }
+			.callout strong { font-family: var(--font-serif); font-size: 1.05rem; }
+			@media (max-width: 720px) {
+				.entry { grid-template-columns: 1fr; gap: 0.25rem; }
+				.talks-hero h1 { font-size: 2.25rem; }
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="talks-hero">
+				<h1>Talks &amp; Writing</h1>
+				<p>
+					Selected keynotes, conference presentations, panels, and writing on
+					generative AI in higher education &mdash; from agentic AI to instructional
+					design and information literacy.
+				</p>
+			</section>
+
+			<section class="block">
+				<h2>Leadership in AI Pedagogy</h2>
+				<div class="callout">
+					<strong>Faculty Mentor, AAC&amp;U Institute on AI, Pedagogy, and Curriculum</strong>
+					<p>
+						Serves as Faculty Mentor for the AAC&amp;U Institute on AI, Pedagogy, and Curriculum,
+						moderating panels on Agentic AI and mentoring university groups on AI implementation strategies.
+					</p>
+				</div>
+				<div class="entry">
+					<div class="when">Jan 2026</div>
+					<div>
+						<div class="title">Keynote: Agentic AI &mdash; Challenges and Opportunities for Higher Education</div>
+						<div class="venue">AAC&amp;U Institute on AI, Pedagogy, and the Curriculum</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="block">
+				<h2>Presentations</h2>
+
+				<div class="entry">
+					<div class="when">Sep 2025</div>
+					<div>
+						<div class="title">AI as a Learning Intervention</div>
+						<div class="venue">AAC&amp;U Institute on AI, Pedagogy, and the Curriculum</div>
+					</div>
+				</div>
+				<div class="entry">
+					<div class="when">Sep 2025</div>
+					<div>
+						<div class="title">Using Situated Learning Theory and ChatGPT to Build Scenario-Based Learning Assessments</div>
+						<div class="venue">AAC&amp;U Institute on AI, Pedagogy, and the Curriculum</div>
+					</div>
+				</div>
+				<div class="entry">
+					<div class="when">Feb 2025</div>
+					<div>
+						<div class="title">Make Your Own Instructional Design Tool</div>
+						<div class="venue">Online Learning Consortium Webinar Series</div>
+					</div>
+				</div>
+				<div class="entry">
+					<div class="when">Nov 2024</div>
+					<div>
+						<div class="title">AI Design Challenge: Make Your Own Instructional Design Tool!</div>
+						<div class="venue">OLC Accelerate &mdash; with Sue Huffman</div>
+						<span class="award">Innovative Learning Environments &amp; Technologies Best-in-Track Award</span>
+					</div>
+				</div>
+				<div class="entry">
+					<div class="when">Aug 2024</div>
+					<div>
+						<div class="title">AI Innovation Showcase: Enhancing Course Design with GPTs</div>
+						<div class="venue">ASU Learning Design Community Summer Camp</div>
+					</div>
+				</div>
+				<div class="entry">
+					<div class="when">Mar 2024</div>
+					<div>
+						<div class="title">Lightning Talk: Enhancing Course Design with GPTs</div>
+						<div class="venue">Future of Learning Community</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="block">
+				<h2>Panels</h2>
+				<h3>As Moderator</h3>
+				<div class="entry">
+					<div class="when">Jul 2024</div>
+					<div>
+						<div class="title">AI in Education: Implementing Generative AI in Your Courses</div>
+						<div class="venue">IEEE Education</div>
+					</div>
+				</div>
+				<div class="entry">
+					<div class="when">Feb 2024</div>
+					<div>
+						<div class="title">Generative AI Engineering Faculty Panel</div>
+						<div class="venue">AI @ ASU Community of Practice</div>
+					</div>
+				</div>
+
+				<h3>As Panelist</h3>
+				<div class="entry">
+					<div class="when">Mar 2024</div>
+					<div>
+						<div class="title">Generative AI: Responsible Use Through Critical Thinking and Digital Literacy</div>
+						<div class="venue">Future of Learning Community</div>
+					</div>
+				</div>
+				<div class="entry">
+					<div class="when">Jun 2023</div>
+					<div>
+						<div class="title">ChatGPT and Its Implications for the Field of Librarianship</div>
+						<div class="venue">ALA Annual Conference, Chicago</div>
+					</div>
+				</div>
+				<div class="entry">
+					<div class="when">Apr 2023</div>
+					<div>
+						<div class="title">Generative AI &amp; ChatGPT Follow-Up Panel</div>
+						<div class="venue">SMU Center for Teaching Excellence</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="block">
+				<h2>Writing</h2>
+				<div class="entry">
+					<div class="when">2025</div>
+					<div>
+						<div class="title">
+							Technology-Enhanced Student Success Program Short Report: GenAI's Approach for First-Year, First-Generation College Students
+						</div>
+						<div class="venue">
+							McMichael, J., Peña, K., &amp; Dalal, M. &mdash; <em>International Journal of Technology Enhanced Learning</em>
+						</div>
+					</div>
+				</div>
+				<div class="entry">
+					<div class="when">Jan 2023</div>
+					<div>
+						<div class="title">
+							<a href="https://blog.smu.edu/smulibraries/2023/01/20/artificial-intelligence-and-the-research-paper-a-librarians-perspective/" target="_blank" rel="noopener noreferrer">Artificial Intelligence and the Research Paper: A Librarian's Perspective</a>
+						</div>
+						<div class="venue">SMU Libraries Blog</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>

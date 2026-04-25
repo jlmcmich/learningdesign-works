@@ -1,0 +1,90 @@
+---
+import { type CollectionEntry, getCollection, render } from 'astro:content';
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE } from '../../consts';
+import { url } from '../../utils/paths';
+
+export async function getStaticPaths() {
+	const prompts = await getCollection('prompts');
+	return prompts.map((prompt) => ({
+		params: { slug: prompt.id },
+		props: prompt,
+	}));
+}
+type Props = CollectionEntry<'prompts'>;
+
+const prompt = Astro.props;
+const { Content } = await render(prompt);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`${prompt.data.title} | AI Prompts | ${SITE_TITLE}`} description={prompt.data.description} />
+		<style>
+			.prompt-header {
+				padding: 3rem 0 2rem 0;
+				border-bottom: 1px solid var(--color-border);
+				margin-bottom: 2.5rem;
+			}
+			.prompt-header .meta {
+				font-family: var(--font-sans);
+				font-size: 0.85rem;
+				text-transform: uppercase;
+				letter-spacing: 0.08em;
+				color: var(--color-text-muted);
+				margin-bottom: 0.75rem;
+			}
+			.prompt-header h1 {
+				font-family: var(--font-serif);
+				font-size: 2.5rem;
+				line-height: 1.15;
+				margin: 0 0 1rem 0;
+			}
+			.prompt-header .lede {
+				font-size: 1.1rem;
+				color: var(--color-text-muted);
+				max-width: 720px;
+				line-height: 1.65;
+			}
+			.prompt-body {
+				max-width: 720px;
+				line-height: 1.75;
+			}
+			.prompt-body h2, .prompt-body h3 {
+				font-family: var(--font-serif);
+				margin-top: 2rem;
+			}
+			.prompt-body a { color: var(--color-accent); }
+			.back-link {
+				display: inline-block;
+				margin-bottom: 1rem;
+				font-size: 0.9rem;
+				color: var(--color-text-muted);
+				text-decoration: none;
+			}
+			.back-link:hover { color: var(--color-accent); }
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<a class="back-link" href={url('/ai-prompts')}>&larr; All Prompts</a>
+			<section class="prompt-header">
+				<div class="meta">
+					{prompt.data.suite ?? 'AI Prompt'}
+					{` · Updated ${prompt.data.lastUpdated.toLocaleDateString('en-us', { year: 'numeric', month: 'long' })}`}
+				</div>
+				<h1>{prompt.data.title}</h1>
+				<p class="lede">{prompt.data.description}</p>
+			</section>
+
+			<article class="prompt-body">
+				<Content />
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>

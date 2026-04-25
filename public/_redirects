@@ -1,0 +1,24 @@
+# Cloudflare Pages redirects
+# Format: <source> <destination> <status>
+# Preserves SEO from the old WordPress URLs.
+
+# Top-level WP pages → new sections
+/ai-repository                          /ai-prompts                                301
+/ai-repository/                         /ai-prompts/                               301
+/ai-in-education-writing-talks-panels   /talks                                     301
+/ai-in-education-writing-talks-panels/  /talks/                                    301
+/project-portfolio                      /projects                                  301
+/project-portfolio/                     /projects/                                 301
+/sample-page                            /                                          301
+/sample-page/                           /                                          301
+
+# Old dated post URLs → new project pages
+/2025/02/06/smu-libraries-internship/                                           /projects/smu-libraries-internship/                  301
+/2023/01/31/smu-in-four/                                                        /projects/smu-in-four/                               301
+/2023/01/30/test-drive-research-assignments/                                    /projects/test-drive-research-assignments/           301
+/2023/01/30/digital-humanities-research-institute/                              /projects/digital-humanities-research-institute/     301
+/2023/01/30/inls-502-user-education/                                            /projects/inls-502-user-education/                   301
+/2023/01/24/research-basic-videos/                                              /projects/research-basic-videos/                     301
+/2023/01/24/artificial-intelligence-and-the-college-research-paper/             /projects/ai-and-the-college-research-paper/         301
+/2023/01/23/information-literacy-by-design/                                     /projects/information-literacy-by-design/            301
+/2023/01/22/sequential-learning-experience-design-for-scholarly-research-service-srs-workshops/   /projects/srs-workshop-lesson-template/   301

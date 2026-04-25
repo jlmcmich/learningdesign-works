@@ -1,0 +1,193 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_TAGLINE, SITE_DESCRIPTION } from '../consts';
+import { getCollection } from 'astro:content';
+import { url } from '../utils/paths';
+
+const recentProjects = (await getCollection('projects'))
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 3);
+
+const recentPosts: Array<{ id: string; data: { title: string; pubDate: Date } }> = [];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`${SITE_TITLE} — ${SITE_TAGLINE}`} description={SITE_DESCRIPTION} />
+		<style>
+			.hero {
+				padding: 4rem 0 3rem 0;
+				border-bottom: 1px solid var(--color-border);
+				margin-bottom: 3rem;
+			}
+			.hero h1 {
+				font-size: 3rem;
+				margin: 0 0 0.5rem 0;
+				letter-spacing: -0.02em;
+			}
+			.hero .tagline {
+				font-family: var(--font-sans);
+				text-transform: uppercase;
+				letter-spacing: 0.08em;
+				color: var(--color-text-muted);
+				font-size: 1rem;
+				font-weight: 500;
+				margin-bottom: 1.75rem;
+			}
+			.hero p {
+				font-size: 1.15rem;
+				line-height: 1.75;
+				max-width: 720px;
+				color: var(--color-text-main);
+			}
+			.directory {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+				gap: 1.5rem;
+				margin-bottom: 4rem;
+			}
+			.dir-card {
+				display: block;
+				padding: 1.75rem;
+				border: 1px solid var(--color-border);
+				border-radius: 12px;
+				background: var(--color-bg-offset);
+				text-decoration: none;
+				color: inherit;
+				transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+			}
+			.dir-card:hover {
+				transform: translateY(-4px);
+				border-color: var(--color-accent);
+				box-shadow: var(--shadow-md);
+			}
+			.dir-card h3 {
+				font-family: var(--font-serif);
+				font-size: 1.25rem;
+				margin: 0 0 0.5rem 0;
+				color: var(--color-text-main);
+			}
+			.dir-card p {
+				margin: 0;
+				color: var(--color-text-muted);
+				font-size: 0.95rem;
+				line-height: 1.6;
+			}
+			.section {
+				margin-bottom: 4rem;
+			}
+			.section h2 {
+				font-family: var(--font-serif);
+				font-size: 1.75rem;
+				margin: 0 0 1.5rem 0;
+			}
+			.current-work {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 3rem;
+			}
+			@media (max-width: 720px) {
+				.current-work { grid-template-columns: 1fr; gap: 2rem; }
+				.hero h1 { font-size: 2.25rem; }
+			}
+			.recognition {
+				padding: 1.5rem;
+				background: var(--color-bg-offset);
+				border-left: 4px solid var(--color-accent);
+				border-radius: 8px;
+				margin-top: 1.5rem;
+			}
+			.recognition strong {
+				display: block;
+				margin-bottom: 0.5rem;
+			}
+			ul.clean {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+			ul.clean li {
+				margin-bottom: 1rem;
+				line-height: 1.6;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="hero">
+				<h1>Jonathan McMichael</h1>
+				<div class="tagline">Educator. Designer. Librarian.</div>
+				<p>
+					I work at the intersection of <strong>AI development, instructional design, and higher education</strong>.
+					My focus is designing AI as an environmental component of learning &mdash; tools embedded with
+					clear theories of change for how people grow, think, and create.
+				</p>
+			</section>
+
+			<div class="directory">
+				<a class="dir-card" href={url('/ai-prompts')}>
+					<h3>AI Prompts &rarr;</h3>
+					<p>Prompts and tools designed to enhance course design workflows and pedagogical outcomes.</p>
+				</a>
+				<a class="dir-card" href={url('/talks')}>
+					<h3>Talks &amp; Writing &rarr;</h3>
+					<p>Keynotes, panels, and writing on AI in education &mdash; including AAC&amp;U and OLC engagements.</p>
+				</a>
+				<a class="dir-card" href={url('/projects')}>
+					<h3>Project Portfolio &rarr;</h3>
+					<p>A decade of work in higher education, from information literacy to AI-enabled course design.</p>
+				</a>
+			</div>
+
+			<section class="section">
+				<h2>Current Work</h2>
+				<div class="current-work">
+					<div>
+						<p>
+							I serve as <strong>AI Specialist</strong> at the <a href="https://thecollege.asu.edu/" target="_blank">College of Liberal Arts and Sciences</a>
+							at Arizona State University, where I co-lead the <strong>AI Academy</strong> &mdash; a faculty
+							development program for thoughtful AI integration in teaching and research.
+						</p>
+						<p>
+							I also serve as <strong>Faculty Mentor</strong> for the AAC&amp;U Institute on AI, Pedagogy, and
+							Curriculum, with a focus on agentic AI in higher education.
+						</p>
+					</div>
+					<div>
+						<h3 style="font-family: var(--font-serif); font-size: 1.15rem; margin-top: 0;">Selected Projects</h3>
+						<ul class="clean">
+							<li><strong>VibeCheck</strong> &mdash; A student learning reflection web app with LMS integration.</li>
+							<li><strong>Learning Design Suite</strong> &mdash; AI prompts toolkit adopted across ASU.</li>
+							<li><strong>AAC&amp;U Faculty Mentor</strong> &mdash; Agentic AI mentoring for higher ed cohorts.</li>
+						</ul>
+						<div class="recognition">
+							<strong>Recent Recognition</strong>
+							OLC Accelerate 2024 award (with Sue Huffman) for "AI Design Challenge: Make Your Own Instructional Design Tool!"
+						</div>
+					</div>
+				</div>
+			</section>
+
+			{recentPosts.length > 0 && (
+				<section class="section">
+					<h2>Recent Writing</h2>
+					<ul class="clean">
+						{recentPosts.map((post) => (
+							<li>
+								<a href={url(`/blog/${post.id}/`)} style="font-family: var(--font-serif); font-size: 1.1rem; font-weight: 600;">{post.data.title}</a>
+								<div style="color: var(--color-text-muted); font-size: 0.9rem;">
+									{post.data.pubDate.toLocaleDateString('en-us', { year: 'numeric', month: 'short', day: 'numeric' })}
+								</div>
+							</li>
+						))}
+					</ul>
+				</section>
+			)}
+		</main>
+		<Footer />
+	</body>
+</html>
