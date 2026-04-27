@@ -4,8 +4,9 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE } from '../consts';
 
-const talks = [
+const speakingAndWriting = [
 	{ year: 'Oct 2026', kind: 'Pre-Conference Workshop', title: 'Designing Learning Environments in an Agentic World: Coordinating Students, Instructors, and AI', venue: 'AAC&U Conference on AI and Higher Education, Atlanta', highlight: false, award: null, link: 'https://www.aacu.org/event/conference-on-ai-and-higher-education' },
+	{ year: '2026', kind: 'Review Committee', title: 'AAC&U Conference on AI and Higher Education', venue: "Reviewing proposals for AAC&U's first dedicated conference on AI in higher education.", highlight: false, award: null, link: 'https://www.aacu.org/event/conference-on-ai-and-higher-education' },
 	{ year: 'Mar 2026', kind: 'Workshop', title: 'Navigating Intellectual Property, Academic Integrity, and Ethics in AI-Enhanced Education', venue: 'Future of Learning Community', highlight: false, award: null, link: 'https://folcfest.asu.edu/folcfest-workshops-2026', slides: 'https://drive.google.com/drive/folders/1NKa0fArx4pwyf4vVi47Eor0dFqtRB6GP?usp=drive_link' },
 	{ year: 'Jan 2026', kind: 'Keynote', title: 'Agentic AI: Challenges and Opportunities for Higher Education', venue: 'AAC&U Institute on AI, Pedagogy, and the Curriculum', highlight: false, award: null },
 	{ year: 'Sep 2025', kind: 'Presentation', title: 'AI as a Learning Intervention', venue: 'AAC&U Institute on AI, Pedagogy, and the Curriculum', highlight: false, award: null, slides: 'https://docs.google.com/presentation/d/1Tjpn6aZgR8H4HBIZTgCs_j8zldvMvG1Git_7_rSXJyk/edit?usp=sharing' },
@@ -14,6 +15,8 @@ const talks = [
 	{ year: 'Nov 2024', kind: 'Presentation', title: 'AI Design Challenge: Make Your Own Instructional Design Tool!', venue: 'OLC Accelerate · with Sue Huffman', highlight: true, award: 'Innovative Learning Environments & Technologies — Best-in-Track Award', slides: 'https://drive.google.com/drive/folders/1FrUO3xMf_P71ZHJB0ol6_eS4NegZJ3EM?usp=drive_link' },
 	{ year: 'Aug 2024', kind: 'Presentation', title: 'AI Innovation Showcase: Enhancing Course Design with GPTs', venue: 'ASU Learning Design Community Summer Camp', highlight: false, award: null },
 	{ year: 'Mar 2024', kind: 'Lightning Talk', title: 'Enhancing Course Design with GPTs', venue: 'Future of Learning Community', highlight: false, award: null },
+	{ year: 'Jul 2023', kind: 'Article', title: "Technology-Enhanced Student Success Program Short Report: GenAI's Approach for First-Year, First-Generation College Students", venue: 'Irish Journal of Technology Enhanced Learning, Vol. 7 No. 2 · with K. Peña and M. Dalal', highlight: false, award: null, link: 'https://journal.ilta.ie/index.php/telji/article/view/122/176' },
+	{ year: 'Jan 2023', kind: 'Blog Post', title: "Artificial Intelligence and the Research Paper: A Librarian's Perspective", venue: 'SMU Libraries Blog', highlight: false, award: null, link: 'https://blog.smu.edu/smulibraries/2023/01/20/artificial-intelligence-and-the-research-paper-a-librarians-perspective/' },
 ];
 
 const moderatorPanels = [
@@ -32,39 +35,29 @@ const panelistPanels = [
 <html lang="en">
 	<head>
 		<BaseHead
-			title={`Talks & Writing | ${SITE_TITLE}`}
-			description="Keynotes, presentations, panels, and writing on AI in education."
+			title={`Recent Contributions | ${SITE_TITLE}`}
+			description="Selected speaking, writing, panel work, and field service since 2023, on AI in higher education and the design of learning environments."
 		/>
 	</head>
 	<body>
 		<Header />
 		<main>
 			<section class="page-head" data-reveal>
-				<h1>Talks &amp; Writing</h1>
+				<h1>Recent Contributions</h1>
 				<p class="page-lede">
-					Keynotes, conference presentations, panels, and writing on
-					generative AI in higher education — from agentic AI and learning interventions
-					to information literacy and the changing role of the academic library.
-				</p>
-			</section>
-
-			<section class="callout" data-reveal style="--reveal-delay: 80ms;">
-				<div class="callout-label">Leadership in AI Pedagogy</div>
-				<h2>Faculty Mentor — <a href="https://www.aacu.org/event/2025-26-institute-ai-pedagogy-curriculum">AAC&amp;U Institute on AI, Pedagogy, and Curriculum</a></h2>
-				<p>
-					I serve as Faculty Mentor for the AAC&amp;U Institute on AI, Pedagogy, and Curriculum,
-					where I moderated a panel on agentic AI at the most recent convening and mentor university
-					groups on their AI implementation strategies.
+					A lot of things changed for me in 2023. Since then, most of my work has been on
+					understanding the impact of generative AI in higher education and rethinking the
+					learning environments we design to integrate and respond to it.
 				</p>
 			</section>
 
 			<section class="section">
 				<header class="section-head">
-					<h2>Keynotes &amp; Presentations</h2>
+					<h2>Speaking &amp; Writing</h2>
 				</header>
 
 				<ul class="entry-list">
-					{talks.map((t) => (
+					{speakingAndWriting.map((t) => (
 						<li class={`entry${t.highlight ? ' is-highlight' : ''}`}>
 							<div class="entry-year">{t.year}</div>
 							<div class="entry-body">
@@ -110,34 +103,6 @@ const panelistPanels = [
 					</div>
 				</div>
 			</section>
-
-			<section class="section">
-				<header class="section-head">
-					<h2>Writing</h2>
-				</header>
-
-				<ol class="bib-list">
-					<li>
-						<span class="bib-num">1</span>
-						<div>
-							<a href="https://journal.ilta.ie/index.php/telji/article/view/122/176" target="_blank" rel="noopener noreferrer">
-								McMichael, J., Peña, K., &amp; Dalal, M.
-								<em>"Technology-Enhanced Student Success Program Short Report: GenAI's Approach for First-Year, First-Generation College Students."</em>
-							</a>
-							<span class="bib-venue">Irish Journal of Technology Enhanced Learning</span>, Vol. 7 No. 2, July 2023.
-						</div>
-					</li>
-					<li>
-						<span class="bib-num">2</span>
-						<div>
-							<a href="https://blog.smu.edu/smulibraries/2023/01/20/artificial-intelligence-and-the-research-paper-a-librarians-perspective/" target="_blank" rel="noopener noreferrer">
-								<em>"Artificial Intelligence and the Research Paper: A Librarian's Perspective."</em>
-							</a>
-							<span class="bib-venue">SMU Libraries Blog</span>, January 2023.
-						</div>
-					</li>
-				</ol>
-			</section>
 		</main>
 		<Footer />
 
@@ -156,35 +121,6 @@ const panelistPanels = [
 				margin: 0;
 			}
 
-			.callout {
-				padding: 1.5rem 1.75rem;
-				background: var(--color-bg-subtle);
-				border: 1px solid var(--color-border);
-				border-left: 3px solid var(--color-accent);
-				border-radius: var(--radius);
-				margin-bottom: 4rem;
-				max-width: 70ch;
-			}
-			.callout-label {
-				font-family: var(--font-mono);
-				font-size: 0.74rem;
-				color: var(--color-text-faint);
-				font-weight: 500;
-				margin-bottom: 0.6rem;
-			}
-			.callout h2 {
-				font-size: 1.15rem;
-				font-weight: 600;
-				margin: 0 0 0.65rem;
-				letter-spacing: -0.012em;
-			}
-			.callout p {
-				margin: 0;
-				font-size: 0.95rem;
-				line-height: 1.6;
-				color: var(--color-text-muted);
-			}
-
 			.section { margin-bottom: 4rem; }
 			.section-head {
 				display: flex;
@@ -200,12 +136,6 @@ const panelistPanels = [
 				font-size: 1.45rem;
 				font-weight: 600;
 				letter-spacing: -0.018em;
-			}
-			.section-count {
-				font-family: var(--font-mono);
-				font-size: 0.78rem;
-				color: var(--color-text-faint);
-				font-weight: 500;
 			}
 
 			.entry-list {
@@ -269,6 +199,7 @@ const panelistPanels = [
 			.slides-link {
 				display: inline-block;
 				margin-top: 0.5rem;
+				margin-right: 1rem;
 				font-family: var(--font-mono);
 				font-size: 0.75rem;
 				font-weight: 500;
@@ -318,47 +249,6 @@ const panelistPanels = [
 				font-weight: 500;
 			}
 			.panel-link:hover { color: var(--color-accent); }
-
-			.bib-list {
-				list-style: none;
-				padding: 0;
-				margin: 0;
-				counter-reset: none;
-			}
-			.bib-list > li {
-				display: grid;
-				grid-template-columns: 36px 1fr;
-				gap: 1rem;
-				padding: 1rem 0;
-				border-bottom: 1px solid var(--color-border-soft);
-				font-size: 0.98rem;
-				line-height: 1.65;
-				color: var(--color-text-main);
-			}
-			.bib-list > li:last-child { border-bottom: none; }
-			.bib-num {
-				font-family: var(--font-mono);
-				font-size: 0.85rem;
-				color: var(--color-text-faint);
-				font-weight: 500;
-				padding-top: 0.1rem;
-			}
-			.bib-list em {
-				color: var(--color-text-main);
-				font-style: italic;
-			}
-			.bib-list .bib-venue {
-				color: var(--color-text-muted);
-				font-style: italic;
-			}
-			.bib-list a {
-				color: var(--color-text-main);
-				border-bottom: 1px solid var(--color-border);
-			}
-			.bib-list a:hover {
-				color: var(--color-accent);
-				border-bottom-color: var(--color-accent);
-			}
 
 			@media (max-width: 720px) {
 				.entry {

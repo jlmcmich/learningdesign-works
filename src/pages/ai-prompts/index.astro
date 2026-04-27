@@ -32,20 +32,24 @@ const fmtDate = (d: Date) => d.toLocaleDateString('en-us', { month: 'short', yea
 <html lang="en">
 	<head>
 		<BaseHead
-			title={`AI Prompts | ${SITE_TITLE}`}
-			description="A repository of AI prompts for course design — including the complete custom-GPT instructions for ASU's Learning Design Suite."
+			title={`AI for Learning Prompts | ${SITE_TITLE}`}
+			description="A working library of prompts I've used in course-design and faculty-development work, including the complete custom-instruction sets from ASU's Learning Design Suite."
 		/>
 	</head>
 	<body>
 		<Header />
 		<main>
 			<section class="page-head" data-reveal>
-				<h1>AI Prompts</h1>
+				<h1>AI for Learning Prompts</h1>
 				<p class="page-lede">
-					A working repository of prompts that transform course design workflows, helping educators
-					create pedagogically sound learning experiences. Each entry below includes the
-					<strong>complete system prompt or custom instructions</strong> that powers it — reproduced verbatim from
-					their original deployment as ChatGPT custom GPTs, ready to copy and adapt for any modern LLM.
+					A working library of prompts I've used in course-design and faculty-development work.
+					Each one started with a real problem an instructor or designer was trying to solve,
+					and got refined through use.
+				</p>
+				<p class="page-lede">
+					Each entry below includes the <strong>complete system prompt or custom instructions</strong>.
+					Many were originally deployed as custom GPTs on ChatGPT and have since been adapted to other
+					platforms, including <a href="https://ai.asu.edu/technical-foundation/createai-builder">ASU's CreateAI Builder</a>.
 				</p>
 				<div class="page-note">
 					Some prompts reference supporting documents that lived in the original GPT's knowledge base.

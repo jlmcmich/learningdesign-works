@@ -6,8 +6,9 @@ const cvHref = CV_URL ? url(CV_URL) : null;
 const navItems = [
 	{ href: '/', label: 'Home' },
 	{ href: '/projects', label: 'Projects' },
-	{ href: '/ai-prompts', label: 'AI Prompts' },
-	{ href: '/talks', label: 'Talks & Writing' },
+	{ href: '/ai-prompts', label: 'AI for Learning Prompts' },
+	{ href: '/recent-contributions', label: 'Recent Contributions' },
+	{ href: '/mentorship-teaching', label: 'Mentorship & Teaching' },
 ];
 const currentPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
 const basePath = import.meta.env.BASE_URL.replace(/\/+$/, '');

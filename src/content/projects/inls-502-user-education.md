@@ -11,11 +11,6 @@ tags:
   - Mentorship
   - Graduate Teaching
 order: 5
-externalLinks:
-  - label: Original syllabus (PDF)
-    href: https://ils.unc.edu/courses/2015_spring/inls502_001/502Syllabus.pdf
-  - label: Revised version by Dr. Sandra Hughes (PDF)
-    href: https://ils.unc.edu/courses/2017_spring/inls502_001/inls502-001.pdf
 ---
 
 I redesigned and taught a graduate course at UNC's School of Information & Library Science for librarians pursuing educational roles. The course provided **a comprehensive overview of instructional and educational design theory** while enabling students to design and implement evidence-based learning experiences.

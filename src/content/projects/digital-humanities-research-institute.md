@@ -10,6 +10,9 @@ tags:
   - Instructional Design
   - Digital Humanities
 order: 4
+externalLinks:
+  - label: DHRI@SMU institute site
+    href: https://southernmethodistuniversity.github.io/dhri/index.html
 ---
 
 As the Instructional Designer for **DHRI@SMU**, I created an immersive, community-driven learning experience for humanities scholars to develop technical competencies for research and teaching. The multi-day institute serves graduate students, professional support staff, and faculty with foundational technical skills.
