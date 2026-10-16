@@ -1,0 +1,708 @@
+<?xml version="1.0"?>
+<tt xmlns:vt="http://namespace.itunes.apple.com/itt/ttml-extension#vertical" xmlns:ttp="http://www.w3.org/ns/ttml#parameter" xmlns:ittp="http://www.w3.org/ns/ttml/profile/imsc1#parameter" xmlns:tt_feature="http://www.w3.org/ns/ttml/feature/" xmlns:ebutts="urn:ebu:tt:style" xmlns:tts="http://www.w3.org/ns/ttml#styling" xmlns:tt_extension="http://www.w3.org/ns/ttml/extension/" xmlns:tt_profile="http://www.w3.org/ns/ttml/profile/" xmlns:ttm="http://www.w3.org/ns/ttml#metadata" xmlns:ry="http://namespace.itunes.apple.com/itt/ttml-extension#ruby" xmlns:itts="http://www.w3.org/ns/ttml/profile/imsc1#styling" xmlns="http://www.w3.org/ns/ttml" xml:lang="en-US" ttp:dropMode="nonDrop" ttp:frameRate="60" ttp:frameRateMultiplier="1 1" ttp:timeBase="smpte" xmlns:tt="http://www.w3.org/ns/ttml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <head>
+    <styling>
+      <style xml:id="normal" tts:color="white" tts:fontFamily="sansSerif" tts:fontSize="100%" tts:fontStyle="normal" tts:fontWeight="normal"/>
+    </styling>
+    <layout>
+      <region xml:id="bottom" tts:displayAlign="after" tts:extent="100% 15%" tts:origin="0% 85%" tts:writingMode="lrtb"/>
+    </layout>
+  </head>
+  <body tts:color="white" region="bottom" style="normal">
+    <div>
+      <p begin="00:00:00:29" end="00:00:03:25" region="bottom">Hi, my name is Jonathan McMichael.</p>
+      <p begin="00:00:03:29" end="00:00:06:15" region="bottom">I am an AS strategist at Arizona State University.</p>
+      <p begin="00:00:06:18" end="00:00:08:38" region="bottom">I'm a former librarian, former instructional designer.</p>
+      <p begin="00:00:08:42" end="00:00:11:53" region="bottom">Um, I've been working with uh, for the last little bit in</p>
+      <p begin="00:00:11:53" end="00:00:12:54" region="bottom"> the AI space.</p>
+      <p begin="00:00:12:58" end="00:00:16:16" region="bottom">And recently, a lot of folks have come up to me saying,</p>
+      <p begin="00:00:16:16" end="00:00:17:21" region="bottom"> I'm interested in these agents.</p>
+      <p begin="00:00:17:24" end="00:00:20:24" region="bottom">I'm seeing Claude Code and Kodex and a lot of news on that.</p>
+      <p begin="00:00:20:28" end="00:00:23:28" region="bottom">Can you kind of point me in the direction of some resources</p>
+      <p begin="00:00:23:28" end="00:00:25:27" region="bottom"> and tools that help me catch up with what's going on.</p>
+      <p begin="00:00:25:30" end="00:00:28:44" region="bottom">One, that's a big daunting test because no one feels like</p>
+      <p begin="00:00:28:44" end="00:00:32:09" region="bottom"> everyone feels like they have to catch up and no one feels like they're in a good space.</p>
+      <p begin="00:00:32:13" end="00:00:35:20" region="bottom">So, um, but when I went out to Lafond</p>
+      <p begin="00:00:35:20" end="00:00:38:27" region="bottom"> some resources, I kind of felt like there were these 2 types of</p>
+      <p begin="00:00:38:28" end="00:00:41:28" region="bottom"> patterns and none of them really fit, uh, the types of people that I wanted to</p>
+      <p begin="00:00:41:28" end="00:00:43:34" region="bottom"> work with or the types of people who were asking me these questions.</p>
+      <p begin="00:00:44:24" end="00:00:47:28" region="bottom">Some of them ended up being very technical because a</p>
+      <p begin="00:00:47:28" end="00:00:50:57" region="bottom"> lot of these tools were built around coding and software development.</p>
+      <p begin="00:00:51:00" end="00:00:54:00" region="bottom">And some of these tutorials ended up being a</p>
+      <p begin="00:00:54:00" end="00:00:56:49" region="bottom"> little bit more like tips and tricks, hacks and stuff like that.</p>
+      <p begin="00:00:56:53" end="00:01:00:07" region="bottom">They didn't really get to the big picture of what's going on.</p>
+      <p begin="00:01:00:11" end="00:01:03:14" region="bottom">What I was finding is that people were feeling kind of afraid to</p>
+      <p begin="00:01:03:14" end="00:01:05:24" region="bottom"> tinker with these tools, were afraid to play with them.</p>
+      <p begin="00:01:05:28" end="00:01:08:46" region="bottom">I'm not a coder, so I don't feel like I can use some of these things, or</p>
+      <p begin="00:01:08:46" end="00:01:10:30" region="bottom"> I'm really scared about what might happen.</p>
+      <p begin="00:01:10:34" end="00:01:13:52" region="bottom">And while you should have some kind of concern around agents</p>
+      <p begin="00:01:13:52" end="00:01:16:52" region="bottom"> because they can start taking actions outside of you.</p>
+      <p begin="00:01:16:55" end="00:01:19:55" region="bottom">I don't want people to be afraid because long term, that's</p>
+      <p begin="00:01:19:55" end="00:01:21:03" region="bottom"> not really where we want to go.</p>
+      <p begin="00:01:21:07" end="00:01:24:21" region="bottom">So I'm making a series of tutorials, and this is one of the foundational ones.</p>
+      <p begin="00:01:24:25" end="00:01:27:47" region="bottom">to kind of give a sense of what are these agents?</p>
+      <p begin="00:01:27:50" end="00:01:28:30" region="bottom">How do they work?</p>
+      <p begin="00:01:28:30" end="00:01:30:22" region="bottom">kind of foundationally.</p>
+      <p begin="00:01:30:25" end="00:01:32:45" region="bottom">These are design systems, we can understand how they work.</p>
+      <p begin="00:01:32:49" end="00:01:35:53" region="bottom">And once we start to have a good kind of mental</p>
+      <p begin="00:01:35:53" end="00:01:37:30" region="bottom"> model or schema for how they work.</p>
+      <p begin="00:01:37:34" end="00:01:40:48" region="bottom">We'll be able to kind of work with them more confidently,</p>
+      <p begin="00:01:40:48" end="00:01:43:52" region="bottom"> troubleshoot when they go in the wrong direction and feel like we're more</p>
+      <p begin="00:01:43:52" end="00:01:44:57" region="bottom"> in control of what's going on.</p>
+      <p begin="00:01:45:00" end="00:01:46:05" region="bottom">And that's what I want to happen.</p>
+      <p begin="00:01:46:12" end="00:01:49:16" region="bottom">I'm trying to distill what my experience has been for the</p>
+      <p begin="00:01:49:16" end="00:01:52:27" region="bottom"> last little bit with these agents, especially in the last 6 or 8 months.</p>
+      <p begin="00:01:52:30" end="00:01:55:37" region="bottom">And give you kind of a head start to</p>
+      <p begin="00:01:55:37" end="00:01:59:17" region="bottom"> kind of make, help you feel a little bit more confident working with them.</p>
+      <p begin="00:01:59:20" end="00:02:02:24" region="bottom">So, what I'm working on, what the today's presentation or</p>
+      <p begin="00:02:02:24" end="00:02:05:28" region="bottom"> today's tutorial is going to be on the foundations of</p>
+      <p begin="00:02:05:28" end="00:02:06:51" region="bottom"> Agent of Carnassus.</p>
+      <p begin="00:02:06:54" end="00:02:10:16" region="bottom">We're going to talk how we go from LLMs to chatbots to</p>
+      <p begin="00:02:10:16" end="00:02:11:28" region="bottom"> agent harnesses.</p>
+      <p begin="00:02:11:31" end="00:02:13:19" region="bottom">And we'll talk about what a harness means.</p>
+      <p begin="00:02:13:23" end="00:02:16:23" region="bottom">We might also talk about some other terminology, and I'll try to define myself,</p>
+      <p begin="00:02:16:23" end="00:02:17:39" region="bottom"> define what those things mean.</p>
+      <p begin="00:02:17:42" end="00:02:20:46" region="bottom">I will also demo how these</p>
+      <p begin="00:02:20:46" end="00:02:22:09" region="bottom"> tools kind of work.</p>
+      <p begin="00:02:22:12" end="00:02:24:18" region="bottom">So you can kind of get a sense of what they look like in practice as well.</p>
+      <p begin="00:02:24:22" end="00:02:27:25" region="bottom">But there's gonna be some pretty complicated pictures on here,</p>
+      <p begin="00:02:27:25" end="00:02:28:33" region="bottom"> but I'll try to talk my way through it.</p>
+      <p begin="00:02:28:37" end="00:02:30:43" region="bottom">So let's start with first.</p>
+      <p begin="00:02:33:47" end="00:02:35:21" region="bottom">The OLM engine.</p>
+      <p begin="00:02:35:24" end="00:02:38:38" region="bottom">So I'm going to call this thing an engine, this circular thing right here,</p>
+      <p begin="00:02:38:38" end="00:02:39:43" region="bottom"> I'm going to call this an engine.</p>
+      <p begin="00:02:39:50" end="00:02:42:54" region="bottom">But what I mean by engine is basically all that</p>
+      <p begin="00:02:42:54" end="00:02:45:32" region="bottom"> LLMs do is they take an input or context.</p>
+      <p begin="00:02:45:36" end="00:02:47:38" region="bottom">So we can see the sentence here.</p>
+      <p begin="00:02:47:42" end="00:02:50:24" region="bottom">Trisha spilled our coffee, Dan dot dot dot.</p>
+      <p begin="00:02:50:28" end="00:02:53:28" region="bottom">And they do a bunch of</p>
+      <p begin="00:02:53:28" end="00:02:56:28" region="bottom"> complicated math, multiplying a bunch of numbers</p>
+      <p begin="00:02:56:28" end="00:02:59:42" region="bottom"> by each other, and they come up with what they think, the</p>
+      <p begin="00:02:59:42" end="00:03:03:04" region="bottom"> next predicted outcome would be, the Y output,</p>
+      <p begin="00:03:03:04" end="00:03:04:34" region="bottom"> the completion or the response.</p>
+      <p begin="00:03:04:37" end="00:03:07:55" region="bottom">So we might have at the end of this sentence, jumped up to get a rag.</p>
+      <p begin="00:03:07:59" end="00:03:11:24" region="bottom">And so, these are</p>
+      <p begin="00:03:11:24" end="00:03:14:28" region="bottom"> really powerful tools, but it doesn't seem that exciting when</p>
+      <p begin="00:03:14:28" end="00:03:16:30" region="bottom"> you say, well, it just completes a sentence for us.</p>
+      <p begin="00:03:16:34" end="00:03:17:32" region="bottom">How could that be that useful?</p>
+      <p begin="00:03:17:35" end="00:03:18:47" region="bottom">Turns out they're really useful.</p>
+      <p begin="00:03:18:50" end="00:03:22:08" region="bottom">But for them to be useful, we have to put them inside of</p>
+      <p begin="00:03:22:08" end="00:03:25:22" region="bottom"> pieces of software or build things around them so</p>
+      <p begin="00:03:25:23" end="00:03:28:44" region="bottom"> that we can take advantage of the really great utility</p>
+      <p begin="00:03:28:44" end="00:03:31:55" region="bottom"> of being able to generate language in an effective way.</p>
+      <p begin="00:03:31:59" end="00:03:34:59" region="bottom">And so what we call the things we build around them or what we're</p>
+      <p begin="00:03:34:59" end="00:03:37:59" region="bottom"> going to call certainly going to call them in this video, um, is</p>
+      <p begin="00:03:37:59" end="00:03:39:07" region="bottom"> harnesses.</p>
+      <p begin="00:03:39:11" end="00:03:41:17" region="bottom">So this is a harness that we build around that.</p>
+      <p begin="00:03:41:20" end="00:03:45:03" region="bottom">So you're going to see this LLM engine powers everything.</p>
+      <p begin="00:03:45:07" end="00:03:47:24" region="bottom">These are things like GPT 5.5.</p>
+      <p begin="00:03:47:35" end="00:03:49:37" region="bottom">Claude 4.8.</p>
+      <p begin="00:03:49:48" end="00:03:52:05" region="bottom">Uh, Gemini 3.5.</p>
+      <p begin="00:03:52:19" end="00:03:53:31" region="bottom">These numbered things.</p>
+      <p begin="00:03:53:35" end="00:03:57:00" region="bottom">These are the models that we're going to kind of call LLM</p>
+      <p begin="00:03:57:00" end="00:03:58:44" region="bottom"> engines that power our harnesses.</p>
+      <p begin="00:03:58:48" end="00:04:02:53" region="bottom">And I'm going to talk today a little bit about what these harnesses are.</p>
+      <p begin="00:04:02:56" end="00:04:05:27" region="bottom">So I'm going to make the argument that the 1st harness that we had.</p>
+      <p begin="00:04:05:35" end="00:04:07:41" region="bottom">was the OG chat harness.</p>
+      <p begin="00:04:07:44" end="00:04:10:48" region="bottom">So when chat GPT comes out, this is the 1st</p>
+      <p begin="00:04:10:48" end="00:04:14:49" region="bottom"> time LLM engines, these LLM models had existed before.</p>
+      <p begin="00:04:14:53" end="00:04:18:07" region="bottom">There had been plenty of LLM models before, GPT</p>
+      <p begin="00:04:18:07" end="00:04:21:21" region="bottom"> one, two, when ChatGPT came out, they were running GPT3.</p>
+      <p begin="00:04:21:32" end="00:04:24:50" region="bottom">Um, and really what the big innovation</p>
+      <p begin="00:04:24:50" end="00:04:27:57" region="bottom"> was was they put a few elements around</p>
+      <p begin="00:04:27:58" end="00:04:31:05" region="bottom"> the LM engine and made it function like a chatbot.</p>
+      <p begin="00:04:31:08" end="00:04:34:08" region="bottom">The elements they put around it are one, a system prompt.</p>
+      <p begin="00:04:34:12" end="00:04:37:44" region="bottom">They kind of stuck a thing on the front end of every interaction</p>
+      <p begin="00:04:37:44" end="00:04:40:22" region="bottom"> that told the model.</p>
+      <p begin="00:04:40:26" end="00:04:42:10" region="bottom">Hey, you're about to engage with a chat.</p>
+      <p begin="00:04:42:14" end="00:04:44:20" region="bottom">You're going to be a helpful assistant.</p>
+      <p begin="00:04:44:24" end="00:04:47:31" region="bottom">You're going to respond to the chat as though</p>
+      <p begin="00:04:47:31" end="00:04:50:31" region="bottom"> you, as though to be</p>
+      <p begin="00:04:50:31" end="00:04:53:27" region="bottom"> helpful to the users in whatever way you see fit.</p>
+      <p begin="00:04:53:35" end="00:04:57:00" region="bottom">And the next message you're going to get is going to be that user message.</p>
+      <p begin="00:04:57:04" end="00:05:00:11" region="bottom">So when you 1st started a chat, that wasn't the 1st</p>
+      <p begin="00:05:00:11" end="00:05:02:35" region="bottom"> thing the LLM engine read, it was the system prompt.</p>
+      <p begin="00:05:03:25" end="00:05:06:29" region="bottom">After that, you would</p>
+      <p begin="00:05:06:29" end="00:05:09:29" region="bottom"> get the user message, and they would take all of that stuff, and</p>
+      <p begin="00:05:09:29" end="00:05:12:58" region="bottom"> if we go back to our model, the X here, all of that was X.</p>
+      <p begin="00:05:13:37" end="00:05:17:09" region="bottom">Put that into the LLM engine and then you'd get a response.</p>
+      <p begin="00:05:17:13" end="00:05:20:13" region="bottom">It would respond in a pattern of being a chatbot</p>
+      <p begin="00:05:20:13" end="00:05:22:37" region="bottom"> and say, hey, here's my response to that thing.</p>
+      <p begin="00:05:22:41" end="00:05:25:48" region="bottom">So if you were to have multiple turns to say,</p>
+      <p begin="00:05:25:48" end="00:05:27:40" region="bottom"> okay, I want to respond to what they just told me.</p>
+      <p begin="00:05:28:01" end="00:05:31:01" region="bottom">The way they kind of, the other thing they</p>
+      <p begin="00:05:31:01" end="00:05:34:08" region="bottom"> had to build around that was a way to take that response, take</p>
+      <p begin="00:05:34:08" end="00:05:37:15" region="bottom"> it and put it onto the end of the conversation</p>
+      <p begin="00:05:37:16" end="00:05:40:34" region="bottom"> history, and then take that whole conversation history, including</p>
+      <p begin="00:05:40:34" end="00:05:43:23" region="bottom"> the new messages, and put them back through the LLM.</p>
+      <p begin="00:05:43:26" end="00:05:46:33" region="bottom">If you look at our example here, you'll have the system prompt up top, then</p>
+      <p begin="00:05:46:34" end="00:05:49:38" region="bottom"> you'll have the user message, and then everything here is that X</p>
+      <p begin="00:05:49:38" end="00:05:52:41" region="bottom"> input, and then we get the response Y down here.</p>
+      <p begin="00:05:52:44" end="00:05:55:04" region="bottom">So can you summarize this webpage?</p>
+      <p begin="00:05:55:08" end="00:05:58:12" region="bottom">To be helpful, I need to see the content of the webpage.</p>
+      <p begin="00:05:58:16" end="00:06:02:32" region="bottom">I don't have any tool, like the LLM could say, I don't have any tools to use that web page.</p>
+      <p begin="00:06:02:35" end="00:06:05:53" region="bottom">And it would paste that it would say you</p>
+      <p begin="00:06:05:53" end="00:06:08:56" region="bottom"> have to paste that content in, so you would paste that content in, and</p>
+      <p begin="00:06:08:56" end="00:06:11:38" region="bottom"> then to say, great, here's a summary, and that would be the last response.</p>
+      <p begin="00:06:11:42" end="00:06:14:42" region="bottom">But each one of these things gets fed all the way back in.</p>
+      <p begin="00:06:14:46" end="00:06:18:08" region="bottom">So the response from the 1st turn, goes</p>
+      <p begin="00:06:18:08" end="00:06:21:39" region="bottom"> into the transcript history, and we feed the whole thing back into the LLM engine.</p>
+      <p begin="00:06:21:43" end="00:06:24:54" region="bottom">That was the 1st way in which we harnessed LLM,</p>
+      <p begin="00:06:24:54" end="00:06:27:54" region="bottom"> uh, engines, that the completion was for an</p>
+      <p begin="00:06:27:54" end="00:06:30:18" region="bottom"> entire transcript of a conversation.</p>
+      <p begin="00:06:30:22" end="00:06:32:28" region="bottom">So it was role-playing the conversation with you.</p>
+      <p begin="00:06:32:31" end="00:06:35:06" region="bottom">And that's the 1st time we harnessed a chat bot.</p>
+      <p begin="00:06:35:10" end="00:06:36:22" region="bottom">Okay?</p>
+      <p begin="00:06:36:29" end="00:06:39:47" region="bottom">So, things started to evolve,</p>
+      <p begin="00:06:39:47" end="00:06:43:19" region="bottom"> and a couple things started to happen, and</p>
+      <p begin="00:06:43:19" end="00:06:47:06" region="bottom"> we had the reasoning chatbot harnessed was the next kind of evolution.</p>
+      <p begin="00:06:47:10" end="00:06:51:15" region="bottom">We still had chatbots, we still see here that we've got the system prompt.</p>
+      <p begin="00:06:52:16" end="00:06:53:53" region="bottom">Uh here.</p>
+      <p begin="00:06:53:53" end="00:06:57:00" region="bottom">We have the system prompt here.</p>
+      <p begin="00:06:57:04" end="00:07:00:18" region="bottom">We've got our responses, we've</p>
+      <p begin="00:07:00:18" end="00:07:02:31" region="bottom"> got our conversation, and we've got our LLM engine.</p>
+      <p begin="00:07:02:35" end="00:07:03:15" region="bottom">All of those are the same.</p>
+      <p begin="00:07:03:18" end="00:07:04:59" region="bottom">Same pattern of appending to the history.</p>
+      <p begin="00:07:05:02" end="00:07:09:07" region="bottom">We've added 2 green elements, tools and descriptions, and reasoning.</p>
+      <p begin="00:07:09:11" end="00:07:12:51" region="bottom">So I've combined 2 things that kind of happened in</p>
+      <p begin="00:07:12:51" end="00:07:16:30" region="bottom"> close successions to each other, but they were 2 different innovations.</p>
+      <p begin="00:07:16:34" end="00:07:19:16" region="bottom">One innovation is the reasoning component.</p>
+      <p begin="00:07:19:23" end="00:07:22:55" region="bottom">So reasoning, uh,</p>
+      <p begin="00:07:22:55" end="00:07:26:09" region="bottom"> was the ability for the LLM to</p>
+      <p begin="00:07:26:10" end="00:07:29:28" region="bottom"> pause, talk to itself 1st and</p>
+      <p begin="00:07:29:28" end="00:07:30:51" region="bottom"> then respond back to the user.</p>
+      <p begin="00:07:30:58" end="00:07:33:18" region="bottom">That turned out to be really, really effective.</p>
+      <p begin="00:07:33:22" end="00:07:37:52" region="bottom">These are things called reasoning traces, that it was able to respond back to the user with.</p>
+      <p begin="00:07:37:55" end="00:07:40:55" region="bottom">And that become a way in which it would</p>
+      <p begin="00:07:40:55" end="00:07:42:50" region="bottom"> say, oh, the user is asking me to do this.</p>
+      <p begin="00:07:43:01" end="00:07:45:29" region="bottom">They want to summary this webpage.</p>
+      <p begin="00:07:45:32" end="00:07:47:49" region="bottom">I should use some of the tools that I have to be able to do that.</p>
+      <p begin="00:07:47:53" end="00:07:50:56" region="bottom">So that ended up being a new</p>
+      <p begin="00:07:50:56" end="00:07:53:56" region="bottom"> way the LM could generate text, but that text didn't go to the</p>
+      <p begin="00:07:53:56" end="00:07:55:40" region="bottom"> user into the transcript here.</p>
+      <p begin="00:07:55:44" end="00:07:58:58" region="bottom">It went to itself, and it made it a little bit better responding</p>
+      <p begin="00:07:58:59" end="00:08:00:07" region="bottom"> at certain types of questions.</p>
+      <p begin="00:08:00:11" end="00:08:03:22" region="bottom">The 2nd thing soon after we had reasoning,</p>
+      <p begin="00:08:03:22" end="00:08:05:21" region="bottom"> started the ability for it to use tools.</p>
+      <p begin="00:08:05:24" end="00:08:08:24" region="bottom">These were a thing called so there's</p>
+      <p begin="00:08:08:24" end="00:08:09:40" region="bottom"> this term called runtime.</p>
+      <p begin="00:08:09:43" end="00:08:12:43" region="bottom">Basically a runtime, is the ability for a</p>
+      <p begin="00:08:12:43" end="00:08:15:25" region="bottom"> set of commands to do a thing on your computer.</p>
+      <p begin="00:08:15:29" end="00:08:18:47" region="bottom">It has the ability to run a process and make a thing happen.</p>
+      <p begin="00:08:18:50" end="00:08:23:06" region="bottom">So, uh, when you type in a,</p>
+      <p begin="00:08:23:06" end="00:08:26:13" region="bottom"> uh, a URL to a browser.</p>
+      <p begin="00:08:26:13" end="00:08:29:45" region="bottom">That browser knows to go convert that URL</p>
+      <p begin="00:08:29:46" end="00:08:32:46" region="bottom"> into the webpage so that it brings up the webpage and</p>
+      <p begin="00:08:32:46" end="00:08:34:30" region="bottom"> shows you that into the into the browser.</p>
+      <p begin="00:08:34:37" end="00:08:35:35" region="bottom">That's kind of a runtime.</p>
+      <p begin="00:08:35:38" end="00:08:38:42" region="bottom">So imagine that's a certain type of tool that</p>
+      <p begin="00:08:38:42" end="00:08:40:37" region="bottom"> you have that's on your computer that you can use.</p>
+      <p begin="00:08:40:44" end="00:08:43:51" region="bottom">We can imagine that if these</p>
+      <p begin="00:08:43:52" end="00:08:46:52" region="bottom"> things are really good at outputting text and they're outputting text</p>
+      <p begin="00:08:46:52" end="00:08:49:59" region="bottom"> to themselves that don't need to go to the user, maybe we could have them</p>
+      <p begin="00:08:49:59" end="00:08:53:49" region="bottom"> output text to a tool, and they could do a web search for us.</p>
+      <p begin="00:08:53:53" end="00:08:55:41" region="bottom">They could write code for us.</p>
+      <p begin="00:08:55:44" end="00:08:59:45" region="bottom">They could generate interfaces like webpages for us.</p>
+      <p begin="00:08:59:49" end="00:09:02:56" region="bottom">They could search a knowledge base using search terms,</p>
+      <p begin="00:09:02:56" end="00:09:05:09" region="bottom"> and these tools became ways in which we'd do that.</p>
+      <p begin="00:09:05:17" end="00:09:08:10" region="bottom">But the same structure, it worked the same way.</p>
+      <p begin="00:09:08:13" end="00:09:09:29" region="bottom">It was still a chatbot.</p>
+      <p begin="00:09:09:32" end="00:09:12:36" region="bottom">It was just had the ability to think to itself and use tools.</p>
+      <p begin="00:09:12:40" end="00:09:13:56" region="bottom">So you would have the system prompt.</p>
+      <p begin="00:09:13:59" end="00:09:17:24" region="bottom">Use your tools when appropriate would be kind of a used description.</p>
+      <p begin="00:09:17:28" end="00:09:18:36" region="bottom">It would tell it how to use its tools.</p>
+      <p begin="00:09:18:43" end="00:09:21:14" region="bottom">Can you summarize this web page?</p>
+      <p begin="00:09:21:18" end="00:09:22:52" region="bottom">Notice what it saves us?</p>
+      <p begin="00:09:22:55" end="00:09:26:02" region="bottom">We don't have to copy the web content anymore because it thinks to itself,</p>
+      <p begin="00:09:26:02" end="00:09:27:14" region="bottom"> well, I know how to grab a web page.</p>
+      <p begin="00:09:27:18" end="00:09:29:06" region="bottom">I can use my tools and read the file.</p>
+      <p begin="00:09:29:10" end="00:09:30:44" region="bottom">Sure, here's a summary.</p>
+      <p begin="00:09:30:47" end="00:09:33:58" region="bottom">If we ask it to do it again, it uses similar types</p>
+      <p begin="00:09:33:58" end="00:09:36:58" region="bottom"> of tools, and then it has that transcript and you can see this</p>
+      <p begin="00:09:36:58" end="00:09:40:08" region="bottom"> is the input for X for it's still appending</p>
+      <p begin="00:09:40:08" end="00:09:43:12" region="bottom"> the responses back onto the chat and sending them back through</p>
+      <p begin="00:09:43:12" end="00:09:44:17" region="bottom"> the LLM engine.</p>
+      <p begin="00:09:44:20" end="00:09:46:01" region="bottom">So that works that way.</p>
+      <p begin="00:09:46:05" end="00:09:49:41" region="bottom">Um, so I'm going to show you a little bit uh,</p>
+      <p begin="00:09:49:41" end="00:09:51:04" region="bottom"> how these chat bots work.</p>
+      <p begin="00:09:51:11" end="00:09:54:25" region="bottom">And we're going to see the OG and compare it to the reasoning model.</p>
+      <p begin="00:09:54:29" end="00:09:57:29" region="bottom">Okay, so this is a llama, which is</p>
+      <p begin="00:09:57:29" end="00:10:00:29" region="bottom"> a tool, a program that I can use to</p>
+      <p begin="00:10:00:29" end="00:10:02:13" region="bottom"> run models locally on my machine.</p>
+      <p begin="00:10:02:20" end="00:10:07:37" region="bottom">So, uh, what is the weather in Phoenix?</p>
+      <p begin="00:10:07:41" end="00:10:08:57" region="bottom">I can ask it that question.</p>
+      <p begin="00:10:09:00" end="00:10:10:48" region="bottom">I'm using llama 3.2.</p>
+      <p begin="00:10:10:59" end="00:10:13:12" region="bottom">I know that this has no reasoning and no tools.</p>
+      <p begin="00:10:13:16" end="00:10:14:53" region="bottom">So it's going to go through.</p>
+      <p begin="00:10:14:56" end="00:10:18:18" region="bottom">It's going to run that, and you're going to see here.</p>
+      <p begin="00:10:18:22" end="00:10:19:23" region="bottom">I'm a large language model.</p>
+      <p begin="00:10:19:26" end="00:10:21:43" region="bottom">I don't have access to real-time data or weather conditions.</p>
+      <p begin="00:10:21:47" end="00:10:24:51" region="bottom">I can provide you general information on Phoenix's climate.</p>
+      <p begin="00:10:24:54" end="00:10:27:00" region="bottom">And here's the response that's here.</p>
+      <p begin="00:10:27:04" end="00:10:28:20" region="bottom">No tools were read.</p>
+      <p begin="00:10:28:23" end="00:10:31:16" region="bottom">It did not think to itself, and it just gave me a response.</p>
+      <p begin="00:10:31:19" end="00:10:34:23" region="bottom">That system prompt told it to be effective,</p>
+      <p begin="00:10:34:23" end="00:10:37:41" region="bottom"> that system prompt told probably told it you're a large language model.</p>
+      <p begin="00:10:37:44" end="00:10:40:48" region="bottom">This is how you should respond in chat, and that's how that works.</p>
+      <p begin="00:10:40:55" end="00:10:42:11" region="bottom">Let's start a new chat.</p>
+      <p begin="00:10:42:14" end="00:10:44:42" region="bottom">Now I'm going to pick a reasoning model.</p>
+      <p begin="00:10:44:49" end="00:10:48:25" region="bottom">This reasoning model cannot use tools, but it can reason to itself.</p>
+      <p begin="00:10:48:29" end="00:10:51:47" region="bottom">So this medium here is the level of reasoning,</p>
+      <p begin="00:10:51:47" end="00:10:55:01" region="bottom"> how much it's supposed to think to itself, how much it's supposed to write to itself,</p>
+      <p begin="00:10:55:01" end="00:10:57:14" region="bottom"> to be able to do that.</p>
+      <p begin="00:10:57:18" end="00:11:00:36" region="bottom">So, let's go through here, what is the</p>
+      <p begin="00:11:00:36" end="00:11:03:29" region="bottom"> weather in Phoenix?</p>
+      <p begin="00:11:04:23" end="00:11:06:33" region="bottom">We'll copy that down.</p>
+      <p begin="00:11:06:36" end="00:11:09:25" region="bottom">And we'll press send.</p>
+      <p begin="00:11:09:29" end="00:11:12:04" region="bottom">Now, you're gonna get these dots that come up here.</p>
+      <p begin="00:11:12:07" end="00:11:15:18" region="bottom">And one of the great things about Olama and these open source models</p>
+      <p begin="00:11:15:18" end="00:11:18:11" region="bottom"> is I get access to what its reasoning look like.</p>
+      <p begin="00:11:18:14" end="00:11:19:08" region="bottom">Here's the response.</p>
+      <p begin="00:11:19:12" end="00:11:20:46" region="bottom">You can see that it thought for a moment.</p>
+      <p begin="00:11:20:49" end="00:11:23:49" region="bottom">Sorry, I don't have access to live weather data, but I can</p>
+      <p begin="00:11:23:49" end="00:11:25:01" region="bottom"> tell you the current conditions.</p>
+      <p begin="00:11:25:05" end="00:11:26:49" region="bottom">This is very similar type of response.</p>
+      <p begin="00:11:26:53" end="00:11:28:27" region="bottom">that we got from llama.</p>
+      <p begin="00:11:28:30" end="00:11:31:26" region="bottom">Uh, the llama before because it doesn't have tools.</p>
+      <p begin="00:11:31:30" end="00:11:34:37" region="bottom">But one of the unique things that's different here is that it does have</p>
+      <p begin="00:11:34:37" end="00:11:35:38" region="bottom"> the ability to reason.</p>
+      <p begin="00:11:35:42" end="00:11:39:43" region="bottom">So I can look here, oh, user ask, what is the weather in Phoenix?</p>
+      <p begin="00:11:39:47" end="00:11:41:31" region="bottom">They want to wear the current weather as an AI.</p>
+      <p begin="00:11:41:35" end="00:11:44:03" region="bottom">I cannot browse the internet or retrieve real-time data.</p>
+      <p begin="00:11:44:06" end="00:11:46:55" region="bottom">So I should explain that I cannot access real-time data.</p>
+      <p begin="00:11:46:59" end="00:11:51:00" region="bottom">Perhaps suggest a checking reliable weather websites or apps.</p>
+      <p begin="00:11:51:04" end="00:11:53:06" region="bottom">This is a reasoning trace.</p>
+      <p begin="00:11:53:10" end="00:11:56:53" region="bottom">That's what it told itself to make sure that it responded more effectively.</p>
+      <p begin="00:11:56:56" end="00:12:00:00" region="bottom">Now, what we're about to see,</p>
+      <p begin="00:12:00:00" end="00:12:03:07" region="bottom"> I'm going to go over to this here and pull</p>
+      <p begin="00:12:03:07" end="00:12:06:03" region="bottom"> up ChatGPT and ask the same question.</p>
+      <p begin="00:12:06:43" end="00:12:10:30" region="bottom">Oops, what is the weather?</p>
+      <p begin="00:12:11:24" end="00:12:13:23" region="bottom">In Phoenix?</p>
+      <p begin="00:12:14:42" end="00:12:18:14" region="bottom">And we're going to see, oh, it's searching the web.</p>
+      <p begin="00:12:18:18" end="00:12:21:36" region="bottom">It's finding the thing, so you can see here that it</p>
+      <p begin="00:12:21:36" end="00:12:24:43" region="bottom"> generated a whole interface that</p>
+      <p begin="00:12:24:43" end="00:12:27:50" region="bottom"> I can interact with, that's a tool that it had, it</p>
+      <p begin="00:12:27:50" end="00:12:30:57" region="bottom"> created, it gave me some sources and it</p>
+      <p begin="00:12:30:58" end="00:12:34:19" region="bottom"> searched the web, and you saw up there, it was searching the web, it</p>
+      <p begin="00:12:34:19" end="00:12:37:19" region="bottom"> was using tools, uh, they're hidden from, uh, right</p>
+      <p begin="00:12:37:19" end="00:12:40:23" region="bottom"> now, that reasoning traces aren't available to me inside of this model,</p>
+      <p begin="00:12:40:23" end="00:12:43:30" region="bottom"> but they can, uh, you saw</p>
+      <p begin="00:12:43:30" end="00:12:46:34" region="bottom"> that it would use tools, both the ability to write custom</p>
+      <p begin="00:12:46:34" end="00:12:48:54" region="bottom"> web interfaces and the ability to search</p>
+      <p begin="00:12:49:01" end="00:12:51:14" region="bottom">the web to be able to generate the response.</p>
+      <p begin="00:12:51:22" end="00:12:54:29" region="bottom">And so if we go back to this, the reasoning</p>
+      <p begin="00:12:54:29" end="00:12:57:50" region="bottom"> chatbot harness, you can see we added a few features to it, but</p>
+      <p begin="00:12:57:50" end="00:13:00:50" region="bottom"> still, the chat interface</p>
+      <p begin="00:13:00:50" end="00:13:02:06" region="bottom"> was what we're locked into.</p>
+      <p begin="00:13:02:10" end="00:13:05:13" region="bottom">So every one of those, if I wanted to take the content out, I would</p>
+      <p begin="00:13:05:13" end="00:13:08:13" region="bottom"> have had to copy and paste that content to other</p>
+      <p begin="00:13:08:13" end="00:13:11:13" region="bottom"> places, we were sort of locked into the context.</p>
+      <p begin="00:13:11:17" end="00:13:14:56" region="bottom">Everything is still happening within the</p>
+      <p begin="00:13:14:56" end="00:13:16:26" region="bottom"> chat interface.</p>
+      <p begin="00:13:16:34" end="00:13:19:38" region="bottom">They can't really, it can take actions to go look things,</p>
+      <p begin="00:13:19:38" end="00:13:22:44" region="bottom"> but it can give really, really good advice, but it seemingly can't</p>
+      <p begin="00:13:22:44" end="00:13:24:00" region="bottom"> take a bunch of actions on our behalf.</p>
+      <p begin="00:13:24:04" end="00:13:26:53" region="bottom">We're still very much locked into the chat interface.</p>
+      <p begin="00:13:26:56" end="00:13:30:43" region="bottom">And so this is one of the things to think about, is that chats are not AI.</p>
+      <p begin="00:13:30:50" end="00:13:34:01" region="bottom">AI powers the chat because it's a harness, but the AI</p>
+      <p begin="00:13:34:01" end="00:13:37:01" region="bottom"> can also power other types of harnesses, and that's kind of what</p>
+      <p begin="00:13:37:01" end="00:13:39:00" region="bottom"> we're seeing now with the agenta harnesses.</p>
+      <p begin="00:13:39:04" end="00:13:42:29" region="bottom">So, let's take a look at the agenta harness.</p>
+      <p begin="00:13:42:32" end="00:13:44:24" region="bottom">All right, this looks very different.</p>
+      <p begin="00:13:44:28" end="00:13:47:32" region="bottom">This is, there's a lot going on here and I'm going to</p>
+      <p begin="00:13:47:32" end="00:13:51:36" region="bottom"> try to explain, but there's a few things I'm going to point out that are still similar to the chat.</p>
+      <p begin="00:13:51:40" end="00:13:55:16" region="bottom">We still have a system prompt,</p>
+      <p begin="00:13:55:16" end="00:13:57:11" region="bottom"> a user conversation.</p>
+      <p begin="00:13:57:14" end="00:13:59:52" region="bottom">We still have those tool descriptions and we still have a response.</p>
+      <p begin="00:13:59:56" end="00:14:02:49" region="bottom">So this loop, this is still the conversation loop.</p>
+      <p begin="00:14:02:53" end="00:14:06:25" region="bottom">So even still, even when we're using agents,</p>
+      <p begin="00:14:06:25" end="00:14:09:29" region="bottom"> we have the ability to have conversations with AI, so they</p>
+      <p begin="00:14:09:29" end="00:14:13:09" region="bottom"> still have embedded within them, the conversation loop.</p>
+      <p begin="00:14:13:12" end="00:14:14:53" region="bottom">All of this is powered by LLMs.</p>
+      <p begin="00:14:14:56" end="00:14:18:10" region="bottom">But what it has now that is a little bit more,</p>
+      <p begin="00:14:18:11" end="00:14:21:15" region="bottom"> that the additional features that are out there is we can</p>
+      <p begin="00:14:21:15" end="00:14:24:50" region="bottom"> imagine that it has the ability to enter what we call an agentic loop.</p>
+      <p begin="00:14:24:54" end="00:14:27:54" region="bottom">So, we can imagine the user conversation</p>
+      <p begin="00:14:27:54" end="00:14:31:01" region="bottom"> comes in, they get a request, added onto that</p>
+      <p begin="00:14:31:01" end="00:14:34:41" region="bottom"> might be something that says, given what you know and</p>
+      <p begin="00:14:34:41" end="00:14:35:46" region="bottom"> the tools that you have.</p>
+      <p begin="00:14:35:49" end="00:14:38:49" region="bottom">I would like, think, make a plan and execute on</p>
+      <p begin="00:14:38:49" end="00:14:41:53" region="bottom"> that plan until and and continue to</p>
+      <p begin="00:14:41:53" end="00:14:44:57" region="bottom"> execute on that plan until you have resolved the user's question or query.</p>
+      <p begin="00:14:45:00" end="00:14:48:18" region="bottom">So we can imagine that gets added onto whatever we send in,</p>
+      <p begin="00:14:48:18" end="00:14:51:36" region="bottom"> it goes in and it starts doing that and perceives</p>
+      <p begin="00:14:51:36" end="00:14:52:37" region="bottom"> what it has access to.</p>
+      <p begin="00:14:52:41" end="00:14:55:05" region="bottom">So you can say, oh, have this user transcript?</p>
+      <p begin="00:14:55:08" end="00:14:58:12" region="bottom">Also, my tool description, my system prompt, maybe there's a couple things that</p>
+      <p begin="00:14:58:12" end="00:15:01:23" region="bottom"> tell me, oh, I've got some files that I have access to that</p>
+      <p begin="00:15:01:23" end="00:15:04:30" region="bottom"> are preloaded into my, uh, that I can go look</p>
+      <p begin="00:15:04:30" end="00:15:05:31" region="bottom"> at what those files are.</p>
+      <p begin="00:15:05:35" end="00:15:06:33" region="bottom">Maybe I can't read them yet.</p>
+      <p begin="00:15:06:36" end="00:15:08:17" region="bottom">I haven't read them yet, but I know that they exist.</p>
+      <p begin="00:15:08:20" end="00:15:10:15" region="bottom">I can use the websites.</p>
+      <p begin="00:15:10:19" end="00:15:13:19" region="bottom">I can go to Google Drive or canvas or some other external</p>
+      <p begin="00:15:13:19" end="00:15:14:27" region="bottom"> source because I have access for that.</p>
+      <p begin="00:15:14:31" end="00:15:17:31" region="bottom">It takes an inventory of what it has a chance</p>
+      <p begin="00:15:17:31" end="00:15:18:50" region="bottom"> to do using those tools.</p>
+      <p begin="00:15:18:54" end="00:15:21:11" region="bottom">It then reasons like we saw before.</p>
+      <p begin="00:15:21:14" end="00:15:23:16" region="bottom">Oh, I can see this, I can see that.</p>
+      <p begin="00:15:23:24" end="00:15:26:06" region="bottom">It comes up with a plan, and it starts executing on that plan.</p>
+      <p begin="00:15:26:10" end="00:15:29:42" region="bottom">And maybe it says the 1st step in that plan is to read</p>
+      <p begin="00:15:29:42" end="00:15:32:49" region="bottom"> a file that's on their computer.</p>
+      <p begin="00:15:32:53" end="00:15:34:45" region="bottom">that I have access to.</p>
+      <p begin="00:15:34:48" end="00:15:36:54" region="bottom">So it uses that tool and that runtime to</p>
+      <p begin="00:15:36:58" end="00:15:40:55" region="bottom">to write a command that lets it go find that file, search</p>
+      <p begin="00:15:40:55" end="00:15:43:51" region="bottom"> for the file, and then read that file, like here.</p>
+      <p begin="00:15:43:55" end="00:15:47:20" region="bottom">We can then say, oh, that file was really useful.</p>
+      <p begin="00:15:47:24" end="00:15:49:30" region="bottom">It gave some useful information.</p>
+      <p begin="00:15:49:34" end="00:15:52:34" region="bottom">Here, I can go reason through that</p>
+      <p begin="00:15:52:34" end="00:15:56:39" region="bottom"> information and say, I need to go find another file that this one talked about, and they go do that again.</p>
+      <p begin="00:15:56:42" end="00:15:59:06" region="bottom">Now I need to go, you read the other one.</p>
+      <p begin="00:15:59:10" end="00:16:01:02" region="bottom">Now I need to go search the web to go find something else.</p>
+      <p begin="00:16:01:05" end="00:16:02:10" region="bottom">We go to here.</p>
+      <p begin="00:16:02:13" end="00:16:05:13" region="bottom">Oh, I'm going to write down a more complicated plan in</p>
+      <p begin="00:16:05:13" end="00:16:08:24" region="bottom"> my internal memory, make a temporary file because I have the ability to</p>
+      <p begin="00:16:08:24" end="00:16:11:24" region="bottom"> create new files, so I'm going to create a</p>
+      <p begin="00:16:11:24" end="00:16:12:32" region="bottom"> file that has my plan within it.</p>
+      <p begin="00:16:12:36" end="00:16:15:36" region="bottom">Now I finally need to go out to this external source</p>
+      <p begin="00:16:15:36" end="00:16:18:40" region="bottom"> here, and I've got the login credentials that they've given me.</p>
+      <p begin="00:16:18:43" end="00:16:20:13" region="bottom">And I go do that.</p>
+      <p begin="00:16:20:17" end="00:16:23:24" region="bottom">So let's imagine that reasons for 10 or 15 minutes, and</p>
+      <p begin="00:16:23:24" end="00:16:24:36" region="bottom"> then it comes back with a response.</p>
+      <p begin="00:16:24:43" end="00:16:27:57" region="bottom">But the response itself isn't the entire answer.</p>
+      <p begin="00:16:28:01" end="00:16:31:55" region="bottom">The response might be, hey, I thought about your question.</p>
+      <p begin="00:16:31:59" end="00:16:34:37" region="bottom">I wrote five different files for you.</p>
+      <p begin="00:16:34:41" end="00:16:37:41" region="bottom">They're all right here, but here's a summary of what they say, but</p>
+      <p begin="00:16:37:41" end="00:16:39:18" region="bottom"> feel free to go look at them.</p>
+      <p begin="00:16:39:22" end="00:16:41:06" region="bottom">on your computer somewhere, somewhere.</p>
+      <p begin="00:16:41:10" end="00:16:42:54" region="bottom">One of them's a PowerPoint presentation.</p>
+      <p begin="00:16:42:58" end="00:16:45:58" region="bottom">One of them is a spreadsheet</p>
+      <p begin="00:16:45:58" end="00:16:48:58" region="bottom"> that I made, and another one is a piece of code that</p>
+      <p begin="00:16:48:58" end="00:16:52:56" region="bottom"> I had to generate that spreadsheet, and the other one is a document that you can go read.</p>
+      <p begin="00:16:52:59" end="00:16:56:06" region="bottom">All kinds of different files are created because it</p>
+      <p begin="00:16:56:06" end="00:16:58:19" region="bottom"> has all of these abilities that are in here.</p>
+      <p begin="00:16:58:23" end="00:17:01:23" region="bottom">And so this agentic loop starts to be able to</p>
+      <p begin="00:17:01:23" end="00:17:05:20" region="bottom"> take actions on your behalf, or independently,</p>
+      <p begin="00:17:05:20" end="00:17:08:02" region="bottom"> while considering the local environment.</p>
+      <p begin="00:17:08:06" end="00:17:11:06" region="bottom">So the big things that are added to this, are the</p>
+      <p begin="00:17:11:06" end="00:17:14:31" region="bottom"> agentic loop, the ability to do that kind of stuff, a few more tools,</p>
+      <p begin="00:17:14:31" end="00:17:17:35" region="bottom"> like the ability to use your computer, and connections</p>
+      <p begin="00:17:17:35" end="00:17:20:06" region="bottom"> to specific local environments that can persist.</p>
+      <p begin="00:17:20:10" end="00:17:23:53" region="bottom">One of the other things that becomes really useful about this is</p>
+      <p begin="00:17:23:53" end="00:17:27:14" region="bottom"> that it can start generating outputs that survive</p>
+      <p begin="00:17:27:14" end="00:17:28:22" region="bottom"> beyond the chat.</p>
+      <p begin="00:17:28:26" end="00:17:30:46" region="bottom">So, if we were to look at the Phoenix weather,</p>
+      <p begin="00:17:30:50" end="00:17:32:31" region="bottom">Maybe I really like this interface.</p>
+      <p begin="00:17:32:35" end="00:17:36:33" region="bottom">I have to go find this chat again before I can go find this interface again.</p>
+      <p begin="00:17:36:36" end="00:17:39:36" region="bottom">What if this interface just existed in my computer somewhere, and</p>
+      <p begin="00:17:39:36" end="00:17:42:40" region="bottom"> I could ask the chat to go pull it up at any time, and they</p>
+      <p begin="00:17:42:40" end="00:17:45:44" region="bottom"> wouldn't have needed to know my previous chat history or I have to go find that.</p>
+      <p begin="00:17:45:47" end="00:17:49:05" region="bottom">That's what kind of gets unlocked by this agentic harness loop.</p>
+      <p begin="00:17:49:12" end="00:17:50:35" region="bottom">Okay?</p>
+      <p begin="00:17:50:38" end="00:17:53:38" region="bottom">So the next thing that we're</p>
+      <p begin="00:17:53:38" end="00:17:58:40" region="bottom"> going to kind of do is, I'm going to show you using</p>
+      <p begin="00:17:58:41" end="00:18:02:13" region="bottom"> Codex, how we can start to build on</p>
+      <p begin="00:18:02:13" end="00:18:03:25" region="bottom"> this idea of the chat.</p>
+      <p begin="00:18:03:32" end="00:18:06:50" region="bottom">I'm going to use codex to kind of solve the similar</p>
+      <p begin="00:18:06:50" end="00:18:09:50" region="bottom"> types of weather problems that we had, but I'm going to solve</p>
+      <p begin="00:18:09:50" end="00:18:11:06" region="bottom"> them in maybe a little bit of a different way.</p>
+      <p begin="00:18:11:10" end="00:18:13:41" region="bottom">So I have a folder here.</p>
+      <p begin="00:18:13:44" end="00:18:14:42" region="bottom">It's completely empty.</p>
+      <p begin="00:18:14:46" end="00:18:17:46" region="bottom">There's nothing in this folder that's here, so let's see if</p>
+      <p begin="00:18:17:46" end="00:18:19:38" region="bottom"> I can pull that up here.</p>
+      <p begin="00:18:19:41" end="00:18:22:34" region="bottom">I can look at the files, no files in the folder here.</p>
+      <p begin="00:18:22:37" end="00:18:25:44" region="bottom">You can see on the right hand side, you get, uh, some different</p>
+      <p begin="00:18:25:44" end="00:18:28:12" region="bottom"> files that you can open here, so I'm gonna close that up.</p>
+      <p begin="00:18:28:37" end="00:18:31:41" region="bottom">So what we're gonna do is instead</p>
+      <p begin="00:18:31:41" end="00:18:34:37" region="bottom"> of just saying, hey, what's the weather like?</p>
+      <p begin="00:18:34:44" end="00:18:37:58" region="bottom">I'm gonna use Codex and have it start building why</p>
+      <p begin="00:18:37:59" end="00:18:41:06" region="bottom"> I care about what the weather is and have it build something for me</p>
+      <p begin="00:18:41:06" end="00:18:44:06" region="bottom"> using the ability to write files that I can return to?</p>
+      <p begin="00:18:44:10" end="00:18:47:20" region="bottom">So I'm going to use a tool called Super</p>
+      <p begin="00:18:47:20" end="00:18:50:20" region="bottom"> Whisper, which allows me to talk to my computer, but that gives you a chance to hear</p>
+      <p begin="00:18:50:20" end="00:18:53:20" region="bottom"> what my prompt would be, uh, for this and show</p>
+      <p begin="00:18:53:20" end="00:18:56:20" region="bottom"> how I would interact with maybe an agent and how I'm giving a little bit</p>
+      <p begin="00:18:56:20" end="00:18:58:58" region="bottom"> different set of directions than you might have given to a chatbot.</p>
+      <p begin="00:19:00:11" end="00:19:03:18" region="bottom">Okay, so I oftentimes want to</p>
+      <p begin="00:19:03:18" end="00:19:06:43" region="bottom"> check the weather to determine when I could do activities</p>
+      <p begin="00:19:06:43" end="00:19:08:13" region="bottom"> outside.</p>
+      <p begin="00:19:08:17" end="00:19:10:16" region="bottom">Phoenix obviously gets very hot, that's where I live.</p>
+      <p begin="00:19:10:19" end="00:19:13:30" region="bottom">And I want to get a sense of what the weather would be,</p>
+      <p begin="00:19:13:30" end="00:19:15:54" region="bottom"> but in addition to a regular weather forecast.</p>
+      <p begin="00:19:15:58" end="00:19:18:58" region="bottom">I'd be wanting, I usually check them, you know, the best weather</p>
+      <p begin="00:19:18:58" end="00:19:22:12" region="bottom"> forecast available and compare what they say.</p>
+      <p begin="00:19:22:16" end="00:19:25:23" region="bottom">I'd like a tool that does that for me, but then</p>
+      <p begin="00:19:25:23" end="00:19:28:23" region="bottom"> also gives me recommendations of times to avoid and times</p>
+      <p begin="00:19:28:23" end="00:19:32:46" region="bottom"> to plan for being outside if I had outdoor activities I wanted to do that day.</p>
+      <p begin="00:19:32:49" end="00:19:35:49" region="bottom">Could you build something that I could return to over</p>
+      <p begin="00:19:35:49" end="00:19:39:00" region="bottom"> and over again and show me a 5 day forecast that</p>
+      <p begin="00:19:39:00" end="00:19:42:07" region="bottom"> gives me good recommendations on how I should plan my day out?</p>
+      <p begin="00:19:43:16" end="00:19:46:20" region="bottom">So, I give it.</p>
+      <p begin="00:19:46:23" end="00:19:47:39" region="bottom">I gave it by intent.</p>
+      <p begin="00:19:47:42" end="00:19:50:42" region="bottom">I gave it what I was looking for and some ideas about</p>
+      <p begin="00:19:50:42" end="00:19:51:50" region="bottom"> how it might try to build that.</p>
+      <p begin="00:19:51:54" end="00:19:54:58" region="bottom">So I'm going to press send now, and notice, I now</p>
+      <p begin="00:19:54:58" end="00:19:57:58" region="bottom"> know, because I've got that agentic harness idea in my</p>
+      <p begin="00:19:57:58" end="00:19:59:39" region="bottom"> head, how these things work.</p>
+      <p begin="00:20:02:50" end="00:20:03:30" region="bottom">Okay.</p>
+      <p begin="00:20:03:37" end="00:20:06:59" region="bottom">So, it ran a command right here.</p>
+      <p begin="00:20:07:02" end="00:20:10:56" region="bottom">It's got some, it show it notices the folder's basically empty.</p>
+      <p begin="00:20:11:00" end="00:20:14:00" region="bottom">It's searching the web using some of its tools right here, so</p>
+      <p begin="00:20:14:00" end="00:20:15:59" region="bottom"> notice how I'm interpreting what it's doing.</p>
+      <p begin="00:20:16:02" end="00:20:19:06" region="bottom">It's giving me some outputs that are here.</p>
+      <p begin="00:20:19:09" end="00:20:22:16" region="bottom">I'm going to let this work for a little bit, and we'll return back to something like</p>
+      <p begin="00:20:22:16" end="00:20:23:46" region="bottom"> this here in a second.</p>
+      <p begin="00:20:25:13" end="00:20:27:44" region="bottom">Okay, so I finished up.</p>
+      <p begin="00:20:27:48" end="00:20:29:32" region="bottom">I'm gonna show you what we had here.</p>
+      <p begin="00:20:29:36" end="00:20:32:43" region="bottom">You can see here that it ran for</p>
+      <p begin="00:20:32:43" end="00:20:34:38" region="bottom"> 5 minutes and 11 seconds.</p>
+      <p begin="00:20:34:42" end="00:20:37:24" region="bottom">And actually, so here's my initial prompt.</p>
+      <p begin="00:20:37:27" end="00:20:40:27" region="bottom">Here's what it responded with with all the things that it made, because it</p>
+      <p begin="00:20:40:27" end="00:20:43:27" region="bottom"> wrote me basically a website that I can</p>
+      <p begin="00:20:43:27" end="00:20:46:23" region="bottom"> click on right here, and it wrote me some documents to explain what it did.</p>
+      <p begin="00:20:46:27" end="00:20:48:44" region="bottom">But let's orient what it actually did.</p>
+      <p begin="00:20:48:48" end="00:20:52:06" region="bottom">It wrote, now we have files over here of</p>
+      <p begin="00:20:52:06" end="00:20:53:14" region="bottom"> all the things that it made.</p>
+      <p begin="00:20:53:18" end="00:20:54:48" region="bottom">Here's the HTML.</p>
+      <p begin="00:20:54:51" end="00:20:56:35" region="bottom">Here's the read me that explains things.</p>
+      <p begin="00:20:56:39" end="00:20:58:56" region="bottom">Here's the package JSON, here's the server.</p>
+      <p begin="00:20:59:00" end="00:21:02:47" region="bottom">Here's a bunch of other stuff that it's made to actually build me an app.</p>
+      <p begin="00:21:02:50" end="00:21:04:09" region="bottom">But like, what does the app look like?</p>
+      <p begin="00:21:04:13" end="00:21:05:21" region="bottom">Well, I can actually click here.</p>
+      <p begin="00:21:05:25" end="00:21:07:45" region="bottom">And here is what it had.</p>
+      <p begin="00:21:07:49" end="00:21:09:26" region="bottom">I can have the forecast.</p>
+      <p begin="00:21:09:51" end="00:21:12:55" region="bottom">All the things here, the sources, what to</p>
+      <p begin="00:21:12:55" end="00:21:15:55" region="bottom"> watch out for, things that happened, when</p>
+      <p begin="00:21:15:55" end="00:21:19:09" region="bottom"> to use caution, when to avoid, and those</p>
+      <p begin="00:21:19:09" end="00:21:21:11" region="bottom"> are things that I can look for here.</p>
+      <p begin="00:21:21:15" end="00:21:25:34" region="bottom">It's not the prettiest app right now, but it made me something I could use that</p>
+      <p begin="00:21:25:35" end="00:21:28:53" region="bottom"> I could come back to and relaunch that because</p>
+      <p begin="00:21:28:53" end="00:21:30:16" region="bottom"> it just sits on my computer.</p>
+      <p begin="00:21:30:19" end="00:21:33:15" region="bottom">I could launch this on my website anytime I want and it actually tells me here.</p>
+      <p begin="00:21:33:15" end="00:21:36:51" region="bottom">Actually, how to do that on the read me page here.</p>
+      <p begin="00:21:36:55" end="00:21:39:55" region="bottom">You just do this and it'll start.</p>
+      <p begin="00:21:40:09" end="00:21:43:16" region="bottom">So, what you can see is</p>
+      <p begin="00:21:43:17" end="00:21:46:46" region="bottom"> this is a very different way of solving the problems than what the chat offers you.</p>
+      <p begin="00:21:46:49" end="00:21:49:49" region="bottom">Everything existed within the chat, but all things here</p>
+      <p begin="00:21:49:49" end="00:21:51:15" region="bottom"> exist outside of chat.</p>
+      <p begin="00:21:51:23" end="00:21:53:58" region="bottom">So let's deconstruct this.</p>
+      <p begin="00:21:54:01" end="00:21:57:08" region="bottom">I took a screenshot of this particular page here,</p>
+      <p begin="00:21:57:08" end="00:22:00:26" region="bottom"> and I also took a, I expanded</p>
+      <p begin="00:22:00:26" end="00:22:03:55" region="bottom"> out that reasoning traces that we talked about before, and</p>
+      <p begin="00:22:03:55" end="00:22:05:32" region="bottom"> we can take a look at what we have here.</p>
+      <p begin="00:22:05:36" end="00:22:08:39" region="bottom">So let's, first, think about</p>
+      <p begin="00:22:08:39" end="00:22:09:55" region="bottom"> what an LLM does.</p>
+      <p begin="00:22:09:59" end="00:22:13:28" region="bottom">We talked about the LM engine just doing that complete part.</p>
+      <p begin="00:22:13:31" end="00:22:16:31" region="bottom">That was the big thing that LM engines do.</p>
+      <p begin="00:22:16:35" end="00:22:18:45" region="bottom">Well, imagine that complete.</p>
+      <p begin="00:22:18:48" end="00:22:21:59" region="bottom">The input can come from any of these different 4 sources</p>
+      <p begin="00:22:21:59" end="00:22:25:02" region="bottom"> that right here, and the output can go to any one</p>
+      <p begin="00:22:25:02" end="00:22:28:02" region="bottom"> of these 4 sources and that the harness routes</p>
+      <p begin="00:22:28:02" end="00:22:29:57" region="bottom"> it to any of the surfaces that are here.</p>
+      <p begin="00:22:30:19" end="00:22:33:30" region="bottom">So, I'm going to see</p>
+      <p begin="00:22:33:30" end="00:22:35:32" region="bottom"> if I can get rid of some of this stuff here.</p>
+      <p begin="00:22:35:36" end="00:22:38:54" region="bottom">So, again, to the user direct</p>
+      <p begin="00:22:38:54" end="00:22:40:13" region="bottom"> back and forth conversation.</p>
+      <p begin="00:22:40:17" end="00:22:41:33" region="bottom">same thing that we had before.</p>
+      <p begin="00:22:41:36" end="00:22:44:04" region="bottom">We can look down here and see where that would be.</p>
+      <p begin="00:22:44:11" end="00:22:47:11" region="bottom">Reasoning traces, the things it writes to itself.</p>
+      <p begin="00:22:47:14" end="00:22:50:36" region="bottom">The, the, we talked about, those reasoning traces,</p>
+      <p begin="00:22:50:36" end="00:22:53:54" region="bottom"> they can write to itself and help itself plan and think through stuff.</p>
+      <p begin="00:22:53:57" end="00:22:56:53" region="bottom">It can use tools, and it can write files.</p>
+      <p begin="00:22:56:57" end="00:23:00:37" region="bottom">Any of these things are still coming from the same LLM</p>
+      <p begin="00:23:00:37" end="00:23:03:41" region="bottom"> engine, and the harness helps it orchestrate that</p>
+      <p begin="00:23:03:41" end="00:23:05:40" region="bottom"> interaction and gives you a way to work with it.</p>
+      <p begin="00:23:05:43" end="00:23:09:01" region="bottom">So, I told you, I grabbed a screenshot here,</p>
+      <p begin="00:23:09:01" end="00:23:12:08" region="bottom"> if we remember what we have here, to the user,</p>
+      <p begin="00:23:12:08" end="00:23:14:10" region="bottom"> to itself.</p>
+      <p begin="00:23:14:14" end="00:23:15:48" region="bottom">Let's see if we can identify these places.</p>
+      <p begin="00:23:15:51" end="00:23:19:31" region="bottom">So I expanded that 5 minute reasoning trace, and</p>
+      <p begin="00:23:19:31" end="00:23:22:45" region="bottom"> I grabbed a purple thing here.</p>
+      <p begin="00:23:22:49" end="00:23:26:36" region="bottom">So we'll drag that and put that here and say, okay, that's really</p>
+      <p begin="00:23:26:36" end="00:23:28:06" region="bottom"> where it was reasoning to itself.</p>
+      <p begin="00:23:28:09" end="00:23:31:13" region="bottom">But we see in here, edited a file.</p>
+      <p begin="00:23:31:53" end="00:23:34:35" region="bottom">Here, we see a few places.</p>
+      <p begin="00:23:34:38" end="00:23:37:42" region="bottom">So we would, we would maybe call those, uh,</p>
+      <p begin="00:23:37:42" end="00:23:39:23" region="bottom"> tools.</p>
+      <p begin="00:23:39:26" end="00:23:41:21" region="bottom">This is tool use here.</p>
+      <p begin="00:23:41:29" end="00:23:43:53" region="bottom">So I'm gonna kind of mark some of these as tool use.</p>
+      <p begin="00:23:44:07" end="00:23:46:06" region="bottom">that are right here.</p>
+      <p begin="00:23:46:09" end="00:23:47:43" region="bottom">There's one up here.</p>
+      <p begin="00:23:47:54" end="00:23:49:53" region="bottom">These are commands.</p>
+      <p begin="00:23:49:56" end="00:23:52:56" region="bottom">So it used some tools to do some certain things that it had.</p>
+      <p begin="00:23:53:00" end="00:23:56:00" region="bottom">We're not gonna go into what those things are, that'll be,</p>
+      <p begin="00:23:56:00" end="00:23:59:25" region="bottom"> we can go into that a little bit more and explain what those things do, but these are little tool</p>
+      <p begin="00:23:59:25" end="00:24:01:35" region="bottom"> uses that had as it was reasoning to itself.</p>
+      <p begin="00:24:01:38" end="00:24:04:45" region="bottom">But it also talked back to me and gave me to</p>
+      <p begin="00:24:04:45" end="00:24:05:50" region="bottom"> the user content.</p>
+      <p begin="00:24:05:54" end="00:24:08:54" region="bottom">That was this message that, right, was right here, including a</p>
+      <p begin="00:24:08:54" end="00:24:12:05" region="bottom"> link to a read me document that I could go read.</p>
+      <p begin="00:24:12:48" end="00:24:15:59" region="bottom">And so we can see here, we've got the reasoning,</p>
+      <p begin="00:24:15:59" end="00:24:19:35" region="bottom"> we've got the back and forth to the user, that's right here, we've</p>
+      <p begin="00:24:19:35" end="00:24:21:09" region="bottom"> got tools, now we can find the files.</p>
+      <p begin="00:24:21:12" end="00:24:25:06" region="bottom">That is where this interface shows us, oh, here are the files.</p>
+      <p begin="00:24:25:09" end="00:24:28:23" region="bottom">One, I can go navigate to any of these files that's over here.</p>
+      <p begin="00:24:28:27" end="00:24:31:27" region="bottom">And I'm able to read a file that's right here.</p>
+      <p begin="00:24:31:31" end="00:24:34:49" region="bottom">I could actually interact with the browser file that's</p>
+      <p begin="00:24:34:49" end="00:24:37:38" region="bottom"> also on here, and that's where the work kind of persists.</p>
+      <p begin="00:24:37:42" end="00:24:41:43" region="bottom">And so the important thing is, it's not any different.</p>
+      <p begin="00:24:41:47" end="00:24:45:01" region="bottom">The OM is still powering all of this, and it has all of this within</p>
+      <p begin="00:24:45:01" end="00:24:47:36" region="bottom"> there, but it's unlocking different ways to work.</p>
+      <p begin="00:24:47:39" end="00:24:50:43" region="bottom">And so one of the interesting ways in which we can work</p>
+      <p begin="00:24:50:43" end="00:24:53:47" region="bottom"> with it is now, I can start a brand new interaction</p>
+      <p begin="00:24:53:47" end="00:24:56:47" region="bottom"> with this, uh, with this and,</p>
+      <p begin="00:24:56:47" end="00:25:00:41" region="bottom"> uh, modify the things that were created by this interaction.</p>
+      <p begin="00:25:00:44" end="00:25:01:56" region="bottom">So actually, let's go do that.</p>
+      <p begin="00:25:02:00" end="00:25:05:04" region="bottom">I like this interface</p>
+      <p begin="00:25:05:04" end="00:25:08:07" region="bottom"> a little bit more, then I like the</p>
+      <p begin="00:25:08:07" end="00:25:09:30" region="bottom"> codex interface.</p>
+      <p begin="00:25:09:33" end="00:25:10:56" region="bottom">So actually, I'm actually gonna tell it that.</p>
+      <p begin="00:25:11:00" end="00:25:14:14" region="bottom">So I'm gonna grab a screenshot here, go</p>
+      <p begin="00:25:14:14" end="00:25:17:43" region="bottom"> to my codex, start a brand new interaction,</p>
+      <p begin="00:25:17:43" end="00:25:19:17" region="bottom"> paste it in.</p>
+      <p begin="00:25:19:20" end="00:25:22:27" region="bottom">So we're in the same folder, but it doesn't know anything about the</p>
+      <p begin="00:25:22:27" end="00:25:23:53" region="bottom"> previous chat we just had.</p>
+      <p begin="00:25:24:08" end="00:25:27:51" region="bottom">But we'll see that it'll be able to figure that stuff out.</p>
+      <p begin="00:25:29:03" end="00:25:32:10" region="bottom">You have an app</p>
+      <p begin="00:25:32:11" end="00:25:36:33" region="bottom"> that helps me create,</p>
+      <p begin="00:25:36:33" end="00:25:39:55" region="bottom"> or it helps me see the forecast,</p>
+      <p begin="00:25:39:55" end="00:25:43:24" region="bottom"> and when I can be active</p>
+      <p begin="00:25:43:24" end="00:25:46:24" region="bottom"> out.</p>
+      <p begin="00:25:46:27" end="00:25:49:49" region="bottom">I would like, I</p>
+      <p begin="00:25:49:49" end="00:25:52:45" region="bottom"> don't like how it looks.</p>
+      <p begin="00:25:52:49" end="00:25:56:11" region="bottom">Can you make it more like this?</p>
+      <p begin="00:25:57:55" end="00:25:59:47" region="bottom">We're gonna send it.</p>
+      <p begin="00:25:59:50" end="00:26:02:54" region="bottom">We can see here, it has, I can</p>
+      <p begin="00:26:02:54" end="00:26:06:52" region="bottom"> see the files that it created before here, but it doesn't know those things yet.</p>
+      <p begin="00:26:06:55" end="00:26:07:49" region="bottom">It has to go search them.</p>
+      <p begin="00:26:07:53" end="00:26:08:58" region="bottom">So it's reading this.</p>
+      <p begin="00:26:09:01" end="00:26:11:32" region="bottom">I'm going to inspect the structure of this UI.</p>
+      <p begin="00:26:11:36" end="00:26:13:38" region="bottom">I'm going to find uh,</p>
+      <p begin="00:26:13:42" end="00:26:17:43" region="bottom">I found a very small app surface, which is great for a focus design.</p>
+      <p begin="00:26:17:47" end="00:26:20:51" region="bottom">I'm reading the HTML and styles that it has that are right in here,</p>
+      <p begin="00:26:20:51" end="00:26:23:54" region="bottom"> and it's determining, now that I've got the</p>
+      <p begin="00:26:23:54" end="00:26:27:12" region="bottom"> shape, it made a plan for itself by doing a few commands,</p>
+      <p begin="00:26:27:12" end="00:26:30:19" region="bottom"> work, and it's working for 25 or 26 seconds.</p>
+      <p begin="00:26:30:23" end="00:26:34:13" region="bottom">We'll pause here, and I'll rejoin, and we'll see what it comes up with.</p>
+      <p begin="00:26:34:49" end="00:26:36:59" region="bottom">Okay, so it just finished.</p>
+      <p begin="00:26:37:02" end="00:26:37:52" region="bottom">It took 5 minutes.</p>
+      <p begin="00:26:37:56" end="00:26:41:00" region="bottom">And again, new chat, figured out</p>
+      <p begin="00:26:41:00" end="00:26:44:00" region="bottom"> everything else here, rewrote some different things,</p>
+      <p begin="00:26:44:00" end="00:26:45:26" region="bottom"> said it reshaped the app here.</p>
+      <p begin="00:26:45:30" end="00:26:46:24" region="bottom">Let's see what it looks like.</p>
+      <p begin="00:26:46:27" end="00:26:50:07" region="bottom">I'm going to open this in the browser that it has right here natively.</p>
+      <p begin="00:26:50:11" end="00:26:53:18" region="bottom">And we can see that it updated the app here and</p>
+      <p begin="00:26:53:18" end="00:26:55:02" region="bottom"> gave me a nice way to click through.</p>
+      <p begin="00:26:55:02" end="00:26:57:48" region="bottom">And this looks a lot better.</p>
+      <p begin="00:26:57:51" end="00:27:00:55" region="bottom">This looks more similar to what I had before is a lot more usable.</p>
+      <p begin="00:27:00:59" end="00:27:04:09" region="bottom">But the important thing to know here is that I started a brand new</p>
+      <p begin="00:27:04:09" end="00:27:06:37" region="bottom"> chat and because the files were already here,</p>
+      <p begin="00:27:06:41" end="00:27:09:12" region="bottom">I was able to build off previous work.</p>
+      <p begin="00:27:09:15" end="00:27:12:01" region="bottom">This unlocks brand new workflow.</p>
+      <p begin="00:27:12:05" end="00:27:15:05" region="bottom">Same thing that we just did before here, all the reasoning traces and all the</p>
+      <p begin="00:27:15:05" end="00:27:16:10" region="bottom"> tool calls that it gave.</p>
+      <p begin="00:27:16:13" end="00:27:20:11" region="bottom">I could figure out how it did those things, what it created, to do all that stuff.</p>
+      <p begin="00:27:20:14" end="00:27:23:21" region="bottom">So, this unlocks a</p>
+      <p begin="00:27:23:21" end="00:27:26:21" region="bottom"> lot of new ways to work, and you can build on your</p>
+      <p begin="00:27:26:21" end="00:27:28:31" region="bottom"> work that goes forward, going forward.</p>
+      <p begin="00:27:28:35" end="00:27:31:42" region="bottom">So as a quick summary, I want to give you an idea of like when you're transitioning from</p>
+      <p begin="00:27:31:42" end="00:27:32:54" region="bottom"> chat to agentic work.</p>
+      <p begin="00:27:33:01" end="00:27:36:05" region="bottom">Let's look here about some of the differences you can have.</p>
+      <p begin="00:27:36:08" end="00:27:38:07" region="bottom">One, durability.</p>
+      <p begin="00:27:38:11" end="00:27:39:55" region="bottom">The conversation is the artifact in chat.</p>
+      <p begin="00:27:39:59" end="00:27:41:36" region="bottom">You have to go find that conversation again.</p>
+      <p begin="00:27:41:39" end="00:27:43:05" region="bottom">You have to recreate it again.</p>
+      <p begin="00:27:43:09" end="00:27:45:44" region="bottom">Good work is confined to the chat box.</p>
+      <p begin="00:27:45:48" end="00:27:48:55" region="bottom">In an agent, outputs of the AI</p>
+      <p begin="00:27:48:55" end="00:27:52:02" region="bottom"> interaction can be files, they persist, can be edited, version, shared,</p>
+      <p begin="00:27:52:02" end="00:27:54:19" region="bottom"> and the work survives past any given session.</p>
+      <p begin="00:27:54:23" end="00:27:57:48" region="bottom">They just, I mean, that app sits on my computer now, and I could use it whenever I want.</p>
+      <p begin="00:27:58:06" end="00:28:00:01" region="bottom">Context management.</p>
+      <p begin="00:28:00:05" end="00:28:03:23" region="bottom">You have to manage the context on your own in a chat bot, meaning if</p>
+      <p begin="00:28:03:23" end="00:28:06:59" region="bottom"> you've ever had to upload a bunch of like, here's 15 PDF</p>
+      <p begin="00:28:06:59" end="00:28:09:52" region="bottom"> files or a bunch of presentation documents.</p>
+      <p begin="00:28:09:55" end="00:28:13:45" region="bottom">You paste it, you frontload all the instructions, so hopefully it remembers it later on.</p>
+      <p begin="00:28:13:53" end="00:28:17:22" region="bottom">Context is managed autonomously through an agent.</p>
+      <p begin="00:28:17:25" end="00:28:20:25" region="bottom">Notice how it went and found the files that it needed to</p>
+      <p begin="00:28:20:25" end="00:28:21:51" region="bottom"> update the app effectively.</p>
+      <p begin="00:28:21:55" end="00:28:24:59" region="bottom">It actually deleted a couple files because it knew it didn't need them anymore.</p>
+      <p begin="00:28:25:02" end="00:28:28:42" region="bottom">And agentic search is so great for managing context effectively</p>
+      <p begin="00:28:28:42" end="00:28:31:46" region="bottom"> because it goes and finds the right thing that it needs for</p>
+      <p begin="00:28:31:46" end="00:28:35:21" region="bottom"> the moment that it's looking for that information.</p>
+      <p begin="00:28:35:25" end="00:28:38:25" region="bottom">And that is really, really great, and it unlocks a bunch of different workflows.</p>
+      <p begin="00:28:38:25" end="00:28:41:32" region="bottom">And you don't feel like you're having to do all the work to copy and paste in</p>
+      <p begin="00:28:41:32" end="00:28:43:09" region="bottom"> and out of a chat interface.</p>
+      <p begin="00:28:43:13" end="00:28:47:07" region="bottom">The surface for action is the conversation in a chat bot.</p>
+      <p begin="00:28:47:11" end="00:28:50:11" region="bottom">You can get it can oftentimes give you really good advice, but it feels</p>
+      <p begin="00:28:50:11" end="00:28:52:24" region="bottom"> like it's hard times hard to turn that into real work.</p>
+      <p begin="00:28:52:27" end="00:28:55:41" region="bottom">Agents can create, manage, edit files,</p>
+      <p begin="00:28:55:42" end="00:28:58:49" region="bottom"> interact with other surfaces, orchestrate ways things</p>
+      <p begin="00:28:58:49" end="00:28:59:54" region="bottom"> happen in an environment.</p>
+      <p begin="00:28:59:57" end="00:29:03:01" region="bottom">We haven't talked yet about how it can go out to the web and</p>
+      <p begin="00:29:03:01" end="00:29:05:21" region="bottom"> do some work on that, but it can certainly do that work as well.</p>
+      <p begin="00:29:05:25" end="00:29:06:55" region="bottom">Iteration.</p>
+      <p begin="00:29:06:59" end="00:29:10:10" region="bottom">New chat, new context, everything has to be rebuilt every time you do this.</p>
+      <p begin="00:29:10:13" end="00:29:13:17" region="bottom">In an agent, work lives in the file, the agent</p>
+      <p begin="00:29:13:17" end="00:29:17:07" region="bottom"> has access to it, structure can come from folders, not just the order of the conversation.</p>
+      <p begin="00:29:17:11" end="00:29:18:59" region="bottom">Hey, go look in this folder.</p>
+      <p begin="00:29:19:02" end="00:29:20:18" region="bottom">That's where I keep my templates.</p>
+      <p begin="00:29:20:21" end="00:29:23:21" region="bottom">That, instead of saying, here is my template,</p>
+      <p begin="00:29:23:21" end="00:29:26:32" region="bottom"> go look through it, you can start to give the agent</p>
+      <p begin="00:29:26:32" end="00:29:29:07" region="bottom"> structure and it can help it navigate more effectively.</p>
+      <p begin="00:29:29:11" end="00:29:30:52" region="bottom">Adaptability.</p>
+      <p begin="00:29:30:55" end="00:29:34:06" region="bottom">The real challenge is in where we got to a</p>
+      <p begin="00:29:34:06" end="00:29:37:13" region="bottom"> chat is that every workflow felt like it needed to adapt to the</p>
+      <p begin="00:29:37:13" end="00:29:38:39" region="bottom"> patterns of chat.</p>
+      <p begin="00:29:38:43" end="00:29:41:57" region="bottom">Now we can adapt workflows that adapt</p>
+      <p begin="00:29:41:57" end="00:29:43:31" region="bottom"> to actual, actually the way you work.</p>
+      <p begin="00:29:43:35" end="00:29:46:42" region="bottom">I built a whole new app for the things that I like</p>
+      <p begin="00:29:46:42" end="00:29:50:11" region="bottom"> to do, which is to figure, the reason I was checking the weather was</p>
+      <p begin="00:29:50:11" end="00:29:51:48" region="bottom"> that I wanted to know when I could be outside.</p>
+      <p begin="00:29:51:51" end="00:29:55:09" region="bottom">And that's a different kind of question that allows</p>
+      <p begin="00:29:55:09" end="00:29:58:09" region="bottom"> me to adapt what the agent does to my workflow</p>
+      <p begin="00:29:58:09" end="00:30:01:34" region="bottom"> rather than saying, well, what can I, what can I do inside of a chat interface</p>
+      <p begin="00:30:01:35" end="00:30:03:12" region="bottom"> or a chat, a chat bot?</p>
+      <p begin="00:30:03:15" end="00:30:05:07" region="bottom">Last one looping.</p>
+      <p begin="00:30:05:14" end="00:30:08:39" region="bottom">LMs are not great for deterministic and repeated workflows.</p>
+      <p begin="00:30:08:43" end="00:30:11:43" region="bottom">If you've ever asked it to do the same thing, like a 100 times you</p>
+      <p begin="00:30:11:43" end="00:30:13:42" region="bottom"> give it a spreadsheet and say, do this over and over again.</p>
+      <p begin="00:30:13:45" end="00:30:15:08" region="bottom">It does not do a very good job.</p>
+      <p begin="00:30:15:12" end="00:30:18:15" region="bottom">Oftentimes it just lies to you or tells you that it did it, or it</p>
+      <p begin="00:30:18:15" end="00:30:20:35" region="bottom"> pretends to do it and then it figures out that it can't.</p>
+      <p begin="00:30:20:39" end="00:30:24:01" region="bottom">Agents can do that because it can write code for itself</p>
+      <p begin="00:30:24:01" end="00:30:27:05" region="bottom"> to do that thing over and over and say, run that code</p>
+      <p begin="00:30:27:05" end="00:30:28:42" region="bottom"> until we're done with the project.</p>
+      <p begin="00:30:28:45" end="00:30:30:11" region="bottom">That loop opens that.</p>
+      <p begin="00:30:30:15" end="00:30:33:33" region="bottom">It can then write out verifiable documents</p>
+      <p begin="00:30:33:33" end="00:30:36:22" region="bottom"> and folders and files that you can make sure that you understand how that works.</p>
+      <p begin="00:30:36:26" end="00:30:39:33" region="bottom">And agents, um, can what</p>
+      <p begin="00:30:39:33" end="00:30:42:51" region="bottom"> can then happen is that L limbs, which generate text really well.</p>
+      <p begin="00:30:42:55" end="00:30:46:53" region="bottom">It can solve those problems when text generation is the best thing that could happen.</p>
+      <p begin="00:30:46:56" end="00:30:51:26" region="bottom">and use code or other deterministic logic when that's more appropriate.</p>
+      <p begin="00:30:51:58" end="00:30:55:05" region="bottom">So hopefully this gives you kind of an overview of how to</p>
+      <p begin="00:30:55:05" end="00:30:57:22" region="bottom"> think about what's going on with an agent to harness.</p>
+      <p begin="00:30:57:26" end="00:31:00:33" region="bottom">They are not magic, but they are very useful,</p>
+      <p begin="00:31:00:33" end="00:31:03:44" region="bottom"> and there are certain wet patterns, and as you understand how they work,</p>
+      <p begin="00:31:03:44" end="00:31:07:02" region="bottom"> you'll be able to harness them more effectively to do the work and</p>
+      <p begin="00:31:07:02" end="00:31:09:12" region="bottom"> design them around what they're capable of doing.</p>
+      <p begin="00:31:09:15" end="00:31:12:15" region="bottom">And you can start putting them in environments where they can be successful.</p>
+      <p begin="00:31:12:26" end="00:31:15:26" region="bottom">I have a few more videos and tutorials</p>
+      <p begin="00:31:15:26" end="00:31:18:37" region="bottom"> coming up that goes into much more of a deep dub on how what an agent</p>
+      <p begin="00:31:18:37" end="00:31:21:50" region="bottom"> sees themselves, what is the LLMC itself when it's working within an agent</p>
+      <p begin="00:31:21:51" end="00:31:24:33" region="bottom"> to harness and that can really, what does a system prompt look like?</p>
+      <p begin="00:31:24:36" end="00:31:26:31" region="bottom">What does a reasoning trace look like, that kind of stuff?</p>
+      <p begin="00:31:26:35" end="00:31:29:39" region="bottom">I have a few more videos coming up on advice on how to</p>
+      <p begin="00:31:29:39" end="00:31:32:43" region="bottom"> do, how you could set up an environment, how do you set up a</p>
+      <p begin="00:31:32:43" end="00:31:36:18" region="bottom"> clawed code or a codex so that you can make sure that it could be successful.</p>
+      <p begin="00:31:36:22" end="00:31:38:14" region="bottom">Are there ways you can work within files?</p>
+      <p begin="00:31:38:17" end="00:31:41:24" region="bottom">And then I have some other videos that are going to talk about some workflow patterns that</p>
+      <p begin="00:31:41:24" end="00:31:44:28" region="bottom"> you can take on to say, well, what are, how have people been using these</p>
+      <p begin="00:31:44:28" end="00:31:47:42" region="bottom"> things to get different types of outputs from them, uh,</p>
+      <p begin="00:31:47:42" end="00:31:51:32" region="bottom"> and using agents in that way, so you can see some worked examples or case studies in that way.</p>
+      <p begin="00:31:51:58" end="00:31:54:18" region="bottom">As always, leave me some comments.</p>
+      <p begin="00:31:54:22" end="00:31:57:36" region="bottom">If you have ideas about what we can do, things that I can make a little bit clearer.</p>
+      <p begin="00:31:57:40" end="00:31:58:30" region="bottom">I love to hear that stuff.</p>
+      <p begin="00:31:58:34" end="00:32:00:40" region="bottom">Um, and hopefully I can see you in another video.</p>
+    </div>
+  </body>
+</tt>

@@ -1,0 +1,194 @@
+---
+interface Props {
+	tutorialSlug: string;
+	tutorialTitle: string;
+	tutorialCategory: string;
+}
+
+const { tutorialSlug, tutorialTitle, tutorialCategory } = Astro.props;
+---
+
+<section class="feedback" aria-labelledby="feedback-heading">
+	<div class="feedback-head">
+		<h2 id="feedback-heading">Questions or suggestions?</h2>
+		<p>
+			If something was unclear, or if there is a topic you would like to see next, send a note.
+		</p>
+	</div>
+
+	<form class="feedback-form" action="/api/tutorial-feedback" method="post" data-feedback-form>
+		<input type="hidden" name="tutorialSlug" value={tutorialSlug} />
+		<input type="hidden" name="tutorialTitle" value={tutorialTitle} />
+		<input type="hidden" name="tutorialCategory" value={tutorialCategory} />
+		<input type="hidden" name="pageUrl" value={Astro.url.pathname} />
+
+		<div class="field-grid">
+			<label>
+				<span>Name (optional)</span>
+				<input type="text" name="name" autocomplete="name" />
+			</label>
+
+			<label>
+				<span>Email (optional)</span>
+				<input type="email" name="email" autocomplete="email" />
+			</label>
+		</div>
+
+		<label>
+			<span>What kind of feedback is this?</span>
+			<select name="feedbackType">
+				<option value="suggestion">Suggestion</option>
+				<option value="question">Question</option>
+				<option value="topic-request">Topic request</option>
+				<option value="bug">Something is broken</option>
+			</select>
+		</label>
+
+		<label>
+			<span>Message</span>
+			<textarea
+				name="message"
+				rows="5"
+				required
+				placeholder="What would you like to see clarified, expanded, or covered next?"
+			></textarea>
+		</label>
+
+		<label class="field-honeypot" aria-hidden="true">
+			<span>Leave this blank</span>
+			<input type="text" name="organization" tabindex="-1" autocomplete="off" />
+		</label>
+
+		<div class="feedback-actions">
+			<button type="submit" class="btn">Send feedback</button>
+			<p class="feedback-status" data-feedback-status aria-live="polite"></p>
+		</div>
+	</form>
+</section>
+
+<script>
+	const forms = document.querySelectorAll('[data-feedback-form]');
+
+	for (const form of forms) {
+		const status = form.querySelector('[data-feedback-status]');
+		const button = form.querySelector('button[type="submit"]');
+
+		form.addEventListener('submit', async (event) => {
+			event.preventDefault();
+			if (!(form instanceof HTMLFormElement) || !(button instanceof HTMLButtonElement)) return;
+
+			button.disabled = true;
+			if (status) status.textContent = 'Sending...';
+
+			try {
+				const response = await fetch(form.action, {
+					method: 'POST',
+					headers: {
+						Accept: 'application/json',
+					},
+					body: new FormData(form),
+				});
+
+				const result = await response.json().catch(() => ({}));
+
+				if (!response.ok) {
+					throw new Error(result?.error || 'Unable to send feedback right now.');
+				}
+
+				form.reset();
+				if (status) status.textContent = 'Thanks. Your feedback was saved.';
+			} catch (error) {
+				if (status) {
+					status.textContent =
+						error instanceof Error ? error.message : 'Unable to send feedback right now.';
+				}
+			} finally {
+				button.disabled = false;
+			}
+		});
+	}
+</script>
+
+<style>
+	.feedback {
+		margin-top: 3.5rem;
+		padding-top: 1.5rem;
+		border-top: 1px solid var(--color-border);
+		max-width: 66ch;
+	}
+	.feedback-head {
+		margin-bottom: 1.25rem;
+	}
+	.feedback-head h2 {
+		font-size: 1rem;
+		margin: 0 0 0.45rem;
+	}
+	.feedback-head p {
+		margin: 0;
+		color: var(--color-text-muted);
+		font-size: 0.96rem;
+		line-height: 1.6;
+	}
+	.feedback-form {
+		display: grid;
+		gap: 1rem;
+	}
+	.field-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 1rem;
+	}
+	.feedback-form label {
+		display: grid;
+		gap: 0.45rem;
+	}
+	.feedback-form span {
+		font-size: 0.82rem;
+		color: var(--color-text-muted);
+	}
+	.feedback-form input,
+	.feedback-form select,
+	.feedback-form textarea {
+		width: 100%;
+		font: inherit;
+		color: var(--color-text-main);
+		background: var(--color-bg);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius);
+		padding: 0.75rem 0.85rem;
+	}
+	.feedback-form textarea {
+		resize: vertical;
+		min-height: 8rem;
+	}
+	.feedback-form input:focus,
+	.feedback-form select:focus,
+	.feedback-form textarea:focus {
+		outline: 2px solid color-mix(in srgb, var(--color-accent) 35%, transparent);
+		outline-offset: 1px;
+		border-color: var(--color-accent);
+	}
+	.feedback-actions {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.9rem;
+	}
+	.feedback-status {
+		margin: 0;
+		font-size: 0.88rem;
+		color: var(--color-text-muted);
+	}
+	.field-honeypot {
+		position: absolute;
+		left: -9999px;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+	}
+	@media (max-width: 720px) {
+		.field-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

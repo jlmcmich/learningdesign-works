@@ -41,6 +41,28 @@ public/
 2. Framework preset: **Astro**. Build command: `npm run build`. Build output: `dist`.
 3. Add the custom domain `learningdesign.works` under **Custom domains** and update DNS.
 
+## Tutorial feedback
+
+The tutorials section includes a lightweight feedback form designed for Cloudflare Pages Functions + D1.
+
+Setup:
+
+1. Create a D1 database for feedback submissions.
+2. Run the SQL in `db/tutorial-feedback.sql`.
+3. In Cloudflare Pages, bind the database as `FEEDBACK_DB`.
+4. Add a secret environment variable named `FEEDBACK_ADMIN_TOKEN`.
+5. Redeploy the site.
+
+After deployment:
+
+- Tutorial pages can submit feedback to `/api/tutorial-feedback`
+- You can review recent submissions at:
+  `/api/tutorial-feedback?token=YOUR_SECRET_TOKEN`
+- Or use the built-in review page at:
+  `/tutorial-feedback-admin`
+
+This endpoint returns JSON so submissions can be exported or turned into a small admin page later.
+
 ## Theme attribution
 
 Built on [Astro Scholar](https://github.com/shravanngoswamii/astro-scholar) by Shravan Goswami. See `LICENSE`.

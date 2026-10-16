@@ -53,4 +53,34 @@ const prompts = defineCollection({
 		}),
 });
 
-export const collections = { blog, projects, prompts };
+const tutorials = defineCollection({
+	loader: glob({ base: './src/content/tutorials', pattern: '**/*.{md,mdx}' }),
+	schema: () =>
+		z.object({
+			title: z.string(),
+			description: z.string(),
+			category: z.enum([
+				'Getting Started',
+				'Under the Hood',
+				'Working with Agents',
+				'Workflow Patterns',
+				'Deep Dives',
+			]),
+			series: z.enum(['core', 'deep-dive']).default('core'),
+			order: z.number().optional(),
+			duration: z.string().optional(),
+			status: z.enum(['Coming Soon', 'In Production', 'Published']).default('Coming Soon'),
+			videoUrl: z.string().optional(),
+			videoThumbnail: z.string().optional(),
+			learn: z.array(z.string()).optional(),
+			recommendedNext: z
+				.array(z.object({ title: z.string(), href: z.string() }))
+				.optional(),
+			notes: z
+				.array(z.object({ label: z.string(), href: z.string() }))
+				.optional(),
+			showOnIndex: z.boolean().default(true),
+		}),
+});
+
+export const collections = { blog, projects, prompts, tutorials };
