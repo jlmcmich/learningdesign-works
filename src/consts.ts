@@ -1,12 +1,12 @@
 export const SITE_TITLE = 'Jonathan McMichael';
-export const SITE_TAGLINE = 'Educator. Designer. Librarian.';
+export const SITE_TAGLINE = 'AI Strategist';
 export const SITE_DESCRIPTION =
-  'Professional portfolio of Jonathan McMichael — AI Specialist at Arizona State University, working at the intersection of AI, instructional design, and higher education.';
+  'Professional portfolio of Jonathan McMichael — AI Strategist at Arizona State University, working at the intersection of AI, instructional design, and higher education.';
 
 export const CV_URL = '';
 
 export const CONTACT = {
-  organization: 'College of Liberal Arts and Sciences, Arizona State University',
+  organization: 'Enterprise Technology, Arizona State University',
   addressLines: ['Tempe, AZ'],
   emails: [],
 };
