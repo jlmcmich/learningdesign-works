@@ -11,3 +11,9 @@ database_id = "24e65c91-fd5a-4892-b749-e028711265fc"
 
 # FEEDBACK_ADMIN_TOKEN is intentionally managed as a Pages secret,
 # not committed in this file.
+
+# Contact form mail goes through a separate Worker (workers/contact-mailer),
+# because Pages Functions can't use send_email bindings directly.
+[[services]]
+binding = "CONTACT_MAILER"
+service = "ldw-contact-mailer"

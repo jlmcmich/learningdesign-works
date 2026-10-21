@@ -1,0 +1,147 @@
+---
+// Short contact form. Messages are saved and emailed to me (see functions/api/contact.js).
+---
+
+<form class="contact-form" action="/api/contact" method="post" data-contact-form>
+	<input type="hidden" name="pageUrl" value={Astro.url.pathname} />
+
+	<div class="field-grid">
+		<label>
+			<span>Name</span>
+			<input type="text" name="name" autocomplete="name" required maxlength="200" />
+		</label>
+
+		<label>
+			<span>Email</span>
+			<input type="email" name="email" autocomplete="email" required maxlength="320" />
+		</label>
+	</div>
+
+	<label>
+		<span>Campus or organization (optional)</span>
+		<input type="text" name="organization" autocomplete="organization" maxlength="200" />
+	</label>
+
+	<label>
+		<span>Message</span>
+		<textarea name="message" rows="5" required maxlength="4000"></textarea>
+	</label>
+
+	<label class="field-honeypot" aria-hidden="true">
+		<span>Leave this blank</span>
+		<input type="text" name="website" tabindex="-1" autocomplete="off" />
+	</label>
+
+	<div class="contact-actions">
+		<button type="submit" class="btn">Send message</button>
+		<p class="contact-status" data-contact-status aria-live="polite"></p>
+	</div>
+</form>
+
+<script>
+	const forms = document.querySelectorAll('[data-contact-form]');
+
+	for (const form of forms) {
+		const status = form.querySelector('[data-contact-status]');
+		const button = form.querySelector('button[type="submit"]');
+
+		form.addEventListener('submit', async (event) => {
+			event.preventDefault();
+			if (!(form instanceof HTMLFormElement) || !(button instanceof HTMLButtonElement)) return;
+
+			button.disabled = true;
+			if (status) status.textContent = 'Sending...';
+
+			try {
+				const response = await fetch(form.action, {
+					method: 'POST',
+					headers: {
+						Accept: 'application/json',
+					},
+					body: new FormData(form),
+				});
+
+				const result = await response.json().catch(() => ({}));
+
+				if (!response.ok) {
+					throw new Error(result?.error || 'Unable to send your message right now.');
+				}
+
+				form.reset();
+				if (status) status.textContent = "Thanks. Your message was sent, and I'll get back to you.";
+			} catch (error) {
+				if (status) {
+					status.textContent =
+						error instanceof Error ? error.message : 'Unable to send your message right now.';
+				}
+			} finally {
+				button.disabled = false;
+			}
+		});
+	}
+</script>
+
+<style>
+	.contact-form {
+		display: grid;
+		gap: 1rem;
+	}
+	.field-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 1rem;
+	}
+	.contact-form label {
+		display: grid;
+		gap: 0.45rem;
+	}
+	.contact-form span {
+		font-size: 0.82rem;
+		color: var(--color-text-muted);
+	}
+	.contact-form input,
+	.contact-form select,
+	.contact-form textarea {
+		width: 100%;
+		font: inherit;
+		color: var(--color-text-main);
+		background: var(--color-bg);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius);
+		padding: 0.75rem 0.85rem;
+	}
+	.contact-form textarea {
+		resize: vertical;
+		min-height: 8rem;
+	}
+	.contact-form input:focus,
+	.contact-form select:focus,
+	.contact-form textarea:focus {
+		outline: 2px solid color-mix(in srgb, var(--color-accent) 35%, transparent);
+		outline-offset: 1px;
+		border-color: var(--color-accent);
+	}
+	.contact-actions {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.9rem;
+	}
+	.contact-status {
+		margin: 0;
+		font-size: 0.88rem;
+		color: var(--color-text-muted);
+	}
+	.field-honeypot {
+		position: absolute;
+		left: -9999px;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+	}
+	@media (max-width: 720px) {
+		.field-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

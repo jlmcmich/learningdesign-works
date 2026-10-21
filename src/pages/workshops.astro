@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, CONTACT_EMAIL, LINKEDIN_URL } from '../consts';
 import { url } from '../utils/paths';
+import ContactForm from '../components/ContactForm.astro';
 
 const offers = [
 	{
@@ -93,11 +94,13 @@ const offers = [
 					Tell me a little about your campus and your role, who you'd like in the room, rough timing,
 					and what you hope people leave with.
 				</p>
+				<ContactForm />
 				<div class="contact-options">
+					<span class="contact-or">Or reach me directly:</span>
 					{CONTACT_EMAIL && (
-						<a href={`mailto:${CONTACT_EMAIL}`} class="btn">Email {CONTACT_EMAIL}</a>
+						<a href={`mailto:${CONTACT_EMAIL}`} class="btn btn-outline">{CONTACT_EMAIL}</a>
 					)}
-					<a href={LINKEDIN_URL} class:list={['btn', CONTACT_EMAIL && 'btn-outline']} target="_blank" rel="noopener noreferrer">Message me on LinkedIn</a>
+					<a href={LINKEDIN_URL} class="btn btn-outline" target="_blank" rel="noopener noreferrer">LinkedIn</a>
 				</div>
 			</section>
 		</main>
@@ -177,12 +180,17 @@ const offers = [
 			}
 			.cta-panel h2 { margin: 0 0 0.6rem; font-size: 1.6rem; }
 			.cta-panel p { color: var(--color-text-muted); max-width: 58ch; margin-bottom: 1.5rem; }
+			.cta-panel :global(.contact-form) { max-width: 640px; }
 			.contact-options {
 				display: flex;
 				flex-wrap: wrap;
 				gap: 0.75rem;
 				align-items: center;
+				margin-top: 2rem;
+				padding-top: 1.5rem;
+				border-top: 1px solid var(--color-border);
 			}
+			.contact-or { font-size: 0.9rem; color: var(--color-text-muted); }
 
 			@media (max-width: 640px) {
 				.offer { grid-template-columns: 1fr; gap: 0.4rem; }
