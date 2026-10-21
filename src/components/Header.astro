@@ -4,12 +4,14 @@ import { url } from '../utils/paths';
 
 const cvHref = CV_URL ? url(CV_URL) : null;
 const navItems = [
-	{ href: '/', label: 'Home' },
-	{ href: '/projects', label: 'Projects' },
-	{ href: '/ai-prompts', label: 'AI for Learning Prompts' },
-	{ href: '/recent-contributions', label: 'Recent Contributions' },
-	{ href: '/mentorship-teaching', label: 'Mentorship & Teaching' },
-	{ href: '/tutorials', label: 'Tutorials' },
+	{ href: '/', label: 'Home', primary: false },
+	{ href: '/sandbox', label: 'Sandbox', primary: true },
+	{ href: '/workshops', label: 'Workshops and talks', primary: true },
+	{ href: '/projects', label: 'Projects', primary: true },
+	{ href: '/tutorials', label: 'Tutorials', primary: true },
+	{ href: '/ai-prompts', label: 'Prompts', primary: true },
+	{ href: '/recent-contributions', label: 'Recent contributions', primary: true },
+	{ href: '/mentorship-teaching', label: 'Mentorship and teaching', primary: false },
 ];
 const currentPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
 const basePath = import.meta.env.BASE_URL.replace(/\/+$/, '');
@@ -25,7 +27,7 @@ const isActive = (href: string) => {
 		<a class="brand" href={url('/')}>{SITE_TITLE}</a>
 
 		<nav class="nav-desktop" aria-label="Primary">
-			{navItems.slice(1).map((item) => (
+			{navItems.filter((item) => item.primary).map((item) => (
 				<a
 					href={url(item.href)}
 					class:list={['nav-link', isActive(item.href) && 'is-active']}
@@ -185,7 +187,7 @@ const isActive = (href: string) => {
 	.mobile-link.is-active { color: var(--color-text-main); }
 	.mobile-link:last-child { border-bottom: none; }
 
-	@media (max-width: 760px) {
+	@media (max-width: 1000px) {
 		.masthead-inner {
 			grid-template-columns: 1fr auto;
 			gap: 1rem;

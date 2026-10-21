@@ -5,6 +5,7 @@ import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_TAGLINE, SITE_DESCRIPTION } from '../consts';
 import { getCollection } from 'astro:content';
 import { url } from '../utils/paths';
+import LoopVideo from '../components/LoopVideo.astro';
 
 const projects = (await getCollection('projects')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -28,17 +29,56 @@ const featuredProjects = projects.slice(0, 4);
 						<p class="hero-role">
 							Enterprise Technology, Arizona State University.
 						</p>
+						<p class="hero-position">
+							I help campuses work out what agentic AI changes for teaching and learning by playing it out together in a shared sandbox, instead of debating it in the abstract.
+						</p>
 						<p class="hero-lede">
-							AI may be reshaping how higher education works — but not what it's for. Currently, my job is to develop ways that <strong>artificial intelligence</strong> supports our educational mission: built on what we know about how people grow, and anchored in the aspirations of a <strong>comprehensive public university</strong>.
+							AI may be reshaping how higher education works, but not what it's for. Currently, my job is to develop ways that <strong>artificial intelligence</strong> supports our educational mission: built on what we know about how people grow, and anchored in the aspirations of a <strong>comprehensive public university</strong>.
 						</p>
 						<div class="hero-cta">
-							<a href={url('/projects')} class="btn">View projects</a>
-							<a href={url('/ai-prompts')} class="btn btn-outline">Browse AI for Learning prompts</a>
+							<a href={url('/workshops#contact')} class="btn">Bring this to your campus</a>
+							<a href={url('/sandbox')} class="btn btn-outline">See the sandbox</a>
 						</div>
 					</div>
 
 					<div class="hero-portrait">
 						<img src={url('/jonathan.png')} alt="Jonathan McMichael" loading="eager" />
+					</div>
+				</div>
+			</section>
+
+			<section class="section sandbox-band">
+				<header class="section-head">
+					<h2>The agentic LMS sandbox</h2>
+					<a href={url('/sandbox')} class="section-cta">How it works →</a>
+				</header>
+
+				<p class="band-lede">
+					A space where higher education professionals can come together to experiment and make sense of what agents might mean for how we teach, learn, and work.
+				</p>
+				<div class="band-grid">
+					<div class="band-text">
+						<ul class="band-points">
+							<li><strong>Explore agents in a shared environment.</strong> Informed responses to agents should come from how we work together. People get a shared experience of where AI and the practices of higher education on our campuses might meet, and a place to talk about what it means.</li>
+							<li><strong>A safe space to experiment.</strong> Putting agents into a real LMS is daunting. Everything in the sandbox is made up, so no sensitive data is exposed.</li>
+							<li><strong>Adaptive and immersive.</strong> Student, instructor and administrator characters with agents act on the same simulated courses, so you see agents from many perspectives at once. It's a deeply immersive thought experiment, and it can adapt as the technology changes.</li>
+							<li><strong>It travels.</strong> I can bring it to your campus as a workshop, or help your people learn to run it.</li>
+						</ul>
+					</div>
+					<div class="band-side">
+						<figure class="band-figure">
+							<a href={url('/sandbox')} class="band-shot" aria-label="See the agentic LMS sandbox">
+								<LoopVideo name="hero-agent-run" width={1600} height={812} label="Screen recording. A student asks their agent for help catching up in ENG 101, and the agent works through a fictional course site in its own browser, then drafts a message to the instructor." />
+							</a>
+							<figcaption>A student's agent catching them up in ENG 101, working in the fictional LMS through its own browser. Sped up. All data is fictional.</figcaption>
+						</figure>
+						<p class="band-origin">
+							Built for "Designing Learning Environments in an Agentic World," a workshop with Michelle Kassorla at the AAC&amp;U Conference on AI and Higher Education.
+						</p>
+						<div class="hero-cta">
+							<a href={url('/sandbox')} class="btn">See the sandbox</a>
+							<a href={url('/workshops')} class="btn btn-outline">Workshops and talks</a>
+						</div>
 					</div>
 				</div>
 			</section>
@@ -67,9 +107,10 @@ const featuredProjects = projects.slice(0, 4);
 					<div class="now-block">
 						<div class="now-label">Selected Projects</div>
 						<ul class="now-list">
-							<li><a href={url('/tutorials')}><strong>Agentic AI Tutorials</strong></a> — A growing video series for people learning to work with agentic AI tools.</li>
-							<li><a href={url('/projects/vibecheck/')}><strong>VibeCheck</strong></a> — Student learning-reflection app with AI-powered insights.</li>
-							<li><a href="https://ai.asu.edu/ai-tools/learning-design-suite"><strong>Learning Design Suite</strong></a> — Contributed 4 tools for learning objectives, module design, assignment language, and discussion prompts.</li>
+							<li><a href={url('/sandbox')}><strong>Agentic LMS sandbox</strong></a>: A simulated course site where student, instructor and admin agents meet. Built for a workshop with Michelle Kassorla.</li>
+							<li><a href={url('/tutorials')}><strong>Agentic AI Tutorials</strong></a>: A growing video series for people learning to work with agentic AI tools.</li>
+							<li><a href={url('/projects/vibecheck/')}><strong>VibeCheck</strong></a>: Student learning-reflection app with AI-powered insights.</li>
+							<li><a href="https://ai.asu.edu/ai-tools/learning-design-suite"><strong>Learning Design Suite</strong></a>: Contributed 4 tools for learning objectives, module design, assignment language, and discussion prompts.</li>
 						</ul>
 					</div>
 				</div>
@@ -138,6 +179,17 @@ const featuredProjects = projects.slice(0, 4);
 				max-width: 50ch;
 				line-height: 1.5;
 			}
+			.hero-position {
+				font-size: 1.3rem;
+				line-height: 1.5;
+				font-weight: 500;
+				letter-spacing: -0.012em;
+				color: var(--color-text-main);
+				max-width: 46ch;
+				margin: 0 0 1.25rem;
+				padding-left: 1rem;
+				border-left: 2px solid var(--color-accent);
+			}
 			.hero-lede {
 				font-size: 1.1rem;
 				line-height: 1.65;
@@ -198,6 +250,50 @@ const featuredProjects = projects.slice(0, 4);
 				white-space: nowrap;
 			}
 			.section-cta:hover { color: var(--color-accent); border: none; }
+
+			/* ===== SANDBOX BAND ===== */
+			.band-grid {
+				display: grid;
+				grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+				gap: 3rem;
+				align-items: start;
+			}
+			.band-lede {
+				font-size: 1.25rem;
+				line-height: 1.55;
+				margin: 0 0 2rem;
+			}
+			.band-points {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+			.band-points li {
+				font-size: 0.96rem;
+				line-height: 1.6;
+				color: var(--color-text-muted);
+				margin-bottom: 0.85rem;
+			}
+			.band-origin {
+				font-size: 0.88rem;
+				color: var(--color-text-faint);
+				margin: 1.5rem 0 1.25rem;
+			}
+			.band-figure { margin: 0; }
+			.band-shot {
+				display: block;
+				border: 1px solid var(--color-border);
+				border-radius: var(--radius);
+				overflow: hidden;
+				box-shadow: var(--shadow-md);
+			}
+			.band-shot:hover { border-color: var(--color-accent); }
+			.band-shot :global(img), .band-shot :global(video) { display: block; width: 100%; height: auto; }
+			.band-figure figcaption {
+				margin-top: 0.6rem;
+				font-size: 0.82rem;
+				color: var(--color-text-faint);
+			}
 
 			/* ===== NOW GRID ===== */
 			.now-grid {
@@ -313,6 +409,11 @@ const featuredProjects = projects.slice(0, 4);
 					justify-self: start;
 					max-width: 200px;
 				}
+				.band-grid {
+					grid-template-columns: 1fr;
+					gap: 2rem;
+				}
+				.band-side { order: -1; }
 				.now-grid {
 					grid-template-columns: 1fr;
 					gap: 2rem;

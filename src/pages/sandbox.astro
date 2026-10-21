@@ -1,0 +1,445 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
+import { url } from '../utils/paths';
+import { Image } from 'astro:assets';
+import instructorShot from '../assets/sandbox/instructor.png';
+import courseShot from '../assets/sandbox/course-post.png';
+import LoopVideo from '../components/LoopVideo.astro';
+
+const format = [
+	{
+		n: '1',
+		title: 'Free play',
+		body: 'Pick a character, a student, an instructor or a dean, and give their agent something to do. There is no script. People try what they are curious about and test the boundaries of what they can do with an agent.',
+	},
+	{
+		n: '2',
+		title: 'Role play',
+		body: 'Groups get a scenario card and play it from more than one side. Then people swap roles and see the same situation from somewhere else in the course.',
+	},
+	{
+		n: '3',
+		title: 'Configure permissions',
+		body: 'Implement a set of policies by setting tools to Allow, Ask or Block, and watch what that does to the agent, and to everyone else.',
+	},
+	{
+		n: '4',
+		title: 'Reimagine pedagogy',
+		body: 'Reconsider how assignments might look and work when students have agents. Draft an assignment, then engage with it as a student to see how well it works.',
+	},
+];
+
+const shots = [
+	{
+		video: { name: 'every-user', width: 1440, height: 492 },
+		title: 'An agent for every user',
+		caption: 'Students, instructors and administrators each have a full agent with files, skills, tools and a connection to a fictional LMS.',
+		alt: 'Screen recording of the agent console switching from the student, Jordan Rivera, to the instructor, Dr. Nora Whitaker, to an associate dean, Dr. Morgan Lee, each with their own agent and suggested tasks.',
+	},
+	{
+		img: courseShot,
+		title: 'The course site',
+		caption: 'A fictional university with a course site that looks and works like a familiar learning management system, with a semester of history already in it. It is deeply built and fully interactive: everything can be found, changed and used in authentic scenarios.',
+		alt: 'A Week 9 discussion in the fictional ENG 101 course site, viewed as the instructor, showing a post under the student Jordan Rivera\'s name.',
+	},
+	{
+		video: { name: 'ledger', width: 1280, height: 1682 },
+		title: 'A ledger',
+		narrow: true,
+		caption: 'Everything any agent did in the shared world. It gives a 30,000-foot view of how interactions play out: what changed, which agent changed it, and on whose behalf.',
+		alt: 'Screen recording of the team ledger filling with actions by the instructor\'s agent, such as reading course activity and saving a file, each attributed to Dr. Nora Whitaker\'s agent.',
+	},
+	{
+		video: { name: 'under-the-hood', width: 1280, height: 1182 },
+		title: 'Configurable tools',
+		caption: 'Every agent has a standard set of tools plus an LMS connector. It can read, write and edit its own files, use university email, change shared calendars, and work in the LMS based on its permissions. Each tool can be set to Allow, Ask or Block, and changes take effect right away.',
+		alt: 'Screen recording of the Under the hood panel. The RidgeLearn connector\'s write tools are switched from Allow to Block to Ask.',
+	},
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title={`The agentic LMS sandbox | ${SITE_TITLE}`}
+			description="A space where higher education professionals come together to experiment with, and make sense of, what agents might mean for how we teach, learn, and work."
+		/>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="page-head" data-reveal>
+				<div class="eyebrow">Workshop activity</div>
+				<h1>The agentic LMS sandbox</h1>
+				<p class="page-lede">
+					A space where higher education professionals can come together to experiment and make sense
+					of what agents might mean for how we teach, learn, and work.
+				</p>
+				<p class="page-sub">
+					The sandbox is an extended thought experiment that can facilitate constructive conversation
+					and discovery at college campuses. People role play students, instructors and administrators
+					using agents in an LMS, to understand how agents might affect our classrooms.
+				</p>
+				<div class="head-cta">
+					<a href={url('/workshops#contact')} class="btn">Bring this to your campus</a>
+					<a href="#activities" class="btn btn-outline">How it runs</a>
+				</div>
+			</section>
+
+			<figure class="hero-shot" data-reveal style="--reveal-delay: 120ms">
+				<LoopVideo name="hero-agent-run" width={1600} height={812} label="Screen recording. A student, Jordan, asks their agent for help catching up in ENG 101. The agent's browser opens the fictional course site, checks grades, assignments and an announcement, then the agent summarizes what is late and drafts a message to the instructor, asking before sending it." />
+				<figcaption>A student asks their agent to catch them up in ENG 101, and the agent works through the fictional LMS in its own browser. Sped up. All people and data are fictional.</figcaption>
+			</figure>
+
+			<section class="section">
+				<header class="section-head">
+					<h2>Why a sandbox</h2>
+				</header>
+				<div class="idea-grid">
+					<div class="prose">
+						<p>
+							Our experiences with AI are becoming increasingly isolating as we enter the era of
+							personalized agents. A student's agent might prepare them a personalized weekly study
+							plan. An instructor might use an agent to brainstorm new ways of presenting a challenging
+							idea to the class. An administrator might have an agent review large amounts of data to
+							enable more targeted student success strategies.
+						</p>
+						<p>
+							But what does this mean for our learning environments and the ways we relate to each
+							other? That's hard to see from any one perspective.
+						</p>
+						<p>
+							We might need to play those scenarios out to understand the implications. But it can be
+							difficult to experiment because we are rightly concerned about connecting powerful AI to
+							our real data.
+						</p>
+						<p>
+							That's why I built the sandbox. It gives us a place to play.
+						</p>
+					</div>
+					<figure class="shot shot-wide">
+						<Image src={instructorShot} alt="The agent console in the instructor view. Her agent summarizes what's new in ENG 101, including a late Week 9 post and two replies made by a student's agent." widths={[720, 1100, 1440]} sizes="(max-width: 880px) 100vw, 560px" />
+						<figcaption>Seen from another seat: the instructor's agent reports on posts the student's agent made a few minutes earlier.</figcaption>
+					</figure>
+				</div>
+			</section>
+
+			<section class="section">
+				<header class="section-head">
+					<h2>What's in it</h2>
+				</header>
+				<div class="shot-rows">
+					{shots.map((s) => (
+						<figure class:list={['shot-row', s.tall && 'is-tall', s.narrow && 'is-narrow']}>
+							{s.video ? (
+								<div class="shot-img">
+									<LoopVideo name={s.video.name} width={s.video.width} height={s.video.height} label={s.alt} />
+								</div>
+							) : (
+								<a class="shot-img" href={s.img.src} title="Open full size">
+									<Image src={s.img} alt={s.alt} widths={[500, 800, 1200]} sizes="(max-width: 760px) 100vw, 600px" />
+								</a>
+							)}
+							<figcaption>
+								<h3>{s.title}</h3>
+								<p>{s.caption}</p>
+							</figcaption>
+						</figure>
+					))}
+				</div>
+			</section>
+
+			<section class="section" id="activities">
+				<header class="section-head">
+					<h2>Potential activities</h2>
+				</header>
+				<p class="section-intro">
+					Because it is a full agent system and LMS, it can support a wide range of activities.
+				</p>
+				<ol class="format-grid">
+					{format.map((f) => (
+						<li class="format-step">
+							<div class="format-n" aria-hidden="true">{f.n}</div>
+							<h3>{f.title}</h3>
+							<p>{f.body}</p>
+						</li>
+					))}
+				</ol>
+			</section>
+
+			<section class="section">
+				<header class="section-head">
+					<h2>What I hope comes out of the sandbox</h2>
+				</header>
+				<ul class="gets">
+					<li><strong>A shared experience across roles.</strong> Faculty, instructional designers, IT and administrators work the same scenarios together, often for the first time.</li>
+					<li><strong>Concrete cases.</strong> People can take real lessons from what happens in the sandbox, and apply them to course design, policy and technology conversations.</li>
+					<li><strong>A head start.</strong> A way to be proactive about agents on your campus rather than reactive.</li>
+					<li><strong>A model for engaging with AI constructively.</strong> Building deep simulations like this is becoming increasingly possible. I would love to see people with expertise build new ways to discover insights in a changing world, and I hope people build their own sandboxes.</li>
+				</ul>
+			</section>
+
+			<section class="section">
+				<header class="section-head">
+					<h2>Play is the point</h2>
+				</header>
+				<div class="prose">
+					<p>
+						In many ways, I made a game. It's a simulation of what we might see on our campuses pretty
+						soon.
+					</p>
+					<p>
+						What makes it work is an environment where people discover the lessons themselves. You can
+						play the scenarios out in a safe space because everything in it is made up. This sandbox
+						will continue to evolve along with the technology and circumstances.
+					</p>
+				</div>
+			</section>
+
+			<section class="section">
+				<header class="section-head">
+					<h2>Where it started</h2>
+				</header>
+				<div class="prose">
+					<p>
+						I built the sandbox for <strong>Designing Learning Environments in an Agentic World</strong>,
+						a workshop Michelle Kassorla and I designed for the
+						<a href="https://www.aacu.org/event/conference-on-ai-and-higher-education">AAC&amp;U Conference on AI and Higher Education</a>
+						(Hilton Atlanta, October 28, 2026).
+					</p>
+				</div>
+			</section>
+
+			<section class="cta-panel">
+				<h2>Bring it to your campus</h2>
+				<p>
+					If your campus, or a group on it, is working out its response to agents on your learning
+					platform, the sandbox offers a low-stakes shared experience. For example:
+				</p>
+				<ul class="cta-list">
+					<li>Redesigning assignments, and seeing how students and their agents might take them on.</li>
+					<li>A faculty workshop on how students might be learning differently.</li>
+					<li>A leadership or IT team weighing governance and permissions: what agents should be allowed to do, and who decides.</li>
+					<li>A teaching center building its own programming around agents.</li>
+				</ul>
+				<p>This thing travels. If one of these sounds like your campus, get in touch.</p>
+				<div class="head-cta">
+					<a href={url('/workshops#contact')} class="btn">Get in touch</a>
+					<a href={url('/workshops')} class="btn btn-outline">Workshops and talks</a>
+				</div>
+			</section>
+		</main>
+		<Footer />
+
+		<style>
+			.page-head {
+				padding: 2.5rem 0 3rem;
+				border-bottom: 1px solid var(--color-border);
+				margin-bottom: 3rem;
+			}
+			.page-head .eyebrow { margin-bottom: 0.75rem; }
+			.page-head .page-lede { margin-bottom: 1rem; }
+			.page-head h1 { margin: 0 0 1rem; }
+			.page-lede {
+				font-size: 1.2rem;
+				line-height: 1.6;
+				color: var(--color-text-muted);
+				max-width: 60ch;
+				margin: 0 0 1.75rem;
+			}
+			.page-sub {
+				font-size: 1rem;
+				line-height: 1.7;
+				color: var(--color-text-muted);
+				max-width: 65ch;
+				margin: 0 0 1.75rem;
+			}
+			.head-cta { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+			.hero-shot { margin: -1rem 0 4.5rem; }
+			.hero-shot a { display: block; border: none; }
+			.hero-shot :global(img), .hero-shot :global(video) {
+				display: block;
+				width: 100%;
+				height: auto;
+				border-radius: var(--radius);
+				box-shadow: var(--shadow-lg);
+			}
+			.hero-shot figcaption {
+				margin-top: 0.85rem;
+				font-size: 0.9rem;
+				color: var(--color-text-muted);
+				max-width: 75ch;
+			}
+			.cta-list {
+				margin: 0 0 1.25rem;
+				padding-left: 1.2rem;
+				color: var(--color-text-muted);
+				max-width: 65ch;
+			}
+			.cta-list li { margin-bottom: 0.45rem; line-height: 1.6; }
+
+			.section { margin-bottom: 4.5rem; }
+			.section-head {
+				display: flex;
+				justify-content: space-between;
+				align-items: baseline;
+				flex-wrap: wrap;
+				gap: 0.5rem 1rem;
+				margin-bottom: 1.75rem;
+				padding-bottom: 0.75rem;
+				border-bottom: 1px solid var(--color-border);
+			}
+			.section-head h2 {
+				margin: 0;
+				font-size: 1.45rem;
+				font-weight: 600;
+				letter-spacing: -0.018em;
+			}
+			.section-sub {
+				font-size: 0.9rem;
+				color: var(--color-text-faint);
+			}
+			.section-intro {
+				color: var(--color-text-muted);
+				max-width: 65ch;
+				margin-bottom: 2rem;
+			}
+
+			.prose { max-width: 62ch; }
+			.prose p { color: var(--color-text-muted); line-height: 1.7; }
+			.prose p strong { color: var(--color-text-main); }
+
+			.idea-grid {
+				display: grid;
+				grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+				gap: 3rem;
+				align-items: start;
+			}
+
+			.shot { margin: 0; }
+			.shot img {
+				display: block;
+				width: 100%;
+				height: auto;
+				border: 1px solid var(--color-border);
+				border-radius: var(--radius);
+				box-shadow: var(--shadow-md);
+			}
+			.shot figcaption {
+				margin-top: 0.75rem;
+				font-size: 0.88rem;
+				line-height: 1.55;
+				color: var(--color-text-muted);
+			}
+			.shot figcaption strong { color: var(--color-text-main); }
+
+			.shot-rows { display: grid; gap: 3.5rem; }
+			.shot-row {
+				margin: 0;
+				display: grid;
+				grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+				gap: 2.5rem;
+				align-items: center;
+			}
+			.shot-row:nth-child(even) { grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); }
+			.shot-row:nth-child(even) .shot-img { order: 2; }
+			.shot-img { display: block; border: none; }
+			.shot-img:hover { border: none; }
+			.shot-img:hover :global(img) { border-color: var(--color-accent); }
+			.shot-img :global(img), .shot-img :global(video) {
+				display: block;
+				width: 100%;
+				height: auto;
+				border: 1px solid var(--color-border);
+				border-radius: var(--radius);
+				box-shadow: var(--shadow-md);
+			}
+			.shot-row.is-tall .shot-img { max-width: 320px; justify-self: center; width: 100%; }
+			.shot-row.is-narrow .shot-img { max-width: 440px; justify-self: center; width: 100%; }
+			.shot-row figcaption h3 { margin: 0 0 0.5rem; font-size: 1.15rem; }
+			.shot-row figcaption p {
+				margin: 0;
+				color: var(--color-text-muted);
+				line-height: 1.65;
+				max-width: 42ch;
+			}
+
+			.format-grid {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+				display: grid;
+				grid-template-columns: repeat(4, minmax(0, 1fr));
+				gap: 1.25rem;
+			}
+			.format-step {
+				border: 1px solid var(--color-border);
+				border-radius: var(--radius);
+				padding: 1.25rem 1.25rem 1.1rem;
+				background: var(--color-bg-subtle);
+			}
+			.format-n {
+				font-family: var(--font-mono);
+				font-size: 0.8rem;
+				color: var(--color-accent);
+				font-weight: 600;
+				margin-bottom: 0.6rem;
+			}
+			.format-step h3 { font-size: 1.08rem; margin: 0 0 0.5rem; }
+			.format-step p {
+				margin: 0;
+				font-size: 0.92rem;
+				line-height: 1.55;
+				color: var(--color-text-muted);
+			}
+
+			.gets {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+				display: grid;
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+				gap: 1.25rem 2.5rem;
+			}
+			.gets li {
+				font-size: 0.98rem;
+				line-height: 1.6;
+				color: var(--color-text-muted);
+				padding-left: 1rem;
+				border-left: 2px solid var(--color-border);
+			}
+
+			.cta-panel {
+				border: 1px solid var(--color-border);
+				border-radius: var(--radius);
+				padding: 2.25rem 2rem;
+				background: var(--color-bg-subtle);
+			}
+			.cta-panel h2 { margin: 0 0 0.6rem; font-size: 1.6rem; }
+			.cta-panel p { color: var(--color-text-muted); max-width: 55ch; margin-bottom: 1.5rem; }
+
+			@media (max-width: 960px) {
+				.format-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+			}
+			@media (max-width: 880px) {
+				.idea-grid { grid-template-columns: 1fr; gap: 2rem; }
+			}
+			@media (max-width: 760px) {
+				.gets { grid-template-columns: 1fr; }
+				.shot-row, .shot-row:nth-child(even) { grid-template-columns: 1fr; gap: 1.1rem; }
+				.shot-row:nth-child(even) .shot-img { order: 0; }
+				.shot-row.is-tall .shot-img { max-width: 280px; justify-self: start; }
+				.shot-row.is-narrow .shot-img { max-width: 100%; justify-self: start; }
+			}
+			@media (max-width: 520px) {
+				.format-grid { grid-template-columns: 1fr; }
+				.cta-panel { padding: 1.75rem 1.25rem; }
+			}
+		</style>
+	</body>
+</html>

@@ -5,7 +5,7 @@ import Footer from '../components/Footer.astro';
 import { SITE_TITLE } from '../consts';
 
 const speakingAndWriting = [
-	{ year: 'Oct 2026', kind: 'Pre-Conference Workshop', title: 'Designing Learning Environments in an Agentic World: Coordinating Students, Instructors, and AI', venue: 'AAC&U Conference on AI and Higher Education, Atlanta', highlight: false, award: null, link: 'https://www.aacu.org/event/conference-on-ai-and-higher-education' },
+	{ year: 'Oct 2026', kind: 'Pre-Conference Workshop', title: 'Designing Learning Environments in an Agentic World: Coordinating Students, Instructors, and AI', venue: 'AAC&U Conference on AI and Higher Education, Atlanta · with Michelle Kassorla', highlight: false, award: null, link: 'https://www.aacu.org/event/conference-on-ai-and-higher-education', sandbox: '/sandbox' },
 	{ year: '2026', kind: 'Review Committee', title: 'AAC&U Conference on AI and Higher Education', venue: "Reviewing proposals for AAC&U's first dedicated conference on AI in higher education.", highlight: false, award: null, link: 'https://www.aacu.org/event/conference-on-ai-and-higher-education' },
 	{ year: 'Mar 2026', kind: 'Workshop', title: 'Navigating Intellectual Property, Academic Integrity, and Ethics in AI-Enhanced Education', venue: 'Future of Learning Community', highlight: false, award: null, link: 'https://folcfest.asu.edu/folcfest-workshops-2026', slides: 'https://drive.google.com/drive/folders/1NKa0fArx4pwyf4vVi47Eor0dFqtRB6GP?usp=drive_link' },
 	{ year: 'Jan 2026', kind: 'Keynote', title: 'Agentic AI: Challenges and Opportunities for Higher Education', venue: 'AAC&U Institute on AI, Pedagogy, and the Curriculum', highlight: false, award: null },
@@ -67,6 +67,7 @@ const panelistPanels = [
 								{t.award && <div class="award">{t.award}</div>}
 								{t.slides && <a href={t.slides} class="slides-link">Slides →</a>}
 								{t.link && <a href={t.link} class="slides-link">Details →</a>}
+								{t.sandbox && <a href={t.sandbox} class="slides-link">About the sandbox →</a>}
 							</div>
 						</li>
 					))}

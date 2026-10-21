@@ -20,6 +20,8 @@ import { url } from '../utils/paths';
 				<div class="block-label">Pages</div>
 				<ul>
 					<li><a href={url('/')}>Home</a></li>
+					<li><a href={url('/sandbox')}>Sandbox</a></li>
+					<li><a href={url('/workshops')}>Workshops and talks</a></li>
 					<li><a href={url('/projects')}>Projects</a></li>
 					<li><a href={url('/ai-prompts')}>AI for Learning Prompts</a></li>
 					<li><a href={url('/recent-contributions')}>Recent Contributions</a></li>
@@ -31,6 +33,7 @@ import { url } from '../utils/paths';
 			<div class="footer-block">
 				<div class="block-label">Connect</div>
 				<ul>
+					<li><a href={url('/workshops#contact')}>Bring a workshop to your campus</a></li>
 					{SOCIAL_LINKS.map((link) => (
 						<li>
 							<a href={link.href} target="_blank" rel="noopener noreferrer">

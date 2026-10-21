@@ -1,0 +1,193 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, CONTACT_EMAIL, LINKEDIN_URL } from '../consts';
+import { url } from '../utils/paths';
+
+const offers = [
+	{
+		kind: 'Workshop',
+		title: 'The agentic LMS sandbox',
+		body: 'A shared experience for a campus, or a group on a campus: attendees role play students, instructors and administrators whose agents all work in one simulated LMS, then talk through what it means for their own work. A half day works best. Shorter and more focused versions are possible.',
+		link: { href: '/sandbox', label: 'How the sandbox works' },
+	},
+	{
+		kind: 'Train-the-trainer',
+		title: 'Run it yourselves',
+		body: 'For teaching centers, instructional design teams and IT groups who want to run sandbox sessions on their own campus, and think about building a sandbox that fits their own context.',
+	},
+	{
+		kind: 'Talk',
+		title: 'Agents in higher education',
+		body: 'What an agent is, from the model up, and what changes when students, instructors and administrators all have one. Topics also include AI as a learning intervention and designing learning environments for an agentic world.',
+		link: { href: '/recent-contributions', label: 'Past talks and workshops' },
+	},
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title={`Workshops and talks | ${SITE_TITLE}`}
+			description="Bring the agentic LMS sandbox workshop, a train-the-trainer session, or a talk on agents in higher education to your campus."
+		/>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="page-head" data-reveal>
+				<h1>Workshops and talks</h1>
+				<p class="page-lede">
+					If your campus is working out what agentic AI means for teaching, learning and how the
+					institution runs, I'd be glad to talk about bringing a workshop or a talk to you.
+				</p>
+				<div class="head-cta">
+					<a href="#contact" class="btn">Get in touch</a>
+					<a href={url('/sandbox')} class="btn btn-outline">See the sandbox</a>
+				</div>
+			</section>
+
+			<section class="section">
+				<header class="section-head">
+					<h2>What I can bring</h2>
+				</header>
+				<ul class="offer-list">
+					{offers.map((o) => (
+						<li class="offer">
+							<div class="offer-kind">{o.kind}</div>
+							<div class="offer-body">
+								<h3>{o.title}</h3>
+								<p>{o.body}</p>
+								{o.link && <a href={url(o.link.href)} class="offer-link">{o.link.label} →</a>}
+							</div>
+						</li>
+					))}
+				</ul>
+			</section>
+
+			<section class="section">
+				<header class="section-head">
+					<h2>Who it's for</h2>
+				</header>
+				<div class="prose">
+					<p>
+						The sandbox works best with a mix of people in the room: faculty, instructional
+						designers, teaching center staff, IT and administrators. Each sees a different part of the
+						course, and the point is to see the parts together.
+					</p>
+					<p>
+						It was built for <strong>Designing Learning Environments in an Agentic World</strong>, a
+						workshop Michelle Kassorla and I designed for the AAC&amp;U Conference on AI and Higher
+						Education (Hilton Atlanta, October 28, 2026). You can find my other talks, panels and
+						workshops under <a href={url('/recent-contributions')}>recent contributions</a> and
+						<a href={url('/mentorship-teaching')}>mentorship and teaching</a>.
+					</p>
+				</div>
+			</section>
+
+			<section class="cta-panel" id="contact">
+				<h2>Get in touch</h2>
+				<p>
+					Tell me a little about your campus and your role, who you'd like in the room, rough timing,
+					and what you hope people leave with.
+				</p>
+				<div class="contact-options">
+					{CONTACT_EMAIL && (
+						<a href={`mailto:${CONTACT_EMAIL}`} class="btn">Email {CONTACT_EMAIL}</a>
+					)}
+					<a href={LINKEDIN_URL} class:list={['btn', CONTACT_EMAIL && 'btn-outline']} target="_blank" rel="noopener noreferrer">Message me on LinkedIn</a>
+				</div>
+			</section>
+		</main>
+		<Footer />
+
+		<style>
+			.page-head {
+				padding: 2.5rem 0 3rem;
+				border-bottom: 1px solid var(--color-border);
+				margin-bottom: 3rem;
+			}
+			.page-head h1 { margin: 0 0 1rem; }
+			.page-lede {
+				font-size: 1.2rem;
+				line-height: 1.6;
+				color: var(--color-text-muted);
+				max-width: 60ch;
+				margin: 0 0 1.75rem;
+			}
+			.head-cta { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+			.section { margin-bottom: 4.5rem; }
+			.section-head {
+				margin-bottom: 1.5rem;
+				padding-bottom: 0.75rem;
+				border-bottom: 1px solid var(--color-border);
+			}
+			.section-head h2 {
+				margin: 0;
+				font-size: 1.45rem;
+				font-weight: 600;
+				letter-spacing: -0.018em;
+			}
+
+			.offer-list { list-style: none; padding: 0; margin: 0; }
+			.offer {
+				display: grid;
+				grid-template-columns: 170px 1fr;
+				gap: 2rem;
+				padding: 1.5rem 0;
+				border-bottom: 1px solid var(--color-border);
+			}
+			.offer-kind {
+				font-family: var(--font-mono);
+				font-size: 0.78rem;
+				color: var(--color-text-faint);
+				font-weight: 500;
+				padding-top: 0.25rem;
+			}
+			.offer-body h3 { margin: 0 0 0.4rem; font-size: 1.2rem; }
+			.offer-body p {
+				margin: 0;
+				color: var(--color-text-muted);
+				max-width: 65ch;
+				line-height: 1.65;
+			}
+			.offer-link {
+				display: inline-block;
+				margin-top: 0.6rem;
+				font-family: var(--font-mono);
+				font-size: 0.75rem;
+				font-weight: 500;
+				color: var(--color-text-muted);
+			}
+			.offer-link:hover { color: var(--color-accent); }
+
+			.prose { max-width: 65ch; }
+			.prose p { color: var(--color-text-muted); line-height: 1.7; }
+			.prose p strong { color: var(--color-text-main); }
+
+			.cta-panel {
+				border: 1px solid var(--color-border);
+				border-radius: var(--radius);
+				padding: 2.25rem 2rem;
+				background: var(--color-bg-subtle);
+				scroll-margin-top: 1.5rem;
+			}
+			.cta-panel h2 { margin: 0 0 0.6rem; font-size: 1.6rem; }
+			.cta-panel p { color: var(--color-text-muted); max-width: 58ch; margin-bottom: 1.5rem; }
+			.contact-options {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.75rem;
+				align-items: center;
+			}
+
+			@media (max-width: 640px) {
+				.offer { grid-template-columns: 1fr; gap: 0.4rem; }
+				.cta-panel { padding: 1.75rem 1.25rem; }
+			}
+		</style>
+	</body>
+</html>

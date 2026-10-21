@@ -1,0 +1,53 @@
+---
+// Short, silent, looping screen recording. Shows the poster instead of playing
+// when the visitor prefers reduced motion.
+import { url } from '../utils/paths';
+
+interface Props {
+	name: string;
+	label: string;
+	width: number;
+	height: number;
+	class?: string;
+}
+
+const { name, label, width, height, class: className } = Astro.props;
+const src = url(`/media/sandbox/${name}.mp4`);
+const poster = url(`/media/sandbox/${name}-poster.jpg`);
+---
+
+<video
+	class:list={['loop-video', className]}
+	src={src}
+	poster={poster}
+	width={width}
+	height={height}
+	aria-label={label}
+	muted
+	loop
+	playsinline
+	preload="metadata"
+	data-loop-video
+></video>
+
+<script>
+	const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+	const videos = document.querySelectorAll<HTMLVideoElement>('video[data-loop-video]');
+	const observer = new IntersectionObserver((entries) => {
+		for (const entry of entries) {
+			const video = entry.target as HTMLVideoElement;
+			if (entry.isIntersecting && !reduce.matches) video.play().catch(() => {});
+			else video.pause();
+		}
+	}, { threshold: 0.25 });
+	videos.forEach((video) => observer.observe(video));
+</script>
+
+<style>
+	.loop-video {
+		display: block;
+		width: 100%;
+		height: auto;
+		background: var(--color-bg-subtle);
+	}
+</style>

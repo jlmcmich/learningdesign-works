@@ -11,6 +11,8 @@ export async function getStaticPaths() {
         { params: { route: 'og' }, props: { title: SITE_TITLE, subtitle: SITE_DESCRIPTION } },
         { params: { route: 'projects' }, props: { title: 'Project Portfolio', subtitle: SITE_TITLE } },
         { params: { route: 'ai-prompts' }, props: { title: 'AI Prompts', subtitle: SITE_TITLE } },
+        { params: { route: 'sandbox' }, props: { title: 'The agentic LMS sandbox', subtitle: SITE_TITLE } },
+        { params: { route: 'workshops' }, props: { title: 'Workshops and talks', subtitle: SITE_TITLE } },
         { params: { route: 'talks' }, props: { title: 'Talks & Writing', subtitle: SITE_TITLE } },
     ];
 
