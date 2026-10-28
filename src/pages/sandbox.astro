@@ -8,6 +8,7 @@ import { Image } from 'astro:assets';
 import instructorShot from '../assets/sandbox/instructor.png';
 import courseShot from '../assets/sandbox/course-post.png';
 import LoopVideo from '../components/LoopVideo.astro';
+import ContactForm from '../components/ContactForm.astro';
 
 const format = [
 	{
@@ -85,7 +86,8 @@ const shots = [
 					using agents in an LMS, to understand how agents might affect our classrooms.
 				</p>
 				<div class="head-cta">
-					<a href={url('/workshops#contact')} class="btn">Bring this to your campus</a>
+					<a href="#contact" class="btn">Bring this to your campus</a>
+					<a href="#contact" class="btn btn-outline" data-interest="walkthrough">Book a 30-minute walkthrough</a>
 					<a href="#activities" class="btn btn-outline">How it runs</a>
 				</div>
 			</section>
@@ -214,7 +216,7 @@ const shots = [
 				</div>
 			</section>
 
-			<section class="cta-panel">
+			<section class="cta-panel" id="contact">
 				<h2>Bring it to your campus</h2>
 				<p>
 					If your campus, or a group on it, is working out its response to agents on your learning
@@ -226,11 +228,16 @@ const shots = [
 					<li>A leadership or IT team weighing governance and permissions: what agents should be allowed to do, and who decides.</li>
 					<li>A teaching center building its own programming around agents.</li>
 				</ul>
-				<p>This thing travels. If one of these sounds like your campus, get in touch.</p>
-				<div class="head-cta">
-					<a href={url('/workshops#contact')} class="btn">Get in touch</a>
-					<a href={url('/workshops')} class="btn btn-outline">Workshops and talks</a>
+				<p>
+					This thing travels. If one of these sounds like your campus, get in touch. Not sure yet?
+					<a href="#contact-form" data-interest="walkthrough">Book a 30-minute walkthrough</a> and I'll show you around.
+				</p>
+				<div id="contact-form">
+					<ContactForm />
 				</div>
+				<p class="contact-more">
+					More formats, including train-the-trainer and talks, are on <a href={url('/workshops')}>workshops and talks</a>.
+				</p>
 			</section>
 		</main>
 		<Footer />
@@ -421,6 +428,7 @@ const shots = [
 				background: var(--color-bg-subtle);
 			}
 			.cta-panel h2 { margin: 0 0 0.6rem; font-size: 1.6rem; }
+			.cta-panel .contact-more { margin: 1.5rem 0 0; font-size: 0.92rem; }
 			.cta-panel p { color: var(--color-text-muted); max-width: 55ch; margin-bottom: 1.5rem; }
 
 			@media (max-width: 960px) {

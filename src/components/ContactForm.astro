@@ -1,5 +1,13 @@
 ---
 // Short contact form. Messages are saved and emailed to me (see functions/api/contact.js).
+// Links with data-interest="<value>", or ?interest=<value> in the URL, tick that box.
+const INTERESTS = [
+	['walkthrough', 'A 30-minute walkthrough'],
+	['workshop', 'A sandbox workshop'],
+	['run-it-yourselves', 'Running it yourselves'],
+	['talk', 'A talk'],
+	['curious', 'Just curious'],
+];
 ---
 
 <form class="contact-form" action="/api/contact" method="post" data-contact-form>
@@ -22,9 +30,21 @@
 		<input type="text" name="organization" autocomplete="organization" maxlength="200" />
 	</label>
 
+	<fieldset class="interests">
+		<legend>What are you interested in? (optional)</legend>
+		<div class="interest-options">
+			{INTERESTS.map(([value, label]) => (
+				<label class="interest">
+					<input type="checkbox" name="interests" value={value} />
+					<span>{label}</span>
+				</label>
+			))}
+		</div>
+	</fieldset>
+
 	<label>
 		<span>Message</span>
-		<textarea name="message" rows="5" required maxlength="4000"></textarea>
+		<textarea name="message" rows="5" maxlength="4000"></textarea>
 	</label>
 
 	<label class="field-honeypot" aria-hidden="true">
@@ -40,6 +60,21 @@
 
 <script>
 	const forms = document.querySelectorAll('[data-contact-form]');
+
+	const tick = (value) => {
+		for (const box of document.querySelectorAll(`[data-contact-form] input[name="interests"][value="${value}"]`)) {
+			if (box instanceof HTMLInputElement) box.checked = true;
+		}
+	};
+
+	const preset = new URLSearchParams(location.search).get('interest');
+	if (preset) tick(preset);
+
+	for (const link of document.querySelectorAll('[data-interest]')) {
+		link.addEventListener('click', () => {
+			if (link instanceof HTMLElement && link.dataset.interest) tick(link.dataset.interest);
+		});
+	}
 
 	for (const form of forms) {
 		const status = form.querySelector('[data-contact-status]');
@@ -109,6 +144,43 @@
 		border: 1px solid var(--color-border);
 		border-radius: var(--radius);
 		padding: 0.75rem 0.85rem;
+	}
+	.contact-form .interests {
+		margin: 0;
+		padding: 0;
+		border: 0;
+	}
+	.contact-form legend {
+		margin-bottom: 0.55rem;
+		font-size: 0.82rem;
+		color: var(--color-text-muted);
+	}
+	.interest-options {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+	.contact-form label.interest {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.45rem;
+		padding: 0.45rem 0.75rem;
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius);
+		cursor: pointer;
+	}
+	.contact-form label.interest:has(input:checked) {
+		border-color: var(--color-accent);
+		background: color-mix(in srgb, var(--color-accent) 8%, transparent);
+	}
+	.contact-form .interest input {
+		width: auto;
+		margin: 0;
+		accent-color: var(--color-accent);
+	}
+	.contact-form .interest span {
+		font-size: 0.88rem;
+		color: var(--color-text-main);
 	}
 	.contact-form textarea {
 		resize: vertical;

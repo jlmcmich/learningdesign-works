@@ -14,6 +14,15 @@ const normalize = (value) => (typeof value === 'string' ? value.trim() : '');
 // For single-line fields: collapse any line breaks or runs of whitespace.
 const singleLine = (value) => normalize(value).replace(/\s+/g, ' ');
 
+// Checkbox values from ContactForm.astro, and how they read in the saved message and email.
+const INTERESTS = {
+	walkthrough: 'A 30-minute walkthrough',
+	workshop: 'A sandbox workshop',
+	'run-it-yourselves': 'Running it yourselves',
+	talk: 'A talk',
+	curious: 'Just curious',
+};
+
 const EMAIL_PATTERN = /^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/;
 
 export async function onRequestPost(context) {
@@ -26,7 +35,11 @@ export async function onRequestPost(context) {
 	const name = singleLine(formData.get('name'));
 	const email = normalize(formData.get('email'));
 	const organization = singleLine(formData.get('organization'));
-	const message = normalize(formData.get('message'));
+	const note = normalize(formData.get('message'));
+	const interests = formData
+		.getAll('interests')
+		.map((value) => INTERESTS[normalize(value)])
+		.filter(Boolean);
 	const pageUrl = normalize(formData.get('pageUrl'));
 	const honeypot = normalize(formData.get('website'));
 
@@ -36,11 +49,14 @@ export async function onRequestPost(context) {
 
 	if (!name) return badRequest('Please add your name.');
 	if (!EMAIL_PATTERN.test(email)) return badRequest('Please add an email address I can reply to.');
-	if (!message) return badRequest('Please add a message.');
-	if (message.length > 4000) return badRequest('Please keep your message under 4000 characters.');
+	if (!note && !interests.length) return badRequest('Please add a message or pick what you are interested in.');
+	if (note.length > 4000) return badRequest('Please keep your message under 4000 characters.');
 	if (name.length > 200 || email.length > 320 || organization.length > 200) {
 		return badRequest('One of the fields is too long.');
 	}
+
+	// Interests ride along at the top of the message, so storage and the mailer stay unchanged.
+	const message = [interests.length ? `Interested in: ${interests.join(', ')}` : '', note].filter(Boolean).join('\n\n');
 
 	const db = context.env.FEEDBACK_DB;
 	const mailer = context.env.CONTACT_MAILER;
