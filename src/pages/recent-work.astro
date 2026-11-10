@@ -19,10 +19,6 @@ const approach = [
 			"The best AI solutions sit inside the specific ways people do their jobs: their expertise, their tacit knowledge, and how their team thinks together. Teams that work well have grown systems that fit them. I watch that work from several perspectives to find the places where an agent could live.",
 			"Then I start small and let it grow, more like a garden than a blueprint. People should discover what AI can do for them. When it is their own discovery, the change feels chosen instead of imposed.",
 		],
-		quote: {
-			text: 'Becoming knowledgeably skillful and developing an identity in a field are part of the same process.',
-			cite: 'after Jean Lave',
-		},
 	},
 	{
 		n: '2',
@@ -203,12 +199,6 @@ const isExternal = (href: string) => href.startsWith('http');
 							<div class="step-body">
 								<h3>{s.title}</h3>
 								{s.body.map((p) => <p>{p}</p>)}
-								{s.quote && (
-									<blockquote>
-										<p>“{s.quote.text}”</p>
-										<cite>{s.quote.cite}</cite>
-									</blockquote>
-								)}
 							</div>
 						</li>
 					))}
@@ -397,18 +387,6 @@ const isExternal = (href: string) => href.startsWith('http');
 			.step-body { max-width: 65ch; }
 			.step h3 { margin: 0 0 0.5rem; font-size: 1.2rem; }
 			.step p { margin: 0 0 0.75rem; color: var(--color-text-muted); line-height: 1.65; }
-			.step blockquote {
-				margin: 1rem 0 0.25rem;
-				padding-left: 1rem;
-				border-left: 2px solid var(--color-accent);
-			}
-			.step blockquote p { margin: 0 0 0.3rem; color: var(--color-text-main); font-style: italic; }
-			.step blockquote cite {
-				font-family: var(--font-mono);
-				font-size: 0.75rem;
-				font-style: normal;
-				color: var(--color-text-faint);
-			}
 
 			.offer-list { list-style: none; padding: 0; margin: 0; }
 			.offer {
