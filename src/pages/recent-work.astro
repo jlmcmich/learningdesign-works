@@ -1,0 +1,481 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import LoopVideo from '../components/LoopVideo.astro';
+import { SITE_TITLE, CONTACT_EMAIL } from '../consts';
+import { url } from '../utils/paths';
+
+const approach = [
+	{
+		n: '1',
+		title: 'Learn how people actually work',
+		body: 'Most of what follows started as a problem my team or a partner kept running into. I start there, not with what the technology can do.',
+	},
+	{
+		n: '2',
+		title: 'Prototype on the real problem',
+		body: 'A working prototype changes the conversation. People see what is possible in their own work and decide for themselves whether it is worth adopting.',
+	},
+	{
+		n: '3',
+		title: 'Build for the team, not one person',
+		body: 'Most AI tools are built for one person at a time. Organizations adopt AI when a team has a shared place for it: a meeting it supports, a workflow it fits, decisions people still make together.',
+	},
+];
+
+const engagements = [
+	{
+		kind: 'Workshop',
+		title: "A medical school's first hands-on Claude training",
+		body: "A three-day workshop and datathon for ASU's new School of Medicine, co-taught with a colleague. These were the first ASU students on enterprise Claude. It led to a second student session, a session for faculty and staff, and a seat on the school's strategic planning committee.",
+		award: true,
+	},
+	{
+		kind: 'Workshop',
+		title: 'An executive committee builds its own apps',
+		body: "A hands-on build session for the executive committee of ASU's Office of the COO, co-led with a colleague. The unit bought Claude accounts so its leaders could build working apps in the room.",
+		award: true,
+	},
+	{
+		kind: 'Advising',
+		title: 'Strategic planning for a new school',
+		body: "I serve on the School of Medicine's Strategic Planning Advisory Committee. I help its leadership work out where AI fits in the school's plan, and work with its teams to turn those priorities into training and tools.",
+	},
+	{
+		kind: 'Workshop',
+		title: 'Designing learning environments in an agentic world',
+		body: "A pre-conference workshop at AAC&U's Conference on AI and Higher Education, built around the agentic LMS sandbox and co-designed with Michelle Kassorla.",
+		link: { href: '/sandbox', label: 'See the sandbox' },
+	},
+];
+
+const roles = [
+	{ role: 'Client', body: 'The person whose idea the team picked. They say what good looks like.' },
+	{ role: 'Builder', body: 'Works with Claude Code or Codex on their own laptop.' },
+	{ role: 'Project manager', body: 'Challenges each idea and keeps the team on scope.' },
+	{ role: 'Tester', body: 'Uses what was built the way a real user would, and reports back.' },
+];
+
+type Tool = {
+	name: string;
+	status: string;
+	summary: string;
+	points: string[];
+	stack: string;
+	video?: { dir: string; name: string; width: number; height: number; label: string };
+	link?: { href: string; label: string };
+};
+
+const tools: Tool[] = [
+	{
+		name: 'Signal and Tracker',
+		status: 'In daily use',
+		summary: "A weekly agent pipeline that keeps the university's AI tools website current, and the tracker where the team decides what to change.",
+		points: [
+			'Signal reads support channels, the knowledge base, vendor release notes and the site itself, then proposes edits with the evidence behind each one.',
+			'Where sources disagree, it shows them side by side, so the team can see the tension and talk it through.',
+			'The board is built for the team meeting. People review the suggestions together, and accepted ones become tickets someone owns.',
+		],
+		stack: 'Claude Code plugin · Google Apps Script · Google Sheets',
+	},
+	{
+		name: 'Scribe',
+		status: 'Team build',
+		summary: "A native macOS meeting notetaker that transcribes through ASU's own AI platform and keeps every meeting as plain files on the person's Mac, readable by any agent they point at it.",
+		points: [
+			'Built because the team made good decisions in meetings and no one could remember them, and because we did not want meeting audio going to an outside vendor.',
+			"I benchmarked it blind against Zoom's transcripts: across two recorded meetings, judges found about half as many wrong words in Scribe's.",
+			'It used about a sixth of the memory of a commercial notetaker in the same test.',
+		],
+		stack: 'Swift · ASU CreateAI (Whisper) · Claude Code and Codex skill',
+	},
+	{
+		name: 'Canvas MCP',
+		status: 'Prototype',
+		summary: 'An MCP server that gives agents a scoped, governed way to work in Canvas, the learning management system.',
+		points: [
+			"The full Canvas API is too broad to hand to everyone's agent, but agents are genuinely useful for course and content management.",
+			'I tried several designs and settled on 49 tools scoped to that work. Student data stays out entirely, nothing can be deleted, and only allowlisted courses are reachable.',
+			'It was built to release to instructional designers and trusted faculty, with logging so we can see how people use it. It became the working demo in governance discussions.',
+		],
+		stack: 'Python · MCP · works from Claude, ChatGPT Edu or Copilot',
+	},
+	{
+		name: 'Skill Shelf',
+		status: 'Open source',
+		summary: "A shared library for a team's agent skills, for people who aren't on GitHub or don't feel comfortable there.",
+		points: [
+			'Skills live in a shared Google Drive folder, and Drive controls who can see them.',
+			'The app adds search, readable skill pages, one-click ZIPs to install, uploads and version history.',
+			'The team uses its skills to make branded decks from templates, review content and make demo media.',
+		],
+		stack: 'Google Apps Script · Google Drive',
+		link: { href: 'https://github.com/jlmcmich/skill-shelf', label: 'Skill Shelf on GitHub' },
+	},
+	{
+		name: 'Water Cooler',
+		status: 'In development',
+		summary: "A Slack-like messaging space that gives a team's agents a place to work with the team.",
+		points: [
+			"Multiplayer agent sessions run on a durable harness that also connects each person's own Claude Code or Codex, running on their own device.",
+			'Sessions draw on the shared Drive folders and other connections the team already uses.',
+			'Membership is the boundary: each agent sees only what its person can see. It explores the team-agent pattern that Claude in Slack could fill for teams that have it.',
+		],
+		stack: 'Node · durable agent harness · Google sign-in',
+	},
+	{
+		name: 'The agentic LMS sandbox',
+		status: 'Used in workshops',
+		summary: 'A simulated university where every student, instructor and administrator has an agent, so people can see what agents do to a complex system before connecting them to real data.',
+		points: [
+			'Groups set each agent tool to Allow, Ask or Block and feel the effect right away.',
+			'A shared ledger shows what every agent did, and on whose behalf.',
+		],
+		stack: 'Cloudflare Workers · Durable Objects',
+		video: { dir: 'sandbox', name: 'ledger', width: 1280, height: 1682, label: "Screen recording of the sandbox ledger filling with actions taken by the instructor's agent." },
+		link: { href: '/sandbox', label: 'How the sandbox works' },
+	},
+];
+
+const isExternal = (href: string) => href.startsWith('http');
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title={`Recent work | ${SITE_TITLE}`}
+			description="Recent AI work at Arizona State University: hands-on Claude workshops, a new way to teach agents, and team AI systems built from real problems."
+		/>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="page-head" data-reveal>
+				<div class="eyebrow">Arizona State University, 2026</div>
+				<h1>Recent work</h1>
+				<p class="page-lede">
+					Since July 2026 I've been an AI Strategist on Enterprise Technology's AI Practice, helping
+					colleges and units across ASU put AI to work. Here is some of what that has looked like.
+				</p>
+			</section>
+
+			<section class="section">
+				<header class="section-head">
+					<h2>How I work</h2>
+				</header>
+				<ol class="steps">
+					{approach.map((s) => (
+						<li class="step">
+							<span class="step-n">{s.n}</span>
+							<div>
+								<h3>{s.title}</h3>
+								<p>{s.body}</p>
+							</div>
+						</li>
+					))}
+				</ol>
+			</section>
+
+			<section class="section">
+				<header class="section-head">
+					<h2>Engagements</h2>
+				</header>
+				<ul class="offer-list">
+					{engagements.map((e) => (
+						<li class="offer">
+							<div class="offer-kind">{e.kind}</div>
+							<div class="offer-body">
+								<h3>{e.title}</h3>
+								<p>{e.body}</p>
+								{e.award && <span class="award-badge">ASU Sun Award</span>}
+								{e.link && <a href={url(e.link.href)} class="offer-link">{e.link.label} →</a>}
+							</div>
+						</li>
+					))}
+				</ul>
+				<p class="note">
+					<strong>About the Sun Awards.</strong> The Sun Award is ASU's recognition for staff whose work
+					stands out to colleagues and leaders. I received two in 2026, one for each of the workshops
+					marked above.
+				</p>
+			</section>
+
+			<section class="section">
+				<header class="section-head">
+					<h2>A new way to teach agents</h2>
+				</header>
+				<div class="prose">
+					<p>
+						Most people meet AI alone, in a chat window. My workshops do the opposite. Small teams build
+						a working app together in a couple of hours, each person in a real role. A prepared starter
+						kit and workbook give the agent its context, so nobody starts from a blank prompt.
+					</p>
+				</div>
+				<ul class="role-grid">
+					{roles.map((r) => (
+						<li class="role">
+							<h3>{r.role}</h3>
+							<p>{r.body}</p>
+						</li>
+					))}
+				</ul>
+				<div class="prose">
+					<p>
+						The agent acts as a teaching assistant. That leaves me free to watch where people hand
+						their thinking to the agent, and to turn those moments into teaching. People leave with
+						something they built and a feel for how agents work.
+					</p>
+				</div>
+			</section>
+
+			<section class="section">
+				<header class="section-head">
+					<h2>Tools</h2>
+				</header>
+				<p class="section-intro">
+					Each of these started as a problem my team or a partner hit. Short trailers for each are on
+					the way.
+				</p>
+				<div class="tool-list">
+					{tools.map((t) => (
+						<article class="tool">
+							<div class="tool-media">
+								{t.video ? (
+									<LoopVideo dir={t.video.dir} name={t.video.name} width={t.video.width} height={t.video.height} label={t.video.label} />
+								) : (
+									<div class="trailer-slot" aria-hidden="true">
+										<span>Trailer coming soon</span>
+									</div>
+								)}
+							</div>
+							<div class="tool-body">
+								<div class="tool-head">
+									<h3>{t.name}</h3>
+									<span class="status">{t.status}</span>
+								</div>
+								<p class="tool-summary">{t.summary}</p>
+								<ul class="tool-points">
+									{t.points.map((p) => <li>{p}</li>)}
+								</ul>
+								<p class="tool-stack">{t.stack}</p>
+								{t.link && (
+									<a
+										href={isExternal(t.link.href) ? t.link.href : url(t.link.href)}
+										class="offer-link"
+										{...(isExternal(t.link.href) ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+									>
+										{t.link.label} →
+									</a>
+								)}
+							</div>
+						</article>
+					))}
+				</div>
+			</section>
+
+			<section class="cta-panel">
+				<h2>Want a closer look?</h2>
+				<p>
+					Several of these tools run inside ASU and aren't public. I'm glad to walk through any of them.
+				</p>
+				<div class="head-cta">
+					{CONTACT_EMAIL && <a href={`mailto:${CONTACT_EMAIL}`} class="btn">Email me</a>}
+					<a href={url('/workshops#contact')} class="btn btn-outline">Contact form</a>
+				</div>
+			</section>
+		</main>
+		<Footer />
+
+		<style>
+			.page-head {
+				padding: 2.5rem 0 3rem;
+				border-bottom: 1px solid var(--color-border);
+				margin-bottom: 3rem;
+			}
+			.eyebrow {
+				font-family: var(--font-mono);
+				font-size: 0.78rem;
+				color: var(--color-text-faint);
+				margin-bottom: 0.75rem;
+			}
+			.page-head h1 { margin: 0 0 1rem; }
+			.page-lede {
+				font-size: 1.2rem;
+				line-height: 1.6;
+				color: var(--color-text-muted);
+				max-width: 60ch;
+				margin: 0;
+			}
+			.head-cta { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+			.section { margin-bottom: 4.5rem; }
+			.section-head {
+				margin-bottom: 1.5rem;
+				padding-bottom: 0.75rem;
+				border-bottom: 1px solid var(--color-border);
+			}
+			.section-head h2 {
+				margin: 0;
+				font-size: 1.45rem;
+				font-weight: 600;
+				letter-spacing: -0.018em;
+			}
+			.section-intro { color: var(--color-text-muted); max-width: 65ch; margin: 0 0 1.5rem; }
+
+			.steps {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 1.75rem;
+			}
+			.step { display: flex; gap: 0.9rem; }
+			.step-n {
+				font-family: var(--font-mono);
+				font-size: 0.8rem;
+				color: var(--color-accent);
+				padding-top: 0.2rem;
+			}
+			.step h3 { margin: 0 0 0.4rem; font-size: 1.05rem; }
+			.step p { margin: 0; color: var(--color-text-muted); line-height: 1.6; }
+
+			.offer-list { list-style: none; padding: 0; margin: 0; }
+			.offer {
+				display: grid;
+				grid-template-columns: 170px 1fr;
+				gap: 2rem;
+				padding: 1.5rem 0;
+				border-bottom: 1px solid var(--color-border);
+			}
+			.offer-kind {
+				font-family: var(--font-mono);
+				font-size: 0.78rem;
+				color: var(--color-text-faint);
+				font-weight: 500;
+				padding-top: 0.25rem;
+			}
+			.offer-body h3 { margin: 0 0 0.4rem; font-size: 1.2rem; }
+			.offer-body p {
+				margin: 0;
+				color: var(--color-text-muted);
+				max-width: 65ch;
+				line-height: 1.65;
+			}
+			.offer-link {
+				display: inline-block;
+				margin-top: 0.6rem;
+				font-family: var(--font-mono);
+				font-size: 0.75rem;
+				font-weight: 500;
+				color: var(--color-text-muted);
+			}
+			.offer-link:hover { color: var(--color-accent); }
+			.award-badge {
+				display: inline-block;
+				margin-top: 0.7rem;
+				margin-right: 0.75rem;
+				padding: 0.15rem 0.55rem;
+				border: 1px solid var(--color-border);
+				border-radius: 999px;
+				font-family: var(--font-mono);
+				font-size: 0.72rem;
+				color: var(--color-accent);
+			}
+			.note {
+				margin: 1.25rem 0 0;
+				max-width: 65ch;
+				font-size: 0.92rem;
+				color: var(--color-text-muted);
+				line-height: 1.6;
+			}
+			.note strong { color: var(--color-text-main); }
+
+			.prose { max-width: 65ch; }
+			.prose p { color: var(--color-text-muted); line-height: 1.7; }
+
+			.role-grid {
+				list-style: none;
+				padding: 0;
+				margin: 1.25rem 0 1.5rem;
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				gap: 1rem;
+			}
+			.role {
+				border: 1px solid var(--color-border);
+				border-radius: var(--radius);
+				padding: 1rem;
+				background: var(--color-bg-subtle);
+			}
+			.role h3 { margin: 0 0 0.35rem; font-size: 1rem; }
+			.role p { margin: 0; font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.55; }
+
+			.tool-list { display: grid; gap: 2.5rem; }
+			.tool {
+				display: grid;
+				grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+				gap: 2rem;
+				padding-bottom: 2.5rem;
+				border-bottom: 1px solid var(--color-border);
+			}
+			.tool-media :global(.loop-video) {
+				border: 1px solid var(--color-border);
+				border-radius: var(--radius);
+				max-height: 360px;
+				object-fit: cover;
+				object-position: top;
+			}
+			.trailer-slot {
+				aspect-ratio: 16 / 10;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				border: 1px dashed var(--color-border);
+				border-radius: var(--radius);
+				background: var(--color-bg-subtle);
+				font-family: var(--font-mono);
+				font-size: 0.75rem;
+				color: var(--color-text-faint);
+			}
+			.tool-head { display: flex; align-items: baseline; gap: 0.75rem; flex-wrap: wrap; }
+			.tool-head h3 { margin: 0; font-size: 1.2rem; }
+			.status {
+				font-family: var(--font-mono);
+				font-size: 0.72rem;
+				color: var(--color-text-faint);
+			}
+			.tool-summary { margin: 0.5rem 0 0.75rem; color: var(--color-text-main); line-height: 1.6; }
+			.tool-points { margin: 0 0 0.75rem; padding-left: 1.1rem; color: var(--color-text-muted); }
+			.tool-points li { margin-bottom: 0.4rem; line-height: 1.6; }
+			.tool-stack {
+				margin: 0;
+				font-family: var(--font-mono);
+				font-size: 0.75rem;
+				color: var(--color-text-faint);
+			}
+
+			.cta-panel {
+				border: 1px solid var(--color-border);
+				border-radius: var(--radius);
+				padding: 2.25rem 2rem;
+				background: var(--color-bg-subtle);
+			}
+			.cta-panel h2 { margin: 0 0 0.6rem; font-size: 1.6rem; }
+			.cta-panel p { color: var(--color-text-muted); max-width: 58ch; margin-bottom: 1.5rem; }
+
+			@media (max-width: 860px) {
+				.steps { grid-template-columns: 1fr; }
+				.role-grid { grid-template-columns: repeat(2, 1fr); }
+				.tool { grid-template-columns: 1fr; gap: 1rem; }
+			}
+			@media (max-width: 640px) {
+				.offer { grid-template-columns: 1fr; gap: 0.4rem; }
+				.role-grid { grid-template-columns: 1fr; }
+				.cta-panel { padding: 1.75rem 1.25rem; }
+			}
+		</style>
+	</body>
+</html>

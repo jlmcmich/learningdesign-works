@@ -8,12 +8,14 @@ interface Props {
 	label: string;
 	width: number;
 	height: number;
+	// Folder under /media; defaults to the sandbox page's recordings.
+	dir?: string;
 	class?: string;
 }
 
-const { name, label, width, height, class: className } = Astro.props;
-const src = url(`/media/sandbox/${name}.mp4`);
-const poster = url(`/media/sandbox/${name}-poster.jpg`);
+const { name, label, width, height, dir = 'sandbox', class: className } = Astro.props;
+const src = url(`/media/${dir}/${name}.mp4`);
+const poster = url(`/media/${dir}/${name}-poster.jpg`);
 ---
 
 <video
