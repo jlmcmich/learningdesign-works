@@ -8,10 +8,10 @@ import LoopVideo from '../components/LoopVideo.astro';
 
 // Highlights from the Recent work page.
 const highlights = [
-	{ year: '2026', title: 'Hands-on Claude training for first-year medical students', meta: 'Workshop · School of Medicine, ASU', desc: "A three-day workshop and datathon. These were the first ASU students on enterprise Claude." },
-	{ year: '2026', title: 'A new way to teach with agents', meta: 'Workshop design', desc: 'A workbook, ready-made agent environments and the agent as teaching assistant, so newcomers share one experience instead of getting lost across screens.' },
-	{ year: '2026', title: 'Signal and Tracker', meta: 'Team tool · AI Practice', desc: "An information pipeline that keeps the university's AI tools page current, and the board where the team decides what to change together." },
-	{ year: '2026', title: 'Scribe', meta: 'Team tool · AI Practice', desc: "A meeting notetaker that keeps recordings on the person's device and transcribes through ASU's own AI platform." },
+	{ href: '/recent-work#engagements', year: '2026', title: 'Hands-on Claude training for first-year medical students', meta: 'Workshop · School of Medicine, ASU', desc: "A three-day workshop and datathon. These were the first ASU students on enterprise Claude." },
+	{ href: '/recent-work#teaching', year: '2026', title: 'A new way to teach with agents', meta: 'Workshop design', desc: 'A workbook, ready-made agent environments and the agent as teaching assistant, so newcomers share one experience instead of getting lost across screens.' },
+	{ href: '/recent-work#tools', year: '2026', title: 'Signal and Tracker', meta: 'Team tool · AI Practice', desc: "An information pipeline that keeps the university's AI tools page current, and the board where the team decides what to change together." },
+	{ href: '/recent-work#tools', year: '2026', title: 'Scribe', meta: 'Team tool · AI Practice', desc: "A meeting notetaker that keeps recordings on the person's device and transcribes through ASU's own AI platform." },
 ];
 ---
 
@@ -107,8 +107,8 @@ const highlights = [
 						<div class="now-label">Selected Projects</div>
 						<ul class="now-list">
 							<li><a href={url('/sandbox')}><strong>Agentic LMS sandbox</strong></a>: A simulated course site where student, instructor and admin agents meet. Built for a workshop with Michelle Kassorla.</li>
-							<li><a href={url('/projects/vibecheck/')}><strong>VibeCheck</strong></a>: Student learning-reflection app with AI-powered insights.</li>
-							<li><a href="https://ai.asu.edu/ai-tools/learning-design-suite"><strong>Learning Design Suite</strong></a>: Contributed 4 tools for learning objectives, module design, assignment language, and discussion prompts.</li>
+							<li><a href={url('/recent-work#tools')}><strong>Team AI tools</strong></a>: Signal and Tracker, Scribe, Canvas MCP, Skill Shelf and Water Cooler, built for how our team works.</li>
+							<li><a href={url('/recent-work#teaching')}><strong>A new way to teach with agents</strong></a>: Workbooks and ready-made agent environments for shared, hands-on learning.</li>
 						</ul>
 					</div>
 				</div>
@@ -123,7 +123,7 @@ const highlights = [
 				<ul class="entry-list">
 					{highlights.map((h) => (
 						<li class="entry">
-							<a class="entry-link" href={url('/recent-work')}>
+							<a class="entry-link" href={url(h.href)}>
 								<div class="entry-year">{h.year}</div>
 								<div class="entry-body">
 									<h3 class="entry-title">{h.title}</h3>
@@ -180,7 +180,6 @@ const highlights = [
 				color: var(--color-text-muted);
 				margin-bottom: 2rem;
 			}
-			.hero-lede:has(+ .hero-lede) { margin-bottom: 1rem; }
 			.hero-lede strong {
 				color: var(--color-text-main);
 				font-weight: 600;

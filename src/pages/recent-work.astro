@@ -123,7 +123,7 @@ const tools: Tool[] = [
 		points: [
 			"Many groups weren't recording meetings at all, because they didn't know where the audio went or whether it would be used for training. Our own team kept losing good ideas we had together. Scribe keeps sensitive meetings in ASU's hands. The goal is to run it on a local model on Sol, ASU's supercomputer, so ASU meetings stay on ASU hardware.",
 			'An agent skill lets people bring their transcripts into project work, so their agents can work with them.',
-			"Benchmarked against Zoom's own transcripts, which people were already using, it had about half as many errors. It also uses far less memory than a commercial notetaker, which matters across the range of devices people use.",
+			"In a blind comparison on two recorded meetings, judges found about half as many wrong words in Scribe's transcripts as in Zoom's own, which people were already using. It also used about a sixth of the memory of a leading commercial notetaker, which matters across the range of devices people use.",
 		],
 	},
 	{
@@ -215,7 +215,7 @@ const isExternal = (href: string) => href.startsWith('http');
 				</ol>
 			</section>
 
-			<section class="section">
+			<section class="section" id="engagements">
 				<header class="section-head">
 					<h2>Engagements</h2>
 				</header>
@@ -241,7 +241,7 @@ const isExternal = (href: string) => href.startsWith('http');
 				</ul>
 			</section>
 
-			<section class="section">
+			<section class="section" id="teaching">
 				<header class="section-head">
 					<h2>A new way to teach with agents</h2>
 				</header>
@@ -282,16 +282,12 @@ const isExternal = (href: string) => href.startsWith('http');
 				<a href={AI_PRACTICE_VIDEOS} class="videos-link" target="_blank" rel="noopener noreferrer">Watch short videos of the team's tools →</a>
 				<div class="tool-list">
 					{tools.map((t) => (
-						<article class="tool">
-							<div class="tool-media">
-								{t.video ? (
+						<article class:list={['tool', !t.video && 'tool-text-only']}>
+							{t.video && (
+								<div class="tool-media">
 									<LoopVideo dir={t.video.dir} name={t.video.name} width={t.video.width} height={t.video.height} label={t.video.label} />
-								) : (
-									<div class="trailer-slot" aria-hidden="true">
-										<span>Trailer coming soon</span>
-									</div>
-								)}
-							</div>
+								</div>
+							)}
 							<div class="tool-body">
 								<div class="tool-head">
 									<h3>{t.name}</h3>
@@ -485,18 +481,8 @@ const isExternal = (href: string) => href.startsWith('http');
 				object-fit: cover;
 				object-position: top;
 			}
-			.trailer-slot {
-				aspect-ratio: 16 / 10;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				border: 1px dashed var(--color-border);
-				border-radius: var(--radius);
-				background: var(--color-bg-subtle);
-				font-family: var(--font-mono);
-				font-size: 0.75rem;
-				color: var(--color-text-faint);
-			}
+			.tool-text-only { grid-template-columns: minmax(0, 1fr); }
+			.tool-text-only .tool-body { max-width: 70ch; }
 			.tool-head { display: flex; align-items: baseline; gap: 0.75rem; flex-wrap: wrap; }
 			.tool-head h3 { margin: 0; font-size: 1.2rem; }
 			.status {

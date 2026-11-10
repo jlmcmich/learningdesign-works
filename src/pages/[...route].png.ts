@@ -9,11 +9,11 @@ export async function getStaticPaths() {
 
     const staticPages = [
         { params: { route: 'og' }, props: { title: SITE_TITLE, subtitle: SITE_DESCRIPTION } },
-        { params: { route: 'projects' }, props: { title: 'Project Portfolio', subtitle: SITE_TITLE } },
+        { params: { route: 'recent-work' }, props: { title: 'Recent work', subtitle: SITE_TITLE } },
+        { params: { route: 'earlier-work' }, props: { title: 'Earlier work', subtitle: SITE_TITLE } },
         { params: { route: 'ai-prompts' }, props: { title: 'AI Prompts', subtitle: SITE_TITLE } },
         { params: { route: 'sandbox' }, props: { title: 'The agentic LMS sandbox', subtitle: SITE_TITLE } },
         { params: { route: 'workshops' }, props: { title: 'Workshops and talks', subtitle: SITE_TITLE } },
-        { params: { route: 'talks' }, props: { title: 'Talks & Writing', subtitle: SITE_TITLE } },
     ];
 
     const projectPages = projects.map((project) => ({
