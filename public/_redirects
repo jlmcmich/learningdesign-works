@@ -5,10 +5,10 @@
 # Top-level WP pages → new sections
 /ai-repository                          /ai-prompts                                301
 /ai-repository/                         /ai-prompts/                               301
-/ai-in-education-writing-talks-panels   /talks                                     301
-/ai-in-education-writing-talks-panels/  /talks/                                    301
-/project-portfolio                      /projects                                  301
-/project-portfolio/                     /projects/                                 301
+/ai-in-education-writing-talks-panels   /workshops#talks                           301
+/ai-in-education-writing-talks-panels/  /workshops#talks                           301
+/project-portfolio                      /earlier-work                                  301
+/project-portfolio/                     /earlier-work                                 301
 /sample-page                            /                                          301
 /sample-page/                           /                                          301
 
@@ -22,3 +22,14 @@
 /2023/01/24/artificial-intelligence-and-the-college-research-paper/             /projects/ai-and-the-college-research-paper/         301
 /2023/01/23/information-literacy-by-design/                                     /projects/information-literacy-by-design/            301
 /2023/01/22/sequential-learning-experience-design-for-scholarly-research-service-srs-workshops/   /projects/srs-workshop-lesson-template/   301
+
+# 2026-11 site restructure
+/recent-contributions    /workshops#talks   301
+/recent-contributions/   /workshops#talks   301
+/mentorship-teaching     /earlier-work      301
+/mentorship-teaching/    /earlier-work      301
+/projects                /earlier-work      301
+/projects/               /earlier-work      301
+# Tutorials are unpublished for now; temporary so they can come back
+/tutorials               /recent-work       302
+/tutorials/*             /recent-work       302

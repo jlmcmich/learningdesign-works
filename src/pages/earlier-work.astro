@@ -6,26 +6,45 @@ import { SITE_TITLE } from '../consts';
 import { getCollection } from 'astro:content';
 import { url } from '../utils/paths';
 
-const projects = (await getCollection('projects')).sort(
+const projects = (await getCollection('projects'))
+	.filter((p) => p.data.year < 2023)
+	.sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
+const teaching = [
+	{
+		years: '2016–2023',
+		title: 'First-Year Writing Information Literacy Program',
+		org: 'Southern Methodist University',
+		description: 'Designed the information literacy curriculum and ran the program that delivered it to every section of First-Year Writing, including research-assignment design and training every instructor in the program.',
+	},
+	{
+		years: '2013–2016',
+		title: 'Master’s theses advised',
+		org: 'UNC School of Information and Library Science',
+		description: 'Advised eight master’s theses in instructional design and information literacy. Several became peer-reviewed publications and national conference presentations, and one won the Dean’s Achievement Award.',
+	},
+];
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<BaseHead
-			title={`Projects | ${SITE_TITLE}`}
-			description="Selected work spanning instructional design, information literacy, mentorship, and AI in higher education."
+			title={`Earlier work | ${SITE_TITLE}`}
+			description="Thirteen years as an academic librarian and instructional designer: teaching information literacy, designing institutes and courses, and mentoring new librarians."
 		/>
 	</head>
 	<body>
 		<Header />
 		<main>
 			<section class="page-head" data-reveal>
-				<h1>Projects</h1>
+				<h1>Earlier work</h1>
 				<p class="page-lede">
-					A selection of things I have done in my time in higher education, across information literacy, instructional design, mentorship, program development, and AI.
+					Before AI, I spent thirteen years as an academic librarian and instructional designer. I taught
+					information literacy to undergraduates for a decade: how information is made, organized and
+					judged. I designed institutes and courses that taught people new technical practices together,
+					and built programs that helped new librarians grow into the field.
 				</p>
 			</section>
 
@@ -53,6 +72,24 @@ const projects = (await getCollection('projects')).sort(
 					</li>
 				))}
 			</ul>
+
+			<section class="section">
+				<header class="section-head">
+					<h2>Teaching and mentorship</h2>
+				</header>
+				<ul class="teach-list">
+					{teaching.map((t) => (
+						<li class="teach">
+							<div class="entry-year">{t.years}</div>
+							<div>
+								<h3>{t.title}</h3>
+								<div class="entry-meta">{t.org}</div>
+								<p class="entry-desc">{t.description}</p>
+							</div>
+						</li>
+					))}
+				</ul>
+			</section>
 		</main>
 		<Footer />
 
@@ -152,7 +189,30 @@ const projects = (await getCollection('projects')).sort(
 				transition: transform 0.2s var(--ease), color 0.15s var(--ease);
 			}
 
+			.section { margin-top: 4rem; }
+			.section-head {
+				margin-bottom: 0.5rem;
+				padding-bottom: 0.75rem;
+				border-bottom: 1px solid var(--color-border);
+			}
+			.section-head h2 {
+				margin: 0;
+				font-size: 1.45rem;
+				font-weight: 600;
+				letter-spacing: -0.018em;
+			}
+			.teach-list { list-style: none; padding: 0; margin: 0; }
+			.teach {
+				display: grid;
+				grid-template-columns: 90px 1fr;
+				gap: 2.5rem;
+				padding: 1.5rem 0;
+				border-bottom: 1px solid var(--color-border);
+			}
+			.teach h3 { margin: 0 0 0.35rem; font-size: 1.15rem; }
+
 			@media (max-width: 720px) {
+				.teach { grid-template-columns: 60px 1fr; gap: 1.25rem; }
 				.entry-link {
 					grid-template-columns: 60px 1fr;
 					gap: 1.25rem;

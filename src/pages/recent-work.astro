@@ -5,6 +5,11 @@ import Footer from '../components/Footer.astro';
 import LoopVideo from '../components/LoopVideo.astro';
 import { SITE_TITLE, CONTACT_EMAIL } from '../consts';
 import { url } from '../utils/paths';
+import { getCollection } from 'astro:content';
+
+const earlierAi = (await getCollection('projects'))
+	.filter((p) => p.data.year >= 2023)
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 const approach = [
 	{
@@ -42,6 +47,7 @@ type Engagement = {
 	title: string;
 	body: string;
 	link?: { href: string; label: string };
+	links?: { href: string; label: string }[];
 };
 
 const engagements: Engagement[] = [
@@ -49,11 +55,13 @@ const engagements: Engagement[] = [
 		kind: 'Workshop',
 		title: 'Hands-on Claude training for first-year medical students',
 		body: "A three-day workshop and datathon for first-year students at ASU's new School of Medicine. These were the first ASU students on enterprise Claude. It led to a second student session and a session for faculty and staff.",
+		link: { href: 'https://links.asu.edu/iweek-claude', label: 'See the workbook' },
 	},
 	{
 		kind: 'Workshop',
 		title: 'An executive committee retreat',
 		body: "A two-hour build session at the retreat of the Office of the COO's executive committee. Leaders built working apps around tasks they actually do, and many are now looking for ways to put what they built into use.",
+		link: { href: 'https://links.asu.edu/cec-ai-workbook', label: 'See the workbook' },
 	},
 	{
 		kind: 'Advising',
@@ -64,7 +72,10 @@ const engagements: Engagement[] = [
 		kind: 'Workshop',
 		title: 'Designing learning environments in an agentic world',
 		body: "A pre-conference workshop at AAC&U's Conference on AI and Higher Education, built around the agentic LMS sandbox and co-designed with Michelle Kassorla.",
-		link: { href: '/sandbox', label: 'See the sandbox' },
+		links: [
+			{ href: 'https://links.asu.edu/aacu-agents', label: 'See the workbook' },
+			{ href: '/sandbox', label: 'See the sandbox' },
+		],
 	},
 ];
 
@@ -92,7 +103,6 @@ type Tool = {
 	status?: string;
 	summary: string;
 	points: string[];
-	stack: string;
 	video?: { dir: string; name: string; width: number; height: number; label: string };
 	link?: { href: string; label: string };
 };
@@ -106,7 +116,6 @@ const tools: Tool[] = [
 			'Tracker is its complement. Accepted suggestions become tracked tasks, and the team makes the edits.',
 			'The board is built for the team meeting, so we go through what we have learned together.',
 		],
-		stack: 'Google Apps Script · Claude Code skill, plugin and research protocol',
 	},
 	{
 		name: 'Scribe',
@@ -116,7 +125,6 @@ const tools: Tool[] = [
 			'An agent skill lets people bring their transcripts into project work, so their agents can work with them.',
 			"Benchmarked against Zoom's own transcripts, which people were already using, it had about half as many errors. It also uses far less memory than a commercial notetaker, which matters across the range of devices people use.",
 		],
-		stack: 'macOS · ASU CreateAI · agent skill',
 	},
 	{
 		name: 'Canvas MCP',
@@ -126,7 +134,6 @@ const tools: Tool[] = [
 			'I tried several designs and settled on 49 tools scoped to that work. Student data stays out entirely, nothing can be deleted, and only allowlisted courses are reachable.',
 			'It was built to release to instructional designers and trusted faculty, with logging so we can see how people use it. It became the working demo in governance discussions.',
 		],
-		stack: 'Python · MCP · works from Claude, ChatGPT Edu or Copilot',
 	},
 	{
 		name: 'Skill Shelf',
@@ -136,7 +143,6 @@ const tools: Tool[] = [
 			'It handles versions and updates, with search, readable skill pages and one-click installs.',
 			'Having a shared library close at hand encourages people to use skills and share them with teammates.',
 		],
-		stack: 'Google Apps Script · Google Drive',
 		link: { href: 'https://github.com/jlmcmich/skill-shelf', label: 'Skill Shelf on GitHub' },
 	},
 	{
@@ -148,7 +154,6 @@ const tools: Tool[] = [
 			'In meetings, we wanted one agent we could all talk with, and send off to do work on our behalf.',
 			"Agent sessions run on a durable harness that also connects each person's own Claude Code or Codex. Next is a more proactive agent, and the team needed a space to get comfortable with agents in the conversation before calibrating that.",
 		],
-		stack: 'Node · durable agent harness · Google sign-in',
 	},
 	{
 		name: 'The agentic LMS sandbox',
@@ -158,11 +163,12 @@ const tools: Tool[] = [
 			'The agents are scaffolded and limited on purpose, and the workbook carries the scenarios people play through.',
 			'Because agents are so capable, we can build simulations deep enough to explore. People figure things out for themselves while I guide the experience, and they explore an idea together.',
 		],
-		stack: 'Cloudflare Workers · Durable Objects',
 		video: { dir: 'sandbox', name: 'ledger', width: 1280, height: 1682, label: "Screen recording of the sandbox ledger filling with actions taken by the instructor's agent." },
 		link: { href: '/sandbox', label: 'How the sandbox works' },
 	},
 ];
+
+const AI_PRACTICE_VIDEOS = 'https://script.google.com/macros/s/AKfycbxIVmUKw0hd2w-hl3MPNrElHdVW3euQvUUF0tCAlxikG-UyffBCoxG54adB82SqOc13OQ/exec';
 
 const isExternal = (href: string) => href.startsWith('http');
 ---
@@ -220,15 +226,15 @@ const isExternal = (href: string) => href.startsWith('http');
 							<div class="offer-body">
 								<h3>{e.title}</h3>
 								<p>{e.body}</p>
-								{e.link && (
+								{(e.links ?? (e.link ? [e.link] : [])).map((l) => (
 									<a
-										href={isExternal(e.link.href) ? e.link.href : url(e.link.href)}
+										href={isExternal(l.href) ? l.href : url(l.href)}
 										class="offer-link"
-										{...(isExternal(e.link.href) ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+										{...(isExternal(l.href) ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
 									>
-										{e.link.label} →
+										{l.label} →
 									</a>
-								)}
+								))}
 							</div>
 						</li>
 					))}
@@ -264,7 +270,7 @@ const isExternal = (href: string) => href.startsWith('http');
 				</div>
 			</section>
 
-			<section class="section">
+			<section class="section" id="tools">
 				<header class="section-head">
 					<h2>Tools</h2>
 				</header>
@@ -273,6 +279,7 @@ const isExternal = (href: string) => href.startsWith('http');
 					also our research into what agents can do today. Each one started with a problem the team
 					had, and is built for the team to use.
 				</p>
+				<a href={AI_PRACTICE_VIDEOS} class="videos-link" target="_blank" rel="noopener noreferrer">Watch short videos of the team's tools →</a>
 				<div class="tool-list">
 					{tools.map((t) => (
 						<article class="tool">
@@ -294,7 +301,6 @@ const isExternal = (href: string) => href.startsWith('http');
 								<ul class="tool-points">
 									{t.points.map((p) => <li>{p}</li>)}
 								</ul>
-								<p class="tool-stack">{t.stack}</p>
 								{t.link && (
 									<a
 										href={isExternal(t.link.href) ? t.link.href : url(t.link.href)}
@@ -308,6 +314,24 @@ const isExternal = (href: string) => href.startsWith('http');
 						</article>
 					))}
 				</div>
+			</section>
+
+			<section class="section">
+				<header class="section-head">
+					<h2>Earlier AI work, 2023–2026</h2>
+				</header>
+				<ul class="offer-list">
+					{earlierAi.map((p) => (
+						<li class="offer">
+							<div class="offer-kind">{p.data.year}</div>
+							<div class="offer-body">
+								<h3><a href={url(`/projects/${p.id}/`)} class="plain-link">{p.data.title}</a></h3>
+								{p.data.role && <div class="earlier-meta">{p.data.role}{p.data.organization ? ` · ${p.data.organization}` : ''}</div>}
+								<p>{p.data.description}</p>
+							</div>
+						</li>
+					))}
+				</ul>
 			</section>
 
 			<section class="cta-panel">
@@ -351,7 +375,14 @@ const isExternal = (href: string) => href.startsWith('http');
 				font-weight: 600;
 				letter-spacing: -0.018em;
 			}
-			.section-intro { color: var(--color-text-muted); max-width: 65ch; margin: 0 0 1.5rem; line-height: 1.65; }
+			.section-intro { color: var(--color-text-muted); max-width: 65ch; margin: 0 0 0.75rem; line-height: 1.65; }
+			.videos-link {
+				display: inline-block;
+				margin-bottom: 2rem;
+				font-family: var(--font-mono);
+				font-size: 0.8rem;
+				font-weight: 500;
+			}
 
 			.steps { list-style: none; padding: 0; margin: 0; }
 			.step {
@@ -399,6 +430,9 @@ const isExternal = (href: string) => href.startsWith('http');
 				padding-top: 0.25rem;
 			}
 			.offer-body h3 { margin: 0 0 0.4rem; font-size: 1.2rem; }
+			.plain-link { color: inherit; }
+			.plain-link:hover { color: var(--color-accent); }
+			.earlier-meta { font-size: 0.88rem; color: var(--color-text-faint); margin-bottom: 0.4rem; }
 			.offer-body p {
 				margin: 0;
 				color: var(--color-text-muted);
@@ -414,6 +448,7 @@ const isExternal = (href: string) => href.startsWith('http');
 				color: var(--color-text-muted);
 			}
 			.offer-link:hover { color: var(--color-accent); }
+			.offer-link + .offer-link { margin-left: 1.25rem; }
 
 			.prose { max-width: 65ch; }
 			.prose p { color: var(--color-text-muted); line-height: 1.7; }
@@ -472,12 +507,6 @@ const isExternal = (href: string) => href.startsWith('http');
 			.tool-summary { margin: 0.5rem 0 0.75rem; color: var(--color-text-main); line-height: 1.6; }
 			.tool-points { margin: 0 0 0.75rem; padding-left: 1.1rem; color: var(--color-text-muted); }
 			.tool-points li { margin-bottom: 0.4rem; line-height: 1.6; }
-			.tool-stack {
-				margin: 0;
-				font-family: var(--font-mono);
-				font-size: 0.75rem;
-				color: var(--color-text-faint);
-			}
 
 			.cta-panel {
 				border: 1px solid var(--color-border);

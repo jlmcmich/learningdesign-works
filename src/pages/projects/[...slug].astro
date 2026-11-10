@@ -17,6 +17,10 @@ type Props = CollectionEntry<'projects'>;
 
 const project = Astro.props;
 const { Content } = await render(project);
+// AI-era projects live on Recent work; earlier ones on Earlier work.
+const back = project.data.year >= 2023
+	? { href: '/recent-work', label: 'Recent work' }
+	: { href: '/earlier-work', label: 'Earlier work' };
 ---
 
 <!doctype html>
@@ -30,8 +34,8 @@ const { Content } = await render(project);
 	<body>
 		<Header />
 		<main>
-			<a class="back" href={url('/projects')}>
-				<span aria-hidden="true">←</span> All projects
+			<a class="back" href={url(back.href)}>
+				<span aria-hidden="true">←</span> {back.label}
 			</a>
 
 			<article class="article">
@@ -87,7 +91,7 @@ const { Content } = await render(project);
 				)}
 
 				<div class="article-foot">
-					<a href={url('/projects')}>← All projects</a>
+					<a href={url(back.href)}>← {back.label}</a>
 				</div>
 			</article>
 		</main>

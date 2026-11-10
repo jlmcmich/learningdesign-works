@@ -22,8 +22,33 @@ const offers = [
 		kind: 'Talk',
 		title: 'Agents in higher education',
 		body: 'What an agent is, from the model up, and what changes when students, instructors and administrators all have one. Topics also include AI as a learning intervention and designing learning environments for an agentic world.',
-		link: { href: '/recent-contributions', label: 'Past talks and workshops' },
+		link: { href: '/workshops#talks', label: 'Past talks and writing' },
 	},
+];
+const speakingAndWriting = [
+	{ year: 'Oct 2026', kind: 'Pre-Conference Workshop', title: 'Designing Learning Environments in an Agentic World: Coordinating Students, Instructors, and AI', venue: 'AAC&U Conference on AI and Higher Education, Atlanta · with Michelle Kassorla', highlight: false, award: null, link: 'https://www.aacu.org/event/conference-on-ai-and-higher-education', sandbox: '/sandbox' },
+	{ year: '2026', kind: 'Review Committee', title: 'AAC&U Conference on AI and Higher Education', venue: "Reviewing proposals for AAC&U's first dedicated conference on AI in higher education.", highlight: false, award: null, link: 'https://www.aacu.org/event/conference-on-ai-and-higher-education' },
+	{ year: 'Mar 2026', kind: 'Workshop', title: 'Navigating Intellectual Property, Academic Integrity, and Ethics in AI-Enhanced Education', venue: 'Future of Learning Community', highlight: false, award: null, link: 'https://folcfest.asu.edu/folcfest-workshops-2026', slides: 'https://drive.google.com/drive/folders/1NKa0fArx4pwyf4vVi47Eor0dFqtRB6GP?usp=drive_link' },
+	{ year: 'Jan 2026', kind: 'Keynote', title: 'Agentic AI: Challenges and Opportunities for Higher Education', venue: 'AAC&U Institute on AI, Pedagogy, and the Curriculum', highlight: false, award: null },
+	{ year: 'Sep 2025', kind: 'Presentation', title: 'AI as a Learning Intervention', venue: 'AAC&U Institute on AI, Pedagogy, and the Curriculum', highlight: false, award: null, slides: 'https://docs.google.com/presentation/d/1Tjpn6aZgR8H4HBIZTgCs_j8zldvMvG1Git_7_rSXJyk/edit?usp=sharing' },
+	{ year: 'Sep 2025', kind: 'Presentation', title: 'Using Situated Learning Theory and ChatGPT to Build Scenario-Based Learning Assessments', venue: 'AAC&U Institute on AI, Pedagogy, and the Curriculum', highlight: false, award: null, slides: 'https://docs.google.com/presentation/d/1EBAfwkh8CKUOlqjBBaFxg7XxYhJ17G_TStSJ9dkn1rE/edit?usp=sharing' },
+	{ year: 'Feb 2025', kind: 'Webinar', title: 'Make Your Own Instructional Design Tool', venue: 'Online Learning Consortium Webinar Series', highlight: false, award: null, slides: 'https://drive.google.com/drive/folders/1FrUO3xMf_P71ZHJB0ol6_eS4NegZJ3EM?usp=drive_link' },
+	{ year: 'Nov 2024', kind: 'Presentation', title: 'AI Design Challenge: Make Your Own Instructional Design Tool!', venue: 'OLC Accelerate · with Sue Huffman', highlight: true, award: 'Innovative Learning Environments & Technologies — Best-in-Track Award', slides: 'https://drive.google.com/drive/folders/1FrUO3xMf_P71ZHJB0ol6_eS4NegZJ3EM?usp=drive_link' },
+	{ year: 'Aug 2024', kind: 'Presentation', title: 'AI Innovation Showcase: Enhancing Course Design with GPTs', venue: 'ASU Learning Design Community Summer Camp', highlight: false, award: null },
+	{ year: 'Mar 2024', kind: 'Lightning Talk', title: 'Enhancing Course Design with GPTs', venue: 'Future of Learning Community', highlight: false, award: null },
+	{ year: 'Jul 2023', kind: 'Article', title: "Technology-Enhanced Student Success Program Short Report: GenAI's Approach for First-Year, First-Generation College Students", venue: 'Irish Journal of Technology Enhanced Learning, Vol. 7 No. 2 · with K. Peña and M. Dalal', highlight: false, award: null, link: 'https://journal.ilta.ie/index.php/telji/article/view/122/176' },
+	{ year: 'Jan 2023', kind: 'Blog Post', title: "Artificial Intelligence and the Research Paper: A Librarian's Perspective", venue: 'SMU Libraries Blog', highlight: false, award: null, link: 'https://blog.smu.edu/smulibraries/2023/01/20/artificial-intelligence-and-the-research-paper-a-librarians-perspective/' },
+];
+
+const moderatorPanels = [
+	{ title: 'AI in Education: Implementing Generative AI in Your Courses', venue: 'IEEE Education', date: 'Jul 2024', link: 'https://www.youtube.com/watch?v=fSEXFLSl8CM' },
+	{ title: 'Generative AI Engineering Faculty Panel', venue: 'AI @ ASU Community of Practice', date: 'Feb 2024' },
+];
+const panelistPanels = [
+	{ title: 'The AI Technology Landscape and What Is to Come', venue: 'AAC&U Institute on AI, Pedagogy, and the Curriculum', date: 'Apr 2026' },
+	{ title: 'Generative AI: Responsible Use Through Critical Thinking and Digital Literacy', venue: 'Future of Learning Community', date: 'Mar 2024' },
+	{ title: 'ChatGPT and Its Implications for the Field of Librarianship', venue: 'ALA Annual Conference, Chicago', date: 'Jun 2023', link: 'https://americanlibrariesmagazine.org/blogs/the-scoop/information-literacy-chatgpt/' },
+	{ title: 'Generative AI & ChatGPT Follow-Up Panel', venue: 'SMU Center for Teaching Excellence', date: 'Apr 2023', link: 'https://youtu.be/hkpfYW1Ytj0?si=LVOndRqRlks3BsLD' },
 ];
 ---
 
@@ -68,6 +93,60 @@ const offers = [
 				</ul>
 			</section>
 
+			<section class="section" id="talks">
+				<header class="section-head">
+					<h2>Past talks and writing</h2>
+				</header>
+
+				<ul class="entry-list">
+					{speakingAndWriting.map((t) => (
+						<li class={`entry${t.highlight ? ' is-highlight' : ''}`}>
+							<div class="entry-year">{t.year}</div>
+							<div class="entry-body">
+								<div class="entry-kind">{t.kind}{t.highlight ? ' · Award' : ''}</div>
+								<h3>{t.title}</h3>
+								<div class="entry-venue">{t.venue}</div>
+								{t.award && <div class="award">{t.award}</div>}
+								{t.slides && <a href={t.slides} class="slides-link">Slides →</a>}
+								{t.link && <a href={t.link} class="slides-link">Details →</a>}
+								{t.sandbox && <a href={t.sandbox} class="slides-link">About the sandbox →</a>}
+							</div>
+						</li>
+					))}
+				</ul>
+			</section>
+
+			<section class="section">
+				<header class="section-head">
+					<h2>Panels</h2>
+				</header>
+
+				<div class="panels-grid">
+					<div>
+						<div class="panel-label">As Moderator</div>
+						<ul class="panel-list">
+							{moderatorPanels.map((p) => (
+								<li>
+									<div class="panel-title">{p.title}</div>
+									<div class="panel-meta">{p.venue} · {p.date}{p.link && <> · <a href={p.link} class="panel-link">Watch →</a></>}</div>
+								</li>
+							))}
+						</ul>
+					</div>
+					<div>
+						<div class="panel-label">As Panelist</div>
+						<ul class="panel-list">
+							{panelistPanels.map((p) => (
+								<li>
+									<div class="panel-title">{p.title}</div>
+									<div class="panel-meta">{p.venue} · {p.date}{p.link && <> · <a href={p.link} class="panel-link">{p.link.includes('youtu') ? 'Watch' : 'Read'} →</a></>}</div>
+								</li>
+							))}
+						</ul>
+					</div>
+				</div>
+			</section>
+
 			<section class="section">
 				<header class="section-head">
 					<h2>Who it's for</h2>
@@ -81,9 +160,7 @@ const offers = [
 					<p>
 						It was built for <strong>Designing Learning Environments in an Agentic World</strong>, a
 						workshop Michelle Kassorla and I designed for the AAC&amp;U Conference on AI and Higher
-						Education (Hilton Atlanta, October 28, 2026). You can find my other talks, panels and
-						workshops under <a href={url('/recent-contributions')}>recent contributions</a> and
-						<a href={url('/mentorship-teaching')}>mentorship and teaching</a>.
+						Education (Hilton Atlanta, October 28, 2026). My earlier talks, panels and writing are listed above.
 					</p>
 				</div>
 			</section>
@@ -195,6 +272,128 @@ const offers = [
 			@media (max-width: 640px) {
 				.offer { grid-template-columns: 1fr; gap: 0.4rem; }
 				.cta-panel { padding: 1.75rem 1.25rem; }
+			}
+			.entry-list {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+			.entry {
+				display: grid;
+				grid-template-columns: 110px 1fr;
+				gap: 2rem;
+				padding: 1.25rem 0;
+				border-bottom: 1px solid var(--color-border-soft);
+			}
+			.entry:last-child { border-bottom: none; }
+			.entry.is-highlight {
+				margin: 0.4rem 0;
+				padding: 1.4rem 1.25rem;
+				background: var(--color-bg-subtle);
+				border: 1px solid var(--color-border);
+				border-radius: var(--radius);
+			}
+			.entry-year {
+				font-family: var(--font-mono);
+				font-size: 0.84rem;
+				color: var(--color-text-faint);
+				font-weight: 500;
+				padding-top: 0.3rem;
+			}
+			.entry-kind {
+				font-family: var(--font-mono);
+				font-size: 0.72rem;
+				color: var(--color-text-faint);
+				font-weight: 500;
+				margin-bottom: 0.4rem;
+			}
+			.entry h3 {
+				font-size: 1.08rem;
+				font-weight: 600;
+				margin: 0 0 0.3rem;
+				line-height: 1.3;
+				color: var(--color-text-main);
+				letter-spacing: -0.012em;
+			}
+			.entry-venue {
+				font-size: 0.92rem;
+				color: var(--color-text-muted);
+			}
+			.award {
+				display: inline-block;
+				margin-top: 0.6rem;
+				padding: 0.25rem 0.65rem;
+				background: var(--color-bg);
+				border: 1px solid var(--color-accent);
+				color: var(--color-accent);
+				font-family: var(--font-mono);
+				font-size: 0.7rem;
+				border-radius: var(--radius-sm);
+				font-weight: 500;
+			}
+			.slides-link {
+				display: inline-block;
+				margin-top: 0.5rem;
+				margin-right: 1rem;
+				font-family: var(--font-mono);
+				font-size: 0.75rem;
+				font-weight: 500;
+				color: var(--color-text-muted);
+			}
+			.slides-link:hover { color: var(--color-accent); }
+
+			.panels-grid {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 3rem;
+			}
+			.panel-label {
+				font-family: var(--font-mono);
+				font-size: 0.74rem;
+				color: var(--color-text-faint);
+				font-weight: 500;
+				margin-bottom: 1rem;
+				padding-bottom: 0.5rem;
+				border-bottom: 1px solid var(--color-border);
+			}
+			.panel-list {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+			.panel-list li {
+				padding: 0.85rem 0;
+				border-bottom: 1px solid var(--color-border-soft);
+			}
+			.panel-list li:last-child { border-bottom: none; }
+			.panel-title {
+				font-size: 1rem;
+				font-weight: 500;
+				color: var(--color-text-main);
+				margin-bottom: 0.3rem;
+				line-height: 1.35;
+			}
+			.panel-meta {
+				font-family: var(--font-mono);
+				font-size: 0.74rem;
+				color: var(--color-text-faint);
+				font-weight: 500;
+			}
+			.panel-link {
+				color: var(--color-text-muted);
+				font-weight: 500;
+			}
+			.panel-link:hover { color: var(--color-accent); }
+
+			@media (max-width: 720px) {
+				.entry {
+					grid-template-columns: 1fr;
+					gap: 0.4rem;
+				}
+				.panels-grid {
+					grid-template-columns: 1fr;
+					gap: 2rem;
+				}
 			}
 		</style>
 	</body>
