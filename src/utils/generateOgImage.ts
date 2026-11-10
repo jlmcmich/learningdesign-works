@@ -41,7 +41,7 @@ export async function generateOgImage(title: string, subtitle: string) {
 
                 <div style="display: flex; justify-content: space-between; align-items: flex-end; width: 100%;">
                     <div style="display: flex; flex-direction: column; gap: 8px;">
-                        <span style="color: #94a3b8; font-size: 28px; font-weight: 400;">learningdesign.works</span>
+                        <span style="color: #94a3b8; font-size: 28px; font-weight: 400;">AI Strategist</span>
                         <span style="color: #cbd5e1; font-size: 32px; font-weight: 700;">Jonathan McMichael</span>
                     </div>
                     <div style="display: flex; align-items: center; justify-content: center; width: 80px; height: 80px; background-color: #ffffff; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.2);">
